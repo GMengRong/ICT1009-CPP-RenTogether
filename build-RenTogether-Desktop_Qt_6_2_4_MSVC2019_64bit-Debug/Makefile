@@ -341,6 +341,7 @@ Makefile: ..\RenTogether\RenTogether.pro C:\Qt\6.2.4\msvc2019_64\mkspecs\win32-m
 		C:\Qt\6.2.4\msvc2019_64\lib\Qt6Core.prl \
 		C:\Qt\6.2.4\msvc2019_64\lib\Qt6EntryPoint.prl \
 		C:\Qt\6.2.4\msvc2019_64\mkspecs\features\build_pass.prf \
+		..\RenTogether\resources.qrc \
 		C:\Qt\6.2.4\msvc2019_64\lib\Qt6Widgetsd.prl \
 		C:\Qt\6.2.4\msvc2019_64\lib\Qt6Guid.prl \
 		C:\Qt\6.2.4\msvc2019_64\lib\Qt6Cored.prl \
@@ -603,6 +604,7 @@ C:\Qt\6.2.4\msvc2019_64\lib\Qt6Gui.prl:
 C:\Qt\6.2.4\msvc2019_64\lib\Qt6Core.prl:
 C:\Qt\6.2.4\msvc2019_64\lib\Qt6EntryPoint.prl:
 C:\Qt\6.2.4\msvc2019_64\mkspecs\features\build_pass.prf:
+..\RenTogether\resources.qrc:
 C:\Qt\6.2.4\msvc2019_64\lib\Qt6Widgetsd.prl:
 C:\Qt\6.2.4\msvc2019_64\lib\Qt6Guid.prl:
 C:\Qt\6.2.4\msvc2019_64\lib\Qt6Cored.prl:

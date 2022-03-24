@@ -19,6 +19,7 @@ void MainWindow::on_loginButton_clicked()
     QString username = ui->userInput->text();
     QString password = ui->passwdInput->text();
 
+    //implement hash function later
     if(username ==  "test" && password == "test") {
         QMessageBox::information(this, "Login", "Welcome!");
         hide();

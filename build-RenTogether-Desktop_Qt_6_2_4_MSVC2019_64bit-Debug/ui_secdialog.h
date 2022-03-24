@@ -97,7 +97,7 @@ public:
     {
         if (SecDialog->objectName().isEmpty())
             SecDialog->setObjectName(QString::fromUtf8("SecDialog"));
-        SecDialog->resize(561, 368);
+        SecDialog->resize(800, 600);
         scrollArea = new QScrollArea(SecDialog);
         scrollArea->setObjectName(QString::fromUtf8("scrollArea"));
         scrollArea->setGeometry(QRect(-20, 10, 321, 321));
@@ -110,7 +110,7 @@ public:
         label->setGeometry(QRect(110, 20, 131, 16));
         layoutWidget = new QWidget(scrollAreaWidgetContents);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(60, 90, 221, 211));
+        layoutWidget->setGeometry(QRect(60, 90, 221, 230));
         verticalLayout_4 = new QVBoxLayout(layoutWidget);
         verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
         verticalLayout_4->setContentsMargins(0, 0, 0, 0);
@@ -274,7 +274,7 @@ public:
 
         layoutWidget1 = new QWidget(scrollAreaWidgetContents);
         layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
-        layoutWidget1->setGeometry(QRect(80, 50, 171, 24));
+        layoutWidget1->setGeometry(QRect(80, 50, 171, 26));
         horizontalLayout_15 = new QHBoxLayout(layoutWidget1);
         horizontalLayout_15->setObjectName(QString::fromUtf8("horizontalLayout_15"));
         horizontalLayout_15->setContentsMargins(0, 0, 0, 0);
