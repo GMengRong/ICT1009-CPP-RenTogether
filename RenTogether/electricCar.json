@@ -1,0 +1,39 @@
+[
+    {
+        "vehicleID" : "EC1001",
+        "brand" : "Tesla",
+        "model" : "Model 3",
+        "basePrice" : "100",
+        "seaterNumber" : "5",
+        "insuranceCoverage" : "5000",
+
+
+        "pricePerCharge" : "30",
+        "batteryLife" : "100"
+
+    },
+    {
+        "vehicleID" : "EC1002",
+        "brand" : "Honda",
+        "model" : "e Advance",
+        "basePrice" : "90",
+        "seaterNumber" : "2",
+        "insuranceCoverage" : "5000",
+
+
+        "pricePerCharge" : "40",
+        "batteryLife" : "100"
+    },
+    {
+        "vehicleID" : "EC1003",
+        "brand" : "Audi",
+        "model" : "e-tron 55 Quattro",
+        "basePrice" : "130",
+        "seaterNumber" : "5",
+        "insuranceCoverage" : "5000",
+
+
+        "pricePerCharge" : "60",
+        "batteryLife" : "100"
+    }
+]
