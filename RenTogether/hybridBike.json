@@ -1,0 +1,49 @@
+[
+    {
+        "vehicleID" : "HB1001",
+        "brand" : "Honda",
+        "model" : "PCX150",
+        "basePrice" : "50",
+        "insuranceCoverage" : "3500",
+
+
+        "pricePerCharge" : "30",
+        "batteryLife" : "100",
+        "kmPerLitre" : " 51.3",
+
+        "electricPriceModifier" : "0.6",
+        "gasPriceModifier" : "0.4"
+
+
+    },
+    {
+        "vehicleID" : "HB1002",
+        "brand" : "Piaggio",
+        "model" : "MP3500",
+        "basePrice" : "50",
+        "insuranceCoverage" : "3500",
+
+
+        "pricePerCharge" : "25",
+        "batteryLife" : "100",
+        "kmPerLitre" : "30.3",
+
+        "electricPriceModifier" : "0.55",
+        "gasPriceModifier" : "0.45"
+    },
+    {
+        "vehicleID" : "HCB1003",
+        "brand" : "TVS",
+        "model" : "Zeppelin",
+        "basePrice" : "50",
+        "insuranceCoverage" : "3500",
+
+
+        "pricePerCharge" : "30",
+        "batteryLife" : "100",
+        "kmPerLitre" : "44",
+
+        "electricPriceModifier" : "0.5",
+        "gasPriceModifier" : "0.5"
+    }
+]

@@ -1,0 +1,36 @@
+[
+    {
+        "vehicleID" : "EB1001",
+        "brand" : "Scorpio Electric",
+        "model" : "X1",
+        "basePrice" : "40",
+        "insuranceCoverage" : "3500",
+
+
+        "pricePerCharge" : "20",
+        "batteryLife" : "100"
+
+    },
+    {
+        "vehicleID" : "EB1002",
+        "brand" : "Energica",
+        "model" : "EGO+",
+        "basePrice" : "45",
+        "insuranceCoverage" : "3500",
+
+
+        "pricePerCharge" : "20",
+        "batteryLife" : "100"
+    },
+    {
+        "vehicleID" : "EB1003",
+        "brand" : "Harley-Davidson",
+        "model" : "LiveWire",
+        "basePrice" : "60",
+        "insuranceCoverage" : "3500",
+
+
+        "pricePerCharge" : "400",
+        "batteryLife" : "100"
+    }
+]

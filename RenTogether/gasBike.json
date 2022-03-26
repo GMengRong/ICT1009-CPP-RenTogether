@@ -1,0 +1,33 @@
+[
+    {
+        "vehicleID" : "GB1001",
+        "brand" : "Yamaha",
+        "model" : "XSR155",
+        "basePrice" : "30",
+        "insuranceCoverage" : "3500",
+
+
+        "kmPerLitre" : "48.58"
+
+    },
+    {
+        "vehicleID" : "GB1002",
+        "brand" : "Honda",
+        "model" : "CB150",
+        "basePrice" : "30",
+        "insuranceCoverage" : "3500",
+
+
+        "kmPerLitre" : "54.4"
+    },
+    {
+        "vehicleID" : "GB1003",
+        "brand" : "Yamaha",
+        "model" : "Aerox 155",
+        "basePrice" : "45",
+        "insuranceCoverage" : "3500",
+
+
+        "kmPerLitre" : "48.62"
+    }
+]
