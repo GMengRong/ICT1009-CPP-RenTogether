@@ -11,16 +11,13 @@ CONFIG += c++11
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
-    objects/user.cpp \
     secdialog.cpp \
-    universal_func.cpp \
-    objects/user.cpp
+    objects/user.cpp \
 
 HEADERS += \
     mainwindow.h \
-    objects/user.h \
     secdialog.h \
-    objects/user.h
+    objects/user.h \
 
 FORMS += \
     mainwindow.ui \

@@ -1,5 +1,6 @@
 #ifndef USER_H
 #define USER_H
+
 #include <string>
 
 using namespace std;
@@ -12,7 +13,7 @@ private:
     string password;
 
 public:
-    User(string username, string password);
+    User(string, string);
     const string &getUsername() const;
     void setUsername(const string &newUsername);
 };
