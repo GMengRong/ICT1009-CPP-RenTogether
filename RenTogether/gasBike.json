@@ -1,4 +1,5 @@
-[
+{
+"gasBike":[
     {
         "vehicleID" : "GB1001",
         "brand" : "Yamaha",
@@ -31,3 +32,4 @@
         "kmPerLitre" : "48.62"
     }
 ]
+}

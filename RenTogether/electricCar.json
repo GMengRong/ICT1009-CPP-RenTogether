@@ -1,4 +1,5 @@
-[
+{
+"electricCar":[
     {
         "vehicleID" : "EC1001",
         "brand" : "Tesla",
@@ -36,4 +37,5 @@
         "pricePerCharge" : "60",
         "batteryLife" : "100"
     }
-]
+    ]
+}

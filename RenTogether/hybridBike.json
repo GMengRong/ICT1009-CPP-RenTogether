@@ -1,4 +1,5 @@
-[
+{
+"hybridBike":[
     {
         "vehicleID" : "HB1001",
         "brand" : "Honda",
@@ -32,7 +33,7 @@
         "gasPriceModifier" : "0.45"
     },
     {
-        "vehicleID" : "HCB1003",
+        "vehicleID" : "HB1003",
         "brand" : "TVS",
         "model" : "Zeppelin",
         "basePrice" : "50",
@@ -47,3 +48,4 @@
         "gasPriceModifier" : "0.5"
     }
 ]
+}

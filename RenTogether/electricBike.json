@@ -1,4 +1,5 @@
-[
+{
+"electricBike":[
     {
         "vehicleID" : "EB1001",
         "brand" : "Scorpio Electric",
@@ -30,7 +31,8 @@
         "insuranceCoverage" : "3500",
 
 
-        "pricePerCharge" : "400",
+        "pricePerCharge" : "40",
         "batteryLife" : "100"
     }
-]
+    ]
+}

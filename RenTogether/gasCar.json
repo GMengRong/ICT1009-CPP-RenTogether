@@ -1,4 +1,5 @@
-[
+{
+"gasCar":[
     {
         "vehicleID" : "GC1001",
         "brand" : "Mercedes",
@@ -34,3 +35,4 @@
         "kmPerLitre" : "12.3"
     }
 ]
+}
