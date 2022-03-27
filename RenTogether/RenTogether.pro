@@ -14,13 +14,13 @@ SOURCES += \
     objects/user.cpp \
     secdialog.cpp \
     universal_func.cpp \
-    user.cpp
+    objects/user.cpp
 
 HEADERS += \
     mainwindow.h \
     objects/user.h \
     secdialog.h \
-    user.h
+    objects/user.h
 
 FORMS += \
     mainwindow.ui \
