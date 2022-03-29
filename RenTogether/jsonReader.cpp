@@ -1,3 +1,4 @@
+#include "jsonReader.h"
 #include <QJsonDocument>
 #include <QJsonParseError>
 #include <QJsonObject>
@@ -10,16 +11,18 @@
 #include <QTextStream>
 #include <QVector>
 
-QVector<QStringList> electricBike{{}, {}, {}};
-QVector<QStringList> electricCar{{}, {}, {}};
-QVector<QStringList> gasBike{{}, {}, {}};
-QVector<QStringList> gasCar{{}, {}, {}};
-QVector<QStringList> hybridBike{{}, {}, {}};
-QVector<QStringList> hybridCar{{}, {}, {}};
-QVector<QStringList> user{{}, {}};
-
-int readJson()
+jsonReader::jsonReader()
 {
+
+    QVector<QStringList> electricBike{{}, {}, {}};
+    QVector<QStringList> electricCar{{}, {}, {}};
+    QVector<QStringList> gasBike{{}, {}, {}};
+    QVector<QStringList> gasCar{{}, {}, {}};
+    QVector<QStringList> hybridBike{{}, {}, {}};
+    QVector<QStringList> hybridCar{{}, {}, {}};
+    QVector<QStringList> user{{}, {}};
+
+
     int i = 0;
     QFile inFile("C:/Users/shahz/Desktop/RenTogether/electricBike.json");
     inFile.open(QIODevice::ReadOnly | QIODevice::Text);
@@ -210,5 +213,4 @@ int readJson()
         i++;
     }
 
-      return 0;
 }
