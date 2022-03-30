@@ -41,9 +41,5 @@ int main(int argc, char *argv[])
     Rental Rental1(1, 1, 3, "30-2-2022", "2-3-2022", 4, TeslaS.getBasePrice()*4);
     qDebug() << Rental1.getCustomerID() << Rental1.getEndDate() << Rental1.getStartDate() << Rental1.getVehicleID() << Rental1.getprice() << Rental1.getrentalID();;
 
-
-
-    return 0;
-
     return a.exec();
 }
