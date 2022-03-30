@@ -23,7 +23,7 @@ public:
 //    void setVehicalID(const QString VID);
 //    void setBrand(const QString brand);
 //    void setModel(const QString model);
-
+       void TableWidgetDsiplay();
 
 private:
     Ui::SecDialog *ui;

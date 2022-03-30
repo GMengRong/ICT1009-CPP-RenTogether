@@ -23,7 +23,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
@@ -68,8 +68,8 @@
         <rect>
          <x>60</x>
          <y>90</y>
-         <width>221</width>
-         <height>421</height>
+         <width>224</width>
+         <height>537</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -443,7 +443,7 @@
          <x>80</x>
          <y>50</y>
          <width>171</width>
-         <height>26</height>
+         <height>28</height>
         </rect>
        </property>
        <layout class="QHBoxLayout" name="horizontalLayout_15">
@@ -500,7 +500,7 @@
         <rect>
          <x>50</x>
          <y>60</y>
-         <width>201</width>
+         <width>229</width>
          <height>181</height>
         </rect>
        </property>
@@ -626,7 +626,7 @@
      </widget>
     </widget>
    </widget>
-   <widget class="QWidget" name="Rent">
+   <widget class="QWidget" name="viewRental">
     <attribute name="title">
      <string>View Rental</string>
     </attribute>
