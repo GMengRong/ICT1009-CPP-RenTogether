@@ -169,11 +169,59 @@ int ElectricCar::getBatteryLife()
     return this->BatteryLife;
 };
 
+QString * ElectricCar::getallValues(){
+    static QString valuelist[9];
+    int vehicleid = this->getVehicleID();
+    QString brand = this->getBrand();
+    QString model = this->getModel();
+    double mileage = this->getMileage();
+    double baseprice = this->getBasePrice();
+    int seaternumber = this->getSeaterNumber();
+    double insurance = this->getInsuranceCoverage();
+    double pricepercharge = this->getPricePerCharge();
+    int battery = this->getBatteryLife();
+    valuelist[0]=QString::number(vehicleid);
+    valuelist[1]=brand;
+    valuelist[2]=model;
+    valuelist[3]=QString::number(mileage)+"km";
+    valuelist[4]="$"+QString::number(baseprice);
+    valuelist[5]=QString::number(seaternumber);
+    valuelist[6]="$"+QString::number(insurance);
+    valuelist[7]="$"+QString::number(pricepercharge);
+    valuelist[8]=QString::number(battery)+" hours";
+    return valuelist;
+}
+
 GasCar::GasCar(int vehicleid, QString brand, QString model, double mileage,
                double baseprice, int seaternumber, int insurancecoverage, double kmperlitre)
 {
     Car::setvalues(vehicleid, brand, model, mileage, baseprice, seaternumber, insurancecoverage);
     this->kmPerLitre = kmperlitre;
+}
+
+double GasCar::getkmPerLitre() {
+    return this->kmPerLitre;
+}
+
+QString * GasCar::getallValues(){
+    static QString valuelist[8];
+    int vehicleid = this->getVehicleID();
+    QString brand = this->getBrand();
+    QString model = this->getModel();
+    double mileage = this->getMileage();
+    double baseprice = this->getBasePrice();
+    int seaternumber = this->getSeaterNumber();
+    double insurance = this->getInsuranceCoverage();
+    double kmperlitre = this->getkmPerLitre();
+    valuelist[0]=QString::number(vehicleid);
+    valuelist[1]=brand;
+    valuelist[2]=model;
+    valuelist[3]=QString::number(mileage)+"km";
+    valuelist[4]="$"+QString::number(baseprice);
+    valuelist[5]=QString::number(seaternumber);
+    valuelist[6]="$"+QString::number(insurance);
+    valuelist[7]=QString::number(kmperlitre)+"km per litre";
+    return valuelist;
 }
 
 HybridCar::HybridCar(int vehicleid, QString brand, QString model, double mileage, double baseprice,
@@ -190,6 +238,31 @@ ElectricMotorbike::ElectricMotorbike(int vehicleid, QString brand, QString model
     this->PricePerCharge = pricepercharge;
 };
 
+QString * HybridCar::getallValues(){
+    static QString valuelist[10];
+    int vehicleid = this->getVehicleID();
+    QString brand = this->getBrand();
+    QString model = this->getModel();
+    double mileage = this->getMileage();
+    double baseprice = this->getBasePrice();
+    int seaternumber = this->getSeaterNumber();
+    double insurance = this->getInsuranceCoverage();
+    double pricepercharge = this->getPricePerCharge();
+    int battery = this->getBatteryLife();
+    double kmperlitre = this->getkmPerLitre();
+    valuelist[0]=QString::number(vehicleid);
+    valuelist[1]=brand;
+    valuelist[2]=model;
+    valuelist[3]=QString::number(mileage)+"km";
+    valuelist[4]="$"+QString::number(baseprice);
+    valuelist[5]=QString::number(seaternumber);
+    valuelist[6]="$"+QString::number(insurance);
+    valuelist[7]="$"+QString::number(pricepercharge);
+    valuelist[8]=QString::number(battery)+" hours";
+    valuelist[9]=QString::number(kmperlitre)+"km per litre";
+    return valuelist;
+}
+
 double ElectricMotorbike::getPricePerCharge()
 {
     return this->PricePerCharge;
@@ -199,6 +272,27 @@ int ElectricMotorbike::getBatteryLife()
 {
     return this->BatteryLife;
 };
+
+QString * ElectricMotorbike::getallValues(){
+    static QString valuelist[8];
+    int vehicleid = this->getVehicleID();
+    QString brand = this->getBrand();
+    QString model = this->getModel();
+    double mileage = this->getMileage();
+    double baseprice = this->getBasePrice();
+    double insurance = this->getInsuranceCoverage();
+    double pricepercharge = this->getPricePerCharge();
+    int battery = this->getBatteryLife();
+    valuelist[0]=QString::number(vehicleid);
+    valuelist[1]=brand;
+    valuelist[2]=model;
+    valuelist[3]=QString::number(mileage)+"km";
+    valuelist[4]="$"+QString::number(baseprice);
+    valuelist[5]="$"+QString::number(insurance);
+    valuelist[6]="$"+QString::number(pricepercharge);
+    valuelist[7]=QString::number(battery)+" hours";
+    return valuelist;
+}
 
 GasMotorbike::GasMotorbike(int vehicleid, QString brand, QString model, double mileage,
                            double baseprice, int insurancecoverage, double kmperlitre)
@@ -212,9 +306,51 @@ double GasMotorbike::getkmPerLitre()
     return this->kmPerLitre;
 };
 
+QString * GasMotorbike::getallValues(){
+    static QString valuelist[7];
+    int vehicleid = this->getVehicleID();
+    QString brand = this->getBrand();
+    QString model = this->getModel();
+    double mileage = this->getMileage();
+    double baseprice = this->getBasePrice();
+    double insurance = this->getInsuranceCoverage();
+    double kmperlitre = this->getkmPerLitre();
+    valuelist[0]=QString::number(vehicleid);
+    valuelist[1]=brand;
+    valuelist[2]=model;
+    valuelist[3]=QString::number(mileage)+"km";
+    valuelist[4]="$"+QString::number(baseprice);
+    valuelist[5]="$"+QString::number(insurance);
+    valuelist[6]=QString::number(kmperlitre)+"km per litre";
+    return valuelist;
+}
+
 HybridMotorbike::HybridMotorbike(int vehicleid, QString brand, QString model, double mileage, double baseprice,
                                  int insurancecoverage, double pricepercharge, int batterylife, double kmperlitre)
     : GasMotorbike(vehicleid, brand, model, mileage, baseprice, insurancecoverage, kmperlitre),
       ElectricMotorbike(vehicleid, brand, model, mileage, baseprice, insurancecoverage, pricepercharge, batterylife){};
+
+QString * HybridMotorbike::getallValues(){
+    static QString valuelist[9];
+    int vehicleid = this->getVehicleID();
+    QString brand = this->getBrand();
+    QString model = this->getModel();
+    double mileage = this->getMileage();
+    double baseprice = this->getBasePrice();
+    double insurance = this->getInsuranceCoverage();
+    double pricepercharge = this->getPricePerCharge();
+    int battery = this->getBatteryLife();
+    double kmperlitre = this->getkmPerLitre();
+    valuelist[0]=QString::number(vehicleid);
+    valuelist[1]=brand;
+    valuelist[2]=model;
+    valuelist[3]=QString::number(mileage)+"km";
+    valuelist[4]="$"+QString::number(baseprice);
+    valuelist[5]="$"+QString::number(insurance);
+    valuelist[6]="$"+QString::number(pricepercharge);
+    valuelist[7]=QString::number(battery)+" hours";
+    valuelist[8]=QString::number(kmperlitre)+"km per litre";
+    return valuelist;
+}
 
 #endif

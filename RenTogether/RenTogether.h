@@ -107,6 +107,7 @@ public:
     ElectricCar(int, QString, QString, double, double, int, int, double, int);
     double getPricePerCharge();
     int getBatteryLife();
+    QString * getallValues();
 };
 
 class GasCar : virtual public Car
@@ -117,6 +118,7 @@ private:
 public:
     GasCar(int, QString, QString, double, double, int, int, double);
     double getkmPerLitre();
+    QString * getallValues();
 };
 
 // Hybrid of electric and gas car
@@ -124,6 +126,7 @@ class HybridCar : public GasCar, public ElectricCar
 {
 public:
     HybridCar(int, QString, QString, double, double, int, int, double, int, double);
+    QString * getallValues();
 };
 
 // Motorbike classes
@@ -137,6 +140,7 @@ public:
     ElectricMotorbike(int, QString, QString, double, double, int, double, int);
     double getPricePerCharge();
     int getBatteryLife();
+    QString * getallValues();
 };
 
 class GasMotorbike : virtual public Motorbike
@@ -147,6 +151,7 @@ private:
 public:
     GasMotorbike(int, QString, QString, double, double, int, double);
     double getkmPerLitre();
+    QString * getallValues();
 };
 
 // Hybrid of electric and gas motorbike
@@ -154,6 +159,7 @@ class HybridMotorbike : public GasMotorbike, public ElectricMotorbike
 {
 public:
     HybridMotorbike(int, QString, QString, double, double, int, double, int, double);
+    QString * getallValues();
 };
 
 #endif

@@ -3,6 +3,9 @@
 #include "RenTogether.h"
 
 #include <QApplication>
+#include <QObject>
+#include <QDebug>
+
 #include <iostream>
 
 
@@ -17,22 +20,41 @@ int main(int argc, char *argv[])
     jsonReader();
 
     ElectricCar TeslaS(1, "Tesla", "S", 46.2, 200.4, 5, 10000, 50.5, 100);
-    TeslaS.display();
+    QString * eclist = TeslaS.getallValues();
+    for (int x = 0; x < 10; x++){
+        qDebug() << eclist[x];
+    }
+
     qDebug() << "\n";
     GasCar HyundaiBB(2, "Hyundai", "BB", 46.2, 269.4, 5, 12000, 20.3);
-    HyundaiBB.display();
+    QString * gclist = HyundaiBB.getallValues();
+    for (int x = 0; x < 10; x++){
+        qDebug() << gclist[x];
+    }
     qDebug() << "\n";
     HybridCar Prius(3, "Toyota", "Prius Plus", 102.5, 210.9, 7, 21000, 50.5, 100, 30.0);
-    Prius.display();
+    QString * hclist = Prius.getallValues();
+    for (int x = 0; x < 10; x++){
+        qDebug() << hclist[x];
+    }
     qDebug() << "\n";
     GasMotorbike GBike(4, "Bandai", "bbBIKE", 102.5, 560.9, 26000, 12.2);
-    GBike.display();
+    QString * gmlist = GBike.getallValues();
+    for (int x = 0; x < 10; x++){
+        qDebug() << gmlist[x];
+    }
     qDebug() << "\n";
     ElectricMotorbike EBike(5, "SGYP", "YOUNG PUNK", 102.5, 250.9, 20000, 75, 120);
-    EBike.display();
+    QString * emlist = EBike.getallValues();
+    for (int x = 0; x < 8; x++){
+        qDebug() << emlist[x];
+    }
     qDebug() << "\n";
     HybridMotorbike HBike(6, "Hyper", "frogbike", 102.5, 300.9, 5000, 50, 100, 30.4);
-    HBike.display();
+    QString * hmlist = HBike.getallValues();
+    for (int x = 0; x < 10; x++){
+        qDebug() << hmlist[x];
+    }
     qDebug() << "\n";
 
     Customer Customer1(1, "Wesley", "Chiau", "wesleychiau@gmail.com");
