@@ -14,7 +14,7 @@ private:
     QString password;
 
 public:
-    User(QString, QString);
+    User(QString username= NULL,QString password = NULL);
 
     const QString &getUsername() const;
     void setUsername(const QString &newUsername);
