@@ -2,6 +2,8 @@
 #include "ui_mainwindow.h"
 #include <QMessageBox>
 #include <iostream>
+
+#include "sessionVariables.h"
 #include "objects/user.h"
 
 using namespace std;
@@ -11,8 +13,6 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
-    User bob("bob","bobby");
 }
 
 MainWindow::~MainWindow()
@@ -26,7 +26,7 @@ void MainWindow::on_loginButton_clicked()
     QString password = ui->passwdInput->text();
 
     //implement hash function later
-    if(username ==  "test" && password == "test") {
+    if(userHashMap[username].getPassword() == password) {
         QMessageBox::information(this, "Login", "Welcome!");
         hide();
         secdialog = new SecDialog(this);

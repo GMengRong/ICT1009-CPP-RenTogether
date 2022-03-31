@@ -11,18 +11,19 @@ CONFIG += c++11
 
 SOURCES += \
     RenTogether.cpp \
-    jsonReader.cpp \
     main.cpp \
     mainwindow.cpp \
     secdialog.cpp \
     objects/user.cpp \
+    universal_func.cpp
 
 HEADERS += \
     RenTogether.h \
-    jsonReader.h \
     mainwindow.h \
     secdialog.h \
     objects/user.h \
+    sessionVariables.h \
+    universal_func.h
 
 FORMS += \
     mainwindow.ui \
@@ -35,12 +36,3 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     resources.qrc
-
-DISTFILES += \
-    hybridBike.json \
-    hybridCar.json \
-    gasCar.json \
-    gasBike.json \
-    electricBike.json \
-    electricCar.json \
-    user.json
