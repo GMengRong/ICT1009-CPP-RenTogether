@@ -1,4 +1,5 @@
 #include "user.h"
+#include <QDebug>
 
 User::User(QString username, QString password)
 {
@@ -24,4 +25,9 @@ const QString &User::getPassword() const
 void User::setPassword(const QString &newPassword)
 {
     password = newPassword;
+}
+
+void User::printUser()
+{
+    qDebug() << username << " " << password;
 }

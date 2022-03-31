@@ -21,6 +21,8 @@ public:
 
     const QString &getPassword() const;
     void setPassword(const QString &newPassword);
+
+    void printUser();
 };
 
 #endif // USER_H
