@@ -1,21 +1,20 @@
 #include "mainwindow.h"
-#include "jsonReader.h"
-#include "RenTogether.h"
-
 #include <QApplication>
 #include <QObject>
 #include <QDebug>
 
 #include <iostream>
 
+
 int main(int argc, char *argv[])
 {
+    // call Jsonreader function in JsonReader.cpp
+    jsonReader();
+
     QApplication a(argc, argv);
     MainWindow w;
     w.show();
 
-    // call Jsonreader function in JsonReader.cpp
-    jsonReader();
 
     ElectricCar TeslaS(1, "Tesla", "S", 46.2, 200.4, 5, 10000, 50.5, 100);
     QString * eclist = TeslaS.getallValues();

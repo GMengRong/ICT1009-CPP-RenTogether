@@ -2,6 +2,7 @@
 #define USER_H
 
 #include <string>
+#include <QString>
 
 using namespace std;
 
@@ -9,13 +10,17 @@ class User
 {
 
 private:
-    string username;
-    string password;
+    QString username;
+    QString password;
 
 public:
-    User(string, string);
-    const string &getUsername() const;
-    void setUsername(const string &newUsername);
+    User(QString, QString);
+
+    const QString &getUsername() const;
+    void setUsername(const QString &newUsername);
+
+    const QString &getPassword() const;
+    void setPassword(const QString &newPassword);
 };
 
 #endif // USER_H

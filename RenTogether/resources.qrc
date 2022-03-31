@@ -2,4 +2,14 @@
     <qresource prefix="/fonts">
         <file>fonts/Facon.ttf</file>
     </qresource>
+    <qresource prefix="/data">
+        <file>data/electricBike.json</file>
+        <file>data/electricCar.json</file>
+        <file>data/gasBike.json</file>
+        <file>data/gasCar.json</file>
+        <file>data/hybrid.json</file>
+        <file>data/hybridBike.json</file>
+        <file>data/hybridCar.json</file>
+        <file>data/user.json</file>
+    </qresource>
 </RCC>
