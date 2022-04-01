@@ -13,6 +13,7 @@ SOURCES += \
     RenTogether.cpp \
     main.cpp \
     mainwindow.cpp \
+    rentalform.cpp \
     secdialog.cpp \
     objects/user.cpp \
     universal_func.cpp
@@ -20,6 +21,7 @@ SOURCES += \
 HEADERS += \
     RenTogether.h \
     mainwindow.h \
+    rentalform.h \
     secdialog.h \
     objects/user.h \
     sessionVariables.h \
@@ -27,6 +29,7 @@ HEADERS += \
 
 FORMS += \
     mainwindow.ui \
+    rentalform.ui \
     secdialog.ui
 
 # Default rules for deployment.

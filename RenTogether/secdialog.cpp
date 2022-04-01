@@ -124,3 +124,10 @@ void SecDialog::TableWidgetDsiplay(){
     table->horizontalHeader()->setVisible(true);
     table->horizontalHeader()->setDefaultSectionSize(100);
 }
+
+
+void SecDialog::on_rentBtn_clicked()
+{
+
+}
+
