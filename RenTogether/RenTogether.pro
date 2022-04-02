@@ -14,18 +14,21 @@ SOURCES += \
     jsonReader.cpp \
     main.cpp \
     mainwindow.cpp \
+    rentalform.cpp \
     secdialog.cpp \
-    objects/user.cpp \
+    objects/user.cpp 
 
 HEADERS += \
     RenTogether.h \
     jsonReader.h \
     mainwindow.h \
+    rentalform.h \
     secdialog.h \
-    objects/user.h \
+    objects/user.h 
 
 FORMS += \
     mainwindow.ui \
+    rentalform.ui \
     secdialog.ui
 
 # Default rules for deployment.

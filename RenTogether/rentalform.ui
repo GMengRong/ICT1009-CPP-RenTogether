@@ -1,93 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>SecDialog</class>
- <widget class="QDialog" name="SecDialog">
+ <class>rentalform</class>
+ <widget class="QDialog" name="rentalform">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>945</width>
-    <height>776</height>
+    <width>400</width>
+    <height>300</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QTabWidget" name="tabWidget">
+  <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>531</width>
-     <height>261</height>
+     <x>30</x>
+     <y>240</y>
+     <width>341</width>
+     <height>32</height>
     </rect>
    </property>
-   <property name="currentIndex">
-    <number>0</number>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
    </property>
-   <widget class="QWidget" name="viewRents">
-    <attribute name="title">
-     <string>Rents</string>
-    </attribute>
-    <widget class="QWidget" name="layoutWidget">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>50</y>
-       <width>171</width>
-       <height>28</height>
-      </rect>
-     </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_15">
-      <item>
-       <widget class="QLabel" name="vSearch">
-        <property name="text">
-         <string>Search:         </string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="Search"/>
-      </item>
-     </layout>
-    </widget>
-    <widget class="QLabel" name="label">
-     <property name="geometry">
-      <rect>
-       <x>60</x>
-       <y>20</y>
-       <width>151</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>--- Vehicles For Rent ----</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="rentBtn">
-     <property name="geometry">
-      <rect>
-       <x>330</x>
-       <y>130</y>
-       <width>80</width>
-       <height>18</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Rent</string>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QWidget" name="viewRental">
-    <attribute name="title">
-     <string>View Rental</string>
-    </attribute>
-   </widget>
+   <property name="standardButtons">
+    <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+   </property>
   </widget>
   <widget class="QScrollArea" name="scrollArea_2">
    <property name="geometry">
     <rect>
-     <x>590</x>
+     <x>30</x>
      <y>30</y>
      <width>311</width>
      <height>311</height>
@@ -250,5 +195,38 @@
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>rentalform</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>254</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>rentalform</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

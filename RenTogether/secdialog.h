@@ -3,9 +3,6 @@
 
 #include <QDialog>
 
-//#include <QtSql/QSqlDatabase>
-//#include <QtSql/QSqlTableModel>
-
 namespace Ui {
 class SecDialog;
 }
@@ -17,12 +14,8 @@ class SecDialog : public QDialog
 public:
     explicit SecDialog(QWidget *parent = nullptr);
     ~SecDialog();
-//    QSqlTableModel *model;
-//    QSqlDatabase db;
-//    bool createDB(QString dbname);
-//    void setVehicalID(const QString VID);
-//    void setBrand(const QString brand);
-//    void setModel(const QString model);
+
+       void RentsTableDisplay();
        void TableWidgetDsiplay();
 
 private:
