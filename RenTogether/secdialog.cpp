@@ -3,6 +3,7 @@
 #include "ui_secdialog.h"
 #include "QTableWidget"
 #include <QTableWidgetItem>
+#include <QHeaderView>
 
 SecDialog::SecDialog(QWidget *parent) :
     QDialog(parent),
@@ -10,28 +11,7 @@ SecDialog::SecDialog(QWidget *parent) :
 {
     ui->setupUi(this);
     TableWidgetDsiplay();
-
-
-    ui->Brand->setText("Scorpio Electric");
-    ui->SeaterNumber->setText("");
-    ui->Model->setText("X1");
-    ui->BatteryLife->setText("100");
-    ui->Mileage->setText("");
-    ui->BasePrice->setText("40");
-
-    ui->Brand->setText("Energica");
-    ui->SeaterNumber->setText("");
-    ui->Model->setText("EGO+");
-    ui->BatteryLife->setText("100");
-    ui->Mileage->setText("");
-    ui->BasePrice->setText("45");
-
-    ui->Brand->setText("Harley-Davidson");
-    ui->SeaterNumber->setText("");
-    ui->Model->setText("LiveWire");
-    ui->BatteryLife->setText("100");
-    ui->Mileage->setText("");
-    ui->BasePrice->setText("60");
+    RentsTableDisplay();
 }
 
 SecDialog::~SecDialog()
@@ -39,6 +19,68 @@ SecDialog::~SecDialog()
     delete ui;
 }
 
+// View Rents Table
+void SecDialog::RentsTableDisplay(){
+
+    QTableWidget *table2 = new QTableWidget(this->ui->viewRents);
+    table2->setRowCount(6);
+    table2->setColumnCount(1);
+    table2->setColumnWidth(30, 30);
+
+    QStringList vLabels;
+    vLabels << "Brand:" << "Model:" << "Seater Number:" << "Battery Life:" << "Mileage:" << "Base Price:";
+    table2->setVerticalHeaderLabels(vLabels);
+    table2->setHorizontalHeaderLabels(vLabels);
+
+    QTableWidgetItem *itemRents;
+    itemRents = new QTableWidgetItem;
+
+//    display vehicles
+//    for( int i = 0; i < TeslaS.count(); ++i ){
+
+//        itemRents = (qDebug() << eclist[x])->setText();
+//        table2->setItem( 0, 0, itemRents );
+//        itemRents = new QTableWidgetItem;
+
+//    }
+
+    itemRents->setText("Scorpio Electric");
+    table2->setItem(0,0, itemRents);
+    itemRents = new QTableWidgetItem;
+
+    itemRents->setText("X1");
+    table2->setItem(1,0, itemRents);
+    itemRents = new QTableWidgetItem;
+
+    itemRents->setText("");
+    table2->setItem(2,0, itemRents);
+    itemRents = new QTableWidgetItem;
+
+    itemRents->setText("100");
+    table2->setItem(3,0, itemRents);
+    itemRents = new QTableWidgetItem;
+
+    itemRents->setText("");
+    table2->setItem(4,0, itemRents);
+    itemRents = new QTableWidgetItem;
+
+    itemRents->setText("40");
+    table2->setItem(5,0, itemRents);
+    itemRents = new QTableWidgetItem;
+
+    //Table Properties
+    table2->setShowGrid(false);
+    table2->setGridStyle(Qt::DotLine);
+    table2->setSortingEnabled(true);
+
+    //Header Properties
+    table2->verticalHeader()->setVisible(true);
+    table2->horizontalHeader()->setVisible(false);
+    table2->verticalHeader()->setDefaultSectionSize(10);
+
+}
+
+// View Rental Table Display
 void SecDialog::TableWidgetDsiplay(){
     QTableWidget *table = new QTableWidget(this->ui->viewRental);
     table->setRowCount(5);
@@ -82,3 +124,10 @@ void SecDialog::TableWidgetDsiplay(){
     table->horizontalHeader()->setVisible(true);
     table->horizontalHeader()->setDefaultSectionSize(100);
 }
+
+
+void SecDialog::on_rentBtn_clicked()
+{
+
+}
+
