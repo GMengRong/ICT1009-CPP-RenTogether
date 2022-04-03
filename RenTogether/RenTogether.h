@@ -107,7 +107,7 @@ private:
     int BatteryLife;
 
 public:
-    ElectricCar(int = NULL, QString = NULL, QString = NULL, double = NULL, double = NULL, int = NULL, int = NULL, double = NULL, int = NULL);
+    ElectricCar(int = 0, QString = NULL, QString = NULL, double = 0, double = 0, int = 0, int = 0, double = 0, int = 0);
     double getPricePerCharge();
     int getBatteryLife();
     virtual QString * getallValues();
@@ -119,7 +119,7 @@ private:
     double kmPerLitre;
 
 public:
-    GasCar(int = NULL, QString = NULL, QString = NULL, double = NULL, double = NULL, int = NULL, int = NULL, double = NULL);
+    GasCar(int = 0, QString = NULL, QString = NULL, double = 0, double = 0, int = 0, int = 0, double = 0);
     double getkmPerLitre();
     virtual QString * getallValues();
 };
@@ -128,7 +128,7 @@ public:
 class HybridCar : public GasCar, public ElectricCar
 {
 public:
-    HybridCar(int  = NULL, QString = NULL, QString = NULL, double = NULL, double = NULL, int = NULL, int = NULL, double = NULL, int = NULL, double = NULL);
+    HybridCar(int = 0, QString = NULL, QString = NULL, double = 0, double = 0, int = 0, int = 0, double = 0, int = 0, double = 0);
     virtual QString * getallValues();
 };
 
@@ -140,7 +140,7 @@ private:
     int BatteryLife;
 
 public:
-    ElectricMotorbike(int  = NULL, QString = NULL, QString = NULL, double = NULL, double = NULL, int = NULL, double = NULL, int = NULL);
+    ElectricMotorbike(int = 0, QString = NULL, QString = NULL, double = 0, double = 0, int = 0, double = 0, int = 0);
     double getPricePerCharge();
     int getBatteryLife();
     virtual QString * getallValues();
@@ -152,7 +152,7 @@ private:
     double kmPerLitre;
 
 public:
-    GasMotorbike(int = NULL, QString = NULL, QString = NULL, double = NULL, double = NULL, int = NULL, double = NULL);
+    GasMotorbike(int = 0, QString = NULL, QString = NULL, double = 0, double = 0, int = 0, double = 0);
     double getkmPerLitre();
     virtual QString * getallValues();
 };
@@ -161,7 +161,7 @@ public:
 class HybridMotorbike : public GasMotorbike, public ElectricMotorbike
 {
 public:
-    HybridMotorbike(int = NULL, QString = NULL, QString = NULL, double = NULL, double = NULL, int = NULL, double = NULL, int = NULL, double = NULL);
+    HybridMotorbike(int = 0, QString = NULL, QString = NULL, double = 0, double = 0, int = 0, double = 0, int = 0, double = 0);
     virtual QString * getallValues();
 };
 

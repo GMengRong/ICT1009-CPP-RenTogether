@@ -94,10 +94,17 @@ void Vehicle::display()
 };
 
 QString * Vehicle::getallValues(){
-    static QString test[10];
-
-    qDebug() << "hi";
-    return test;
+    // Should never hit this function.
+    static QString valuelist[4];
+    int vehicleid = this->getVehicleID();
+    QString brand = this->getBrand();
+    QString model = this->getModel();
+    double mileage = this->getMileage();
+    valuelist[0]=QString::number(vehicleid);
+    valuelist[1]=brand;
+    valuelist[2]=model;
+    valuelist[3]=QString::number(mileage)+"km";
+    return valuelist;
 }
 
 // Car functions

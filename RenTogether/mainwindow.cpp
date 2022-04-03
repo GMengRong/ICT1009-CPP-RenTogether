@@ -31,11 +31,11 @@ void MainWindow::on_loginButton_clicked()
     if(reader.getUserHashMap()[username].getPassword() == password) {
         QMessageBox::information(this, "Login", "Welcome!");
 
-        QList<Vehicle> test = reader.getAllHashmap();
+        QVector<Vehicle*> test = reader.getVehicleList();
 
 //        QString * variables;
-        for (int i=0; i<test.size(); i++){
-            QString * list = test[i].getallValues();
+        for (int i=0; i<6; i++){
+            QString * list = test[i]->getallValues();
             for (int x=0; x<10; x++){
                 qDebug() << list[x];
             }

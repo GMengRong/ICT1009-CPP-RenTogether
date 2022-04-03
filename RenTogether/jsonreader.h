@@ -7,33 +7,17 @@
 
 class jsonReader
 {
-
-    QHash<int, ElectricMotorbike> electricBike;
-    QHash<int, ElectricCar> electricCar;
-    QHash<int, GasMotorbike> gasBike;
-    QHash<int, GasCar> gasCar;
-    QHash<int, HybridMotorbike> hybridBike;
-    QHash<int, HybridCar> hybridCar;
-//    QVector<QStringList> electricCar{{}, {}, {}};
-//    QVector<QStringList> gasBike{{}, {}, {}};
-//    QVector<QStringList> gasCar{{}, {}, {}};
-//    QVector<QStringList> hybridBike{{}, {}, {}};
-//    QVector<QStringList> hybridCar{{}, {}, {}};
-//    QVector<User> userList{};
-
+    QVector<Vehicle*> vehicleList;
+    QVector<Rental*> rentalList;
     QHash<QString, User> userHashMap;
+    int vehiclecounter;
 
 public:
     jsonReader();
-    QHash<int, ElectricMotorbike> &getElectricBike();
-    QHash<int, ElectricCar> &getElectricCar();
-    QHash<int, GasMotorbike> &getGasBike();
-    QHash<int, GasCar> &getGasCar();
-    QHash<int, HybridMotorbike> &getHybridBike();
-    QHash<int, HybridCar> &getHybridCar();
+    QVector<Vehicle*> getVehicleList();
+    QVector<Rental*> getRentalList();
+    int getVehicleCounter();
     QHash<QString, User> &getUserHashMap();
-
-    QList<Vehicle> getAllHashmap();
 };
 
 #endif // JSONREADER_H
