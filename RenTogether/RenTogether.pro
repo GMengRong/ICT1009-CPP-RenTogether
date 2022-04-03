@@ -15,17 +15,16 @@ SOURCES += \
     mainwindow.cpp \
     rentalform.cpp \
     secdialog.cpp \
-    objects/user.cpp \
-    universal_func.cpp
+    jsonreader.cpp \
+    objects/user.cpp
 
 HEADERS += \
     RenTogether.h \
     mainwindow.h \
     rentalform.h \
     secdialog.h \
-    objects/user.h \
-    sessionVariables.h \
-    universal_func.h
+    jsonreader.h \
+    objects/user.h
 
 FORMS += \
     mainwindow.ui \

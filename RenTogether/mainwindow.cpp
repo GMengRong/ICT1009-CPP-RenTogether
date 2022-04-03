@@ -3,16 +3,18 @@
 #include <QMessageBox>
 #include <iostream>
 
-#include "sessionVariables.h"
+#include "jsonreader.h"
+#include "RenTogether.h"
 #include "objects/user.h"
 
-using namespace std;
+#include <QVector>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
 }
 
 MainWindow::~MainWindow()
@@ -26,8 +28,19 @@ void MainWindow::on_loginButton_clicked()
     QString password = ui->passwdInput->text();
 
     //implement hash function later
-    if(userHashMap[username].getPassword() == password) {
+    if(reader.getUserHashMap()[username].getPassword() == password) {
         QMessageBox::information(this, "Login", "Welcome!");
+
+        QList<Vehicle> test = reader.getAllHashmap();
+
+//        QString * variables;
+        for (int i=0; i<test.size(); i++){
+            QString * list = test[i].getallValues();
+            for (int x=0; x<10; x++){
+                qDebug() << list[x];
+            }
+        }
+
         hide();
         secdialog = new SecDialog(this);
         secdialog->show();
@@ -35,5 +48,15 @@ void MainWindow::on_loginButton_clicked()
     else {
         QMessageBox::warning(this,"Login", "Incorrect login details");
     }
+}
+
+jsonReader &MainWindow::getReader()
+{
+    return reader;
+}
+
+void MainWindow::setReader(jsonReader &newReader)
+{
+    reader = newReader;
 }
 

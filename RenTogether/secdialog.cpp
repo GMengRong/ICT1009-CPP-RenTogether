@@ -126,8 +126,8 @@ void SecDialog::TableWidgetDsiplay(){
 }
 
 
-void SecDialog::on_rentBtn_clicked()
-{
+//void SecDialog::on_rentBtn_clicked()
+//{
 
-}
+//}
 

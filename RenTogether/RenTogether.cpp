@@ -93,6 +93,13 @@ void Vehicle::display()
     qDebug() << this->getVehicleID() << this->getBrand() << getModel() << getMileage();
 };
 
+QString * Vehicle::getallValues(){
+    static QString test[10];
+
+    qDebug() << "hi";
+    return test;
+}
+
 // Car functions
 void Car::setvalues(int vehicleid, QString brand, QString model, double mileage,
                     double baseprice, int seaternumber, int insurancecoverage)
