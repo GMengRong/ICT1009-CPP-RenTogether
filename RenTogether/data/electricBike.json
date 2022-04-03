@@ -1,38 +1,34 @@
 {
 "electricBike":[
     {
-        "vehicleID" : "EB1001",
+        "vehicleID" : "12",
         "brand" : "Scorpio Electric",
         "model" : "X1",
-        "basePrice" : "40",
+        "basePrice" : "40.5",
         "insuranceCoverage" : "3500",
-
-
-        "pricePerCharge" : "20",
-        "batteryLife" : "100"
-
+        "pricePerCharge" : "20.4",
+        "batteryLife" : "100",
+        "mileage" : "73.5"
     },
     {
-        "vehicleID" : "EB1002",
+        "vehicleID" : "13",
         "brand" : "Energica",
         "model" : "EGO+",
-        "basePrice" : "45",
+        "basePrice" : "45.4",
         "insuranceCoverage" : "3500",
-
-
-        "pricePerCharge" : "20",
-        "batteryLife" : "100"
+        "pricePerCharge" : "20.1",
+        "batteryLife" : "100",
+        "mileage" : "81.3"
     },
     {
-        "vehicleID" : "EB1003",
+        "vehicleID" : "14",
         "brand" : "Harley-Davidson",
         "model" : "LiveWire",
-        "basePrice" : "60",
+        "basePrice" : "60.9",
         "insuranceCoverage" : "3500",
-
-
-        "pricePerCharge" : "40",
-        "batteryLife" : "100"
+        "pricePerCharge" : "40.6",
+        "batteryLife" : "100",
+        "mileage" : "113.3"
     }
     ]
 }
