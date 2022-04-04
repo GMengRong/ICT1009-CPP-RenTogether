@@ -260,4 +260,27 @@ jsonReader::jsonReader()
     }
 
     // ----------------------------------------------------------------------------
+
+    QFile inFile8(":/data/data/rental.json");
+    inFile8.open(QIODevice::ReadOnly | QIODevice::Text);
+    data = inFile8.readAll();
+    inFile8.close();
+
+    doc = QJsonDocument::fromJson(data, &errorPtr);
+    if (doc.isNull()) {
+       qDebug() << "Parse failed";
+    }
+    rootObj = doc.object();
+    ptsArray = rootObj.value("rental").toArray();
+    foreach(const QJsonValue & val, ptsArray) {
+        int rentalID = val.toObject().value("rentalID").toString().toInt();
+        int CustomerID = val.toObject().value("CustomerID").toString().toInt();
+        int VehicleID = val.toObject().value("VehicleID").toString().toInt();
+        const QString StartDate = val.toObject().value("StartDate").toString();
+        const QString EndDate = val.toObject().value("EndDate").toString();
+        int RentDuration = val.toObject().value("RentDuration").toString().toInt();
+        int Price = val.toObject().value("Price").toString().toInt();
+        this->rentalList.push_back(new Rental(rentalID, CustomerID, VehicleID, StartDate, EndDate, RentDuration, Price));
+    }
+
 }
