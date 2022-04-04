@@ -6,6 +6,7 @@
 #include "jsonreader.h"
 #include "RenTogether.h"
 #include "objects/user.h"
+#include "sha256.h" // hash function
 
 #include <QVector>
 
@@ -25,7 +26,9 @@ MainWindow::~MainWindow()
 void MainWindow::on_loginButton_clicked()
 {
     QString username = ui->userInput->text();
-    QString password = ui->passwdInput->text();
+
+    // convert password input to std::string to hash and then converts it back to QString
+    QString password = QString::fromStdString(sha256(ui->passwdInput->text().toLocal8Bit().constData()));
 
     //implement hash function later
     if(reader.getCustomerHashMap()[username].getPassword() == password) {
