@@ -4,6 +4,12 @@
 #include "QTableWidget"
 #include <QTableWidgetItem>
 #include <QHeaderView>
+#include <iostream>
+
+#include "jsonreader.h"
+#include <QVector>
+
+using namespace std;
 
 SecDialog::SecDialog(QWidget *parent) :
     QDialog(parent),
@@ -12,6 +18,11 @@ SecDialog::SecDialog(QWidget *parent) :
     ui->setupUi(this);
     TableWidgetDsiplay();
     RentsTableDisplay();
+
+//     layout of rent table
+    QGridLayout *mainLayout = new QGridLayout;
+    mainLayout->addWidget(rentTable, 0, 2, 2, 1);
+    setLayout(mainLayout);
 }
 
 SecDialog::~SecDialog()
@@ -22,65 +33,46 @@ SecDialog::~SecDialog()
 // View Rents Table
 void SecDialog::RentsTableDisplay(){
 
-    QTableWidget *table2 = new QTableWidget(this->ui->viewRents);
-    table2->setRowCount(6);
-    table2->setColumnCount(1);
-    table2->setColumnWidth(30, 30);
+//    static int vehicleNo;
+//        vehicleNo = reader.getVehicleCounter();
 
-    QStringList vLabels;
-    vLabels << "Brand:" << "Model:" << "Seater Number:" << "Battery Life:" << "Mileage:" << "Base Price:";
-    table2->setVerticalHeaderLabels(vLabels);
-    table2->setHorizontalHeaderLabels(vLabels);
+        vehicledetails << tr("Brand:") << tr("Model:")<< tr("Mileage:")<< tr("Base Price:");
+        QVector<Vehicle*> test = reader.getVehicleList();
+        rentTable = new QTableWidget(16, 4); //create table with 16 rows and 6 columns
 
-    QTableWidgetItem *itemRents;
-    itemRents = new QTableWidgetItem;
+        QTableWidgetItem *brand = new QTableWidgetItem(vehicledetails[0]);
+        rentTable->setItem(0, 0, brand);
 
-//    display vehicles
-//    for( int i = 0; i < TeslaS.count(); ++i ){
+        QTableWidgetItem *model = new QTableWidgetItem(vehicledetails[1]);
+        rentTable->setItem(0, 1, model);
 
-//        itemRents = (qDebug() << eclist[x])->setText();
-//        table2->setItem( 0, 0, itemRents );
-//        itemRents = new QTableWidgetItem;
+        QTableWidgetItem *mileage = new QTableWidgetItem(vehicledetails[2]);
+        rentTable->setItem(0, 2, mileage);
 
-//    }
+        QTableWidgetItem *basePrice = new QTableWidgetItem(vehicledetails[3]);
+        rentTable->setItem(0, 3, basePrice);
 
-    itemRents->setText("Scorpio Electric");
-    table2->setItem(0,0, itemRents);
-    itemRents = new QTableWidgetItem;
+            for(int row = 1; row < 17 ; ++row)
+            {
+                QString * strList = test[row-1]->getallValues();
 
-    itemRents->setText("X1");
-    table2->setItem(1,0, itemRents);
-    itemRents = new QTableWidgetItem;
+                QTableWidgetItem *brand = new QTableWidgetItem(strList[0]);
+                rentTable->setItem(row, 0, brand);
 
-    itemRents->setText("");
-    table2->setItem(2,0, itemRents);
-    itemRents = new QTableWidgetItem;
+                QTableWidgetItem *model = new QTableWidgetItem(strList[1]);
+                rentTable->setItem(row, 1, model);
 
-    itemRents->setText("100");
-    table2->setItem(3,0, itemRents);
-    itemRents = new QTableWidgetItem;
+                QTableWidgetItem *mileage = new QTableWidgetItem(strList[2]);
+                rentTable->setItem(row, 2, mileage);
 
-    itemRents->setText("");
-    table2->setItem(4,0, itemRents);
-    itemRents = new QTableWidgetItem;
+                QTableWidgetItem *basePrice = new QTableWidgetItem(strList[3]);
+                rentTable->setItem(row, 3, basePrice);
 
-    itemRents->setText("40");
-    table2->setItem(5,0, itemRents);
-    itemRents = new QTableWidgetItem;
-
-    //Table Properties
-    table2->setShowGrid(false);
-    table2->setGridStyle(Qt::DotLine);
-    table2->setSortingEnabled(true);
-
-    //Header Properties
-    table2->verticalHeader()->setVisible(true);
-    table2->horizontalHeader()->setVisible(false);
-    table2->verticalHeader()->setDefaultSectionSize(10);
-
+            }
 }
 
-// View Rental Table Display
+
+// View Rental Table Display (Jing Kai's)
 void SecDialog::TableWidgetDsiplay(){
     QTableWidget *table = new QTableWidget(this->ui->viewRental);
     table->setRowCount(5);
@@ -123,11 +115,6 @@ void SecDialog::TableWidgetDsiplay(){
     //Header Properties
     table->horizontalHeader()->setVisible(true);
     table->horizontalHeader()->setDefaultSectionSize(100);
+
 }
-
-
-//void SecDialog::on_rentBtn_clicked()
-//{
-
-//}
 
