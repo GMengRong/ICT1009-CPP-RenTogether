@@ -2,14 +2,13 @@
 #define JSONREADER_H
 
 #include <QHash>
-#include "objects/user.h"
 #include "RenTogether.h"
 
 class jsonReader
 {
     QVector<Vehicle*> vehicleList;
     QVector<Rental*> rentalList;
-    QHash<QString, User> userHashMap;
+    QHash<QString, Customer> customerHashMap;
     int vehiclecounter;
 
 public:
@@ -17,7 +16,7 @@ public:
     QVector<Vehicle*> getVehicleList();
     QVector<Rental*> getRentalList();
     int getVehicleCounter();
-    QHash<QString, User> &getUserHashMap();
+    QHash<QString, Customer> getCustomerHashMap();
 };
 
 #endif // JSONREADER_H

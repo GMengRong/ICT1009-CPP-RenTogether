@@ -28,7 +28,7 @@ void MainWindow::on_loginButton_clicked()
     QString password = ui->passwdInput->text();
 
     //implement hash function later
-    if(reader.getUserHashMap()[username].getPassword() == password) {
+    if(reader.getCustomerHashMap()[username].getPassword() == password) {
         QMessageBox::information(this, "Login", "Welcome!");
 
         QVector<Vehicle*> test = reader.getVehicleList();

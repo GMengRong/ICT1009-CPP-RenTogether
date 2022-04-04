@@ -35,13 +35,18 @@ private:
     QString FirstName;
     QString LastName;
     QString Email;
+    QString username;
+    QString password;
 
 public:
-    Customer(int, QString, QString, QString);
+    Customer(int = NULL, QString = NULL, QString = NULL, QString = NULL, QString = NULL, QString = NULL);
     int getCustomerID();
     QString getFirstName();
     QString getLastName();
     QString getEmail();
+    QString getUsername();
+    QString getPassword();
+    void printUser();
 };
 
 class Vehicle

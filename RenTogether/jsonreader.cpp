@@ -20,9 +20,9 @@ int jsonReader::getVehicleCounter() {
     return this->vehiclecounter;
 }
 
-QHash<QString, User> &jsonReader::getUserHashMap()
+QHash<QString, Customer> jsonReader::getCustomerHashMap()
 {
-    return userHashMap;
+    return this->customerHashMap;
 }
 
 QVector<Rental*> jsonReader::getRentalList(){
@@ -253,10 +253,10 @@ jsonReader::jsonReader()
         const QString username = val.toObject().value("userID").toString();
         const QString password = val.toObject().value("password").toString();
 
-        User user(username, password);
+        Customer customer(NULL, NULL, NULL, NULL, username, password);
 
-        userHashMap.insert(username, user);
-        userHashMap[username].printUser();
+        customerHashMap.insert(username, customer);
+        customerHashMap[username].printUser();
     }
 
     // ----------------------------------------------------------------------------
