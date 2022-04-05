@@ -81,7 +81,7 @@ void SecDialog::RentsTableDisplay(){
         QTableWidgetItem *mileage = new QTableWidgetItem(strmap.value("Mileage"));
         rentTable->setItem(row, 3, mileage);
 
-        if (test[row-1]->getVehicleType() == "ElectricCar" or test[row]->getVehicleType() == "HybridCar")
+        if (test[row-1]->getVehicleType() == "ElectricCar" or test[row-1]->getVehicleType() == "HybridCar")
         {
             QTableWidgetItem *seaterNo = new QTableWidgetItem(strmap.value("SeaterNumber"));
             rentTable->setItem(row, 4, seaterNo);
@@ -89,7 +89,7 @@ void SecDialog::RentsTableDisplay(){
             QTableWidgetItem *battLife = new QTableWidgetItem(strmap.value("BatteryLife"));
             rentTable->setItem(row, 5, battLife);
         }
-        else if(test[row]->getVehicleType() == "GasCar"){
+        else if(test[row-1]->getVehicleType() == "GasCar"){
 
             QTableWidgetItem *seaterNo = new QTableWidgetItem(strmap.value("SeaterNumber"));
             rentTable->setItem(row, 4, seaterNo);
