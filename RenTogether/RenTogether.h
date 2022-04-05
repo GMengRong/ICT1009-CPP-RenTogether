@@ -63,8 +63,7 @@ public:
     QString getBrand();
     QString getModel();
     double getMileage();
-    void display();
-
+    virtual QString getVehicleType();
     virtual QString * getallValues();
 
 };
@@ -84,7 +83,6 @@ public:
     int getSeaterNumber();
     // Total coverage by insurance.
     int getInsuranceCoverage();
-    void display();
 };
 
 class Motorbike : public Vehicle
@@ -98,7 +96,6 @@ public:
     void setvalues(int, QString, QString, double, double, int);
     double getBasePrice();
     int getInsuranceCoverage();
-    void display();
 };
 
 // The following classes are children of the Car/Motorbike Class.
@@ -115,6 +112,7 @@ public:
     ElectricCar(int = 0, QString = NULL, QString = NULL, double = 0, double = 0, int = 0, int = 0, double = 0, int = 0);
     double getPricePerCharge();
     int getBatteryLife();
+    virtual QString getVehicleType();
     virtual QString * getallValues();
 };
 
@@ -126,6 +124,7 @@ private:
 public:
     GasCar(int = 0, QString = NULL, QString = NULL, double = 0, double = 0, int = 0, int = 0, double = 0);
     double getkmPerLitre();
+    virtual QString getVehicleType();
     virtual QString * getallValues();
 };
 
@@ -134,6 +133,7 @@ class HybridCar : public GasCar, public ElectricCar
 {
 public:
     HybridCar(int = 0, QString = NULL, QString = NULL, double = 0, double = 0, int = 0, int = 0, double = 0, int = 0, double = 0);
+    virtual QString getVehicleType();
     virtual QString * getallValues();
 };
 
@@ -148,6 +148,7 @@ public:
     ElectricMotorbike(int = 0, QString = NULL, QString = NULL, double = 0, double = 0, int = 0, double = 0, int = 0);
     double getPricePerCharge();
     int getBatteryLife();
+    virtual QString getVehicleType();
     virtual QString * getallValues();
 };
 
@@ -159,6 +160,7 @@ private:
 public:
     GasMotorbike(int = 0, QString = NULL, QString = NULL, double = 0, double = 0, int = 0, double = 0);
     double getkmPerLitre();
+    virtual QString getVehicleType();
     virtual QString * getallValues();
 };
 
@@ -167,6 +169,7 @@ class HybridMotorbike : public GasMotorbike, public ElectricMotorbike
 {
 public:
     HybridMotorbike(int = 0, QString = NULL, QString = NULL, double = 0, double = 0, int = 0, double = 0, int = 0, double = 0);
+    virtual QString getVehicleType();
     virtual QString * getallValues();
 };
 

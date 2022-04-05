@@ -102,11 +102,10 @@ double Vehicle::getMileage()
     return this->Mileage;
 };
 
-void Vehicle::display()
-{
-    qDebug() << "Vehicle Stats:";
-    qDebug() << this->getVehicleID() << this->getBrand() << getModel() << getMileage();
-};
+QString Vehicle::getVehicleType(){
+    // Should never hit this function.
+    return "defaultvehicle";
+}
 
 QString * Vehicle::getallValues(){
     // Should never hit this function.
@@ -146,13 +145,6 @@ int Car::getInsuranceCoverage()
     return this->InsuranceCoverage;
 };
 
-void Car::display()
-{
-    Vehicle::display();
-    qDebug() << "\nCar baseprice:";
-    qDebug() << this->getBasePrice() << this->getSeaterNumber();
-};
-
 // Motorbike functions
 void Motorbike::setvalues(int vehicleid, QString brand, QString model, double mileage,
                           double baseprice, int insurancecoverage)
@@ -170,13 +162,6 @@ double Motorbike::getBasePrice()
 int Motorbike::getInsuranceCoverage()
 {
     return this->InsuranceCoverage;
-};
-
-void Motorbike::display()
-{
-    Vehicle::display();
-    qDebug() << "\nMotorbike baseprice:";
-    qDebug() << this->getBasePrice();
 };
 
 // Functions for the 6 different vehicle types
@@ -197,6 +182,10 @@ int ElectricCar::getBatteryLife()
 {
     return this->BatteryLife;
 };
+
+QString ElectricCar::getVehicleType(){
+    return "ElectricCar";
+}
 
 QString * ElectricCar::getallValues(){
     static QString valuelist[9];
@@ -230,6 +219,10 @@ GasCar::GasCar(int vehicleid, QString brand, QString model, double mileage,
 
 double GasCar::getkmPerLitre() {
     return this->kmPerLitre;
+}
+
+QString GasCar::getVehicleType(){
+    return "GasCar";
 }
 
 QString * GasCar::getallValues(){
@@ -267,6 +260,10 @@ ElectricMotorbike::ElectricMotorbike(int vehicleid, QString brand, QString model
     this->PricePerCharge = pricepercharge;
 };
 
+QString HybridCar::getVehicleType(){
+    return "HybridCar";
+}
+
 QString * HybridCar::getallValues(){
     static QString valuelist[10];
     int vehicleid = this->getVehicleID();
@@ -302,6 +299,10 @@ int ElectricMotorbike::getBatteryLife()
     return this->BatteryLife;
 };
 
+QString ElectricMotorbike::getVehicleType(){
+    return "ElectricMotorbike";
+}
+
 QString * ElectricMotorbike::getallValues(){
     static QString valuelist[8];
     int vehicleid = this->getVehicleID();
@@ -335,6 +336,11 @@ double GasMotorbike::getkmPerLitre()
     return this->kmPerLitre;
 };
 
+QString GasMotorbike::getVehicleType(){
+    return "GasMotorbike";
+}
+
+
 QString * GasMotorbike::getallValues(){
     static QString valuelist[7];
     int vehicleid = this->getVehicleID();
@@ -358,6 +364,10 @@ HybridMotorbike::HybridMotorbike(int vehicleid, QString brand, QString model, do
                                  int insurancecoverage, double pricepercharge, int batterylife, double kmperlitre)
     : GasMotorbike(vehicleid, brand, model, mileage, baseprice, insurancecoverage, kmperlitre),
       ElectricMotorbike(vehicleid, brand, model, mileage, baseprice, insurancecoverage, pricepercharge, batterylife){};
+
+QString HybridMotorbike::getVehicleType(){
+    return "HybridMotorbike";
+}
 
 QString * HybridMotorbike::getallValues(){
     static QString valuelist[9];
