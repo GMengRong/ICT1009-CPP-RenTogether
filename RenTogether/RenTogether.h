@@ -64,8 +64,7 @@ public:
     QString getModel();
     double getMileage();
     virtual QString getVehicleType();
-    virtual QString * getallValues();
-
+    virtual QMap<QString,QString> getallValues();
 };
 
 // Car and motorbike classes
@@ -113,7 +112,7 @@ public:
     double getPricePerCharge();
     int getBatteryLife();
     virtual QString getVehicleType();
-    virtual QString * getallValues();
+    virtual QMap<QString,QString> getallValues();
 };
 
 class GasCar : virtual public Car
@@ -125,7 +124,7 @@ public:
     GasCar(int = 0, QString = NULL, QString = NULL, double = 0, double = 0, int = 0, int = 0, double = 0);
     double getkmPerLitre();
     virtual QString getVehicleType();
-    virtual QString * getallValues();
+    virtual QMap<QString,QString> getallValues();
 };
 
 // Hybrid of electric and gas car
@@ -134,7 +133,7 @@ class HybridCar : public GasCar, public ElectricCar
 public:
     HybridCar(int = 0, QString = NULL, QString = NULL, double = 0, double = 0, int = 0, int = 0, double = 0, int = 0, double = 0);
     virtual QString getVehicleType();
-    virtual QString * getallValues();
+    virtual QMap<QString,QString> getallValues();
 };
 
 // Motorbike classes
@@ -149,7 +148,7 @@ public:
     double getPricePerCharge();
     int getBatteryLife();
     virtual QString getVehicleType();
-    virtual QString * getallValues();
+    virtual QMap<QString,QString> getallValues();
 };
 
 class GasMotorbike : virtual public Motorbike
@@ -161,7 +160,7 @@ public:
     GasMotorbike(int = 0, QString = NULL, QString = NULL, double = 0, double = 0, int = 0, double = 0);
     double getkmPerLitre();
     virtual QString getVehicleType();
-    virtual QString * getallValues();
+    virtual QMap<QString,QString> getallValues();
 };
 
 // Hybrid of electric and gas motorbike
@@ -170,7 +169,7 @@ class HybridMotorbike : public GasMotorbike, public ElectricMotorbike
 public:
     HybridMotorbike(int = 0, QString = NULL, QString = NULL, double = 0, double = 0, int = 0, double = 0, int = 0, double = 0);
     virtual QString getVehicleType();
-    virtual QString * getallValues();
+    virtual QMap<QString,QString> getallValues();
 };
 
 #endif
