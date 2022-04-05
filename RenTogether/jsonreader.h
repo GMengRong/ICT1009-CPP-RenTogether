@@ -17,6 +17,7 @@ public:
     QVector<Rental*> getRentalList();
     int getVehicleCounter();
     QHash<QString, Customer> getCustomerHashMap();
+    void setvehicleCounter(int);
 };
 
 #endif // JSONREADER_H

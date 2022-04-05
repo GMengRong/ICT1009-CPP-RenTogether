@@ -34,16 +34,6 @@ void MainWindow::on_loginButton_clicked()
     if(reader.getCustomerHashMap()[username].getPassword() == password) {
         QMessageBox::information(this, "Login", "Welcome!");
 
-        QVector<Vehicle*> test = reader.getVehicleList();
-
-//        QString * variables;
-        for (int i=0; i<6; i++){
-            QString * list = test[i]->getallValues();
-            for (int x=0; x<10; x++){
-                qDebug() << list[x];
-            }
-        }
-
         hide();
         secdialog = new SecDialog(this);
         secdialog->show();

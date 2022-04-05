@@ -20,6 +20,11 @@ int jsonReader::getVehicleCounter() {
     return this->vehiclecounter;
 }
 
+void jsonReader::setvehicleCounter(int counter) {
+    this->vehiclecounter = counter;
+}
+
+
 QHash<QString, Customer> jsonReader::getCustomerHashMap()
 {
     return this->customerHashMap;
@@ -31,7 +36,7 @@ QVector<Rental*> jsonReader::getRentalList(){
 
 jsonReader::jsonReader()
 {
-    int vehiclecounter = 0;
+    int vehiclecount = 0;
 
     QFile inFile(":/data/data/electricBike.json");
     inFile.open(QIODevice::ReadOnly | QIODevice::Text);
@@ -58,7 +63,7 @@ jsonReader::jsonReader()
         int batteryLife = val.toObject().value("batteryLife").toString().toInt();
 
         this->vehicleList.push_back(new ElectricMotorbike(vehicleID, brand, model, mileage, basePrice, insuranceCoverage, pricePerCharge, batteryLife));
-        vehiclecounter++;
+        vehiclecount++;
     }
 
     // ----------------------------------------------------------------------------
@@ -93,7 +98,7 @@ jsonReader::jsonReader()
 
         ElectricCar ec(vehicleID, brand, model, mileage, basePrice, seaterNumber, insuranceCoverage, pricePerCharge, batteryLife);
         this->vehicleList.push_back(new ElectricCar(vehicleID, brand, model, mileage, basePrice, seaterNumber, insuranceCoverage, pricePerCharge, batteryLife));
-        vehiclecounter++;
+        vehiclecount++;
     }
 
     // ----------------------------------------------------------------------------
@@ -126,7 +131,7 @@ jsonReader::jsonReader()
 
         GasMotorbike gb(vehicleID, brand, model, mileage, basePrice, insuranceCoverage, kmPerLitre);
         this->vehicleList.push_back(new GasMotorbike(vehicleID, brand, model, mileage, basePrice, insuranceCoverage, kmPerLitre));
-        vehiclecounter++;
+        vehiclecount++;
     }
 
     // ----------------------------------------------------------------------------
@@ -159,7 +164,7 @@ jsonReader::jsonReader()
         double kmPerLitre = val.toObject().value("kmPerLitre").toString().toDouble();
 
         this->vehicleList.push_back(new GasCar(vehicleID, brand, model, mileage, basePrice, seaterNumber, insuranceCoverage, kmPerLitre));
-        vehiclecounter++;
+        vehiclecount++;
     }
 
 
@@ -195,7 +200,7 @@ jsonReader::jsonReader()
         double kmPerLitre = val.toObject().value("kmPerLitre").toString().toDouble();
 
         this->vehicleList.push_back(new HybridMotorbike(vehicleID, brand, model, mileage, basePrice, insuranceCoverage, pricePerCharge, batteryLife, kmPerLitre));
-        vehiclecounter++;
+        vehiclecount++;
     }
 
     // ----------------------------------------------------------------------------
@@ -231,8 +236,11 @@ jsonReader::jsonReader()
         double kmPerLitre = val.toObject().value("kmPerLitre").toString().toDouble();
 
         this->vehicleList.push_back(new HybridCar(vehicleID, brand, model, mileage, basePrice, seaterNumber, insuranceCoverage, pricePerCharge, batteryLife, kmPerLitre));
-        vehiclecounter++;
+        vehiclecount++;
     }
+
+    // Set the vehicle count
+    setvehicleCounter(vehiclecount);
 
     // ----------------------------------------------------------------------------
 
