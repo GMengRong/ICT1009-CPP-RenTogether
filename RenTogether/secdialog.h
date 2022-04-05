@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "jsonreader.h"
+#include "rentalform.h"
 
 namespace Ui {
 class SecDialog;
@@ -25,13 +26,14 @@ public:
        jsonReader &getReader();
        void setReader(jsonReader &newReader);
 
-       void RentsTableDisplay();
-       void TableWidgetDsiplay();
+       void VehicleTableDisplay();
+       void TableWidgetDisplay();
 
+//public slots:
+//    void openDialog();
 
-private slots:
-
-//       void on_rentbtn_clicked();
+//private slots:
+//    void on_rentBtn_clicked();
 
 private:
     Ui::SecDialog *ui;

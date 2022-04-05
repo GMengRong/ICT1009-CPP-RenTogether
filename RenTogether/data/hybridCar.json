@@ -8,7 +8,7 @@
         "seaterNumber" : "5",
         "insuranceCoverage" : "5000",
         "pricePerCharge" : "20.4",
-        "batteryLife" : "100",
+        "batteryLife" : "270",
         "kmPerLitre" : "8.1",
         "mileage" : "116.3"
     },
@@ -20,7 +20,7 @@
         "seaterNumber" : "5",
         "insuranceCoverage" : "5000",
         "pricePerCharge" : "25.3",
-        "batteryLife" : "100",
+        "batteryLife" : "220",
         "kmPerLitre" : "18.2",
         "mileage" : "471.2"
     },
@@ -32,7 +32,7 @@
         "seaterNumber" : "5",
         "insuranceCoverage" : "6000",
         "pricePerCharge" : "45.6",
-        "batteryLife" : "100",
+        "batteryLife" : "300",
         "kmPerLitre" : "17.2",
         "mileage" : "310.4"
     }

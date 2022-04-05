@@ -7,7 +7,7 @@
         "basePrice" : "50.0",
         "insuranceCoverage" : "3500",
         "pricePerCharge" : "30.9",
-        "batteryLife" : "100",
+        "batteryLife" : "80",
         "kmPerLitre" : " 51.3",
         "mileage" : "449.3"
     },
@@ -18,7 +18,7 @@
         "basePrice" : "50.8",
         "insuranceCoverage" : "3500",
         "pricePerCharge" : "25",
-        "batteryLife" : "100.5",
+        "batteryLife" : "50",
         "kmPerLitre" : "30.3",
         "mileage" : "274.7"
     }

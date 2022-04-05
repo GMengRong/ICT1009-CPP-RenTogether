@@ -8,7 +8,7 @@
         "seaterNumber" : "5",
         "insuranceCoverage" : "5000",
         "pricePerCharge" : "30.8",
-        "batteryLife" : "100",
+        "batteryLife" : "300",
         "mileage" : "76.3"
     },
     {
@@ -19,7 +19,7 @@
         "seaterNumber" : "2",
         "insuranceCoverage" : "5000",
         "pricePerCharge" : "40.1",
-        "batteryLife" : "100",
+        "batteryLife" : "150",
         "mileage" : "453.3"
     },
     {
@@ -30,7 +30,7 @@
         "seaterNumber" : "5",
         "insuranceCoverage" : "5000",
         "pricePerCharge" : "60.2",
-        "batteryLife" : "100",
+        "batteryLife" : "280",
         "mileage" : "313.4"
     }
     ]

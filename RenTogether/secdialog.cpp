@@ -18,8 +18,8 @@ SecDialog::SecDialog(QWidget *parent) :
     ui(new Ui::SecDialog)
 {
     ui->setupUi(this);
-        TableWidgetDsiplay();
-    RentsTableDisplay();
+    TableWidgetDisplay();
+    VehicleTableDisplay();
 
     //     layout of rent table
     QGridLayout *mainLayout = new QGridLayout;
@@ -37,7 +37,7 @@ SecDialog::~SecDialog()
 }
 
 // View Rents Table
-void SecDialog::RentsTableDisplay(){
+void SecDialog::VehicleTableDisplay(){
 
     static int vehicleNo;
     vehicleNo = reader.getVehicleCounter();
@@ -47,6 +47,7 @@ void SecDialog::RentsTableDisplay(){
 
     rentTable = new QTableWidget(16, 6); //create table with 16 rows and 6 columns
 
+    // header
     QTableWidgetItem *brand = new QTableWidgetItem(vehicledetails[0]);
     rentTable->setItem(0, 0, brand);
 
@@ -65,6 +66,7 @@ void SecDialog::RentsTableDisplay(){
     QTableWidgetItem *battLife = new QTableWidgetItem(vehicledetails[5]);
     rentTable->setItem(0, 5, battLife);
 
+    // display data
     for(int row = 1; row < vehicleNo ; ++row){
 
         QMap<QString,QString> strmap = test[row-1]->getallValues();
@@ -81,6 +83,7 @@ void SecDialog::RentsTableDisplay(){
         QTableWidgetItem *mileage = new QTableWidgetItem(strmap.value("Mileage"));
         rentTable->setItem(row, 3, mileage);
 
+        // Electric Car and Hybrid Car
         if (test[row-1]->getVehicleType() == "ElectricCar" or test[row-1]->getVehicleType() == "HybridCar")
         {
             QTableWidgetItem *seaterNo = new QTableWidgetItem(strmap.value("SeaterNumber"));
@@ -88,7 +91,9 @@ void SecDialog::RentsTableDisplay(){
 
             QTableWidgetItem *battLife = new QTableWidgetItem(strmap.value("BatteryLife"));
             rentTable->setItem(row, 5, battLife);
+
         }
+        // Gas Car
         else if(test[row-1]->getVehicleType() == "GasCar"){
 
             QTableWidgetItem *seaterNo = new QTableWidgetItem(strmap.value("SeaterNumber"));
@@ -96,8 +101,17 @@ void SecDialog::RentsTableDisplay(){
 
             QTableWidgetItem *nullbattLife = new QTableWidgetItem("-");
             rentTable->setItem(row, 5, nullbattLife);
-
         }
+        // Hybrid Bike and Electric Bike
+        else if (test[row-1]->getVehicleType() == "HybridMotorbike" or test[row-1]->getVehicleType() == "ElectricMotorbike")
+        {
+            QTableWidgetItem *nullseaterNo = new QTableWidgetItem("-");
+            rentTable->setItem(row, 4, nullseaterNo);
+
+            QTableWidgetItem *battLife = new QTableWidgetItem(strmap.value("BatteryLife"));
+            rentTable->setItem(row, 5, battLife);
+        }
+        // Gas Bike
         else
         {
             QTableWidgetItem *nullseaterNo = new QTableWidgetItem("-");
@@ -106,21 +120,20 @@ void SecDialog::RentsTableDisplay(){
             QTableWidgetItem *nullbattLife = new QTableWidgetItem("-");
             rentTable->setItem(row, 5, nullbattLife);
         }
-
-
     }
 
-
+//    openAction = &
 //    connect(openAction, this, &SecDialog::openDialog);
 }
 
-//void SecDialog::openDialog()
-//{
+//void SecDialog::openDialog(){
 
 //}
 
+
+
 // View Rental Table Display (Jing Kai's)
-void SecDialog::TableWidgetDsiplay(){
+void SecDialog::TableWidgetDisplay(){
     QTableWidget *table = new QTableWidget(this->ui->viewRental);
     table->setRowCount(5);
     table->setColumnCount(5);
@@ -164,10 +177,5 @@ void SecDialog::TableWidgetDsiplay(){
     table->horizontalHeader()->setDefaultSectionSize(100);
 
 }
-
-
-
-
-
 
 
