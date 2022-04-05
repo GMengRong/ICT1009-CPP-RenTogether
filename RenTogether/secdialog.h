@@ -10,6 +10,8 @@ class SecDialog;
 
 QT_BEGIN_NAMESPACE
 class QTableWidget;
+class QDialogButtonBox;
+class QAction;
 QT_END_NAMESPACE
 
 class SecDialog : public QDialog
@@ -27,12 +29,17 @@ public:
        void TableWidgetDsiplay();
 
 
+private slots:
+
+//       void on_rentbtn_clicked();
+
 private:
     Ui::SecDialog *ui;
 
     QStringList vehicledetails;
     QTableWidget *rentTable;
-
+//    QDialogButtonBox *rentbtn;
+//    QAction *openAction;
     jsonReader reader;
 };
 

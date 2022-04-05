@@ -7,7 +7,9 @@
 #include <iostream>
 
 #include "jsonreader.h"
+#include "RenTogether.h"
 #include <QVector>
+#include <QtWidgets>
 
 using namespace std;
 
@@ -16,13 +18,17 @@ SecDialog::SecDialog(QWidget *parent) :
     ui(new Ui::SecDialog)
 {
     ui->setupUi(this);
-    TableWidgetDsiplay();
+        TableWidgetDsiplay();
     RentsTableDisplay();
 
-//     layout of rent table
+    //     layout of rent table
     QGridLayout *mainLayout = new QGridLayout;
     mainLayout->addWidget(rentTable, 0, 2, 2, 1);
+//    mainLayout->addWidget(rentbtn, 3, 7, 1, 2);
     setLayout(mainLayout);
+
+//    rentbtn = new QDialogButtonBox(QDialogButtonBox::Ok);
+//    connect(rentbtn, &QDialogButtonBox::accepted, this);
 }
 
 SecDialog::~SecDialog()
@@ -33,44 +39,85 @@ SecDialog::~SecDialog()
 // View Rents Table
 void SecDialog::RentsTableDisplay(){
 
-//    static int vehicleNo;
-//        vehicleNo = reader.getVehicleCounter();
+    static int vehicleNo;
+    vehicleNo = reader.getVehicleCounter();
 
-        vehicledetails << tr("Brand:") << tr("Model:")<< tr("Mileage:")<< tr("Base Price:");
-        QVector<Vehicle*> test = reader.getVehicleList();
-        rentTable = new QTableWidget(16, 4); //create table with 16 rows and 6 columns
+    vehicledetails << tr("Brand:") << tr("Model:") << tr("Base Price:") << tr("Mileage:") << tr("Seater Number:") << tr("Battery Life:") ;
+    QVector<Vehicle*> test = reader.getVehicleList();
 
-        QTableWidgetItem *brand = new QTableWidgetItem(vehicledetails[0]);
-        rentTable->setItem(0, 0, brand);
+    rentTable = new QTableWidget(16, 6); //create table with 16 rows and 6 columns
 
-        QTableWidgetItem *model = new QTableWidgetItem(vehicledetails[1]);
-        rentTable->setItem(0, 1, model);
+    QTableWidgetItem *brand = new QTableWidgetItem(vehicledetails[0]);
+    rentTable->setItem(0, 0, brand);
 
-        QTableWidgetItem *mileage = new QTableWidgetItem(vehicledetails[2]);
-        rentTable->setItem(0, 2, mileage);
+    QTableWidgetItem *model = new QTableWidgetItem(vehicledetails[1]);
+    rentTable->setItem(0, 1, model);
 
-        QTableWidgetItem *basePrice = new QTableWidgetItem(vehicledetails[3]);
-        rentTable->setItem(0, 3, basePrice);
+    QTableWidgetItem *basePrice = new QTableWidgetItem(vehicledetails[2]);
+    rentTable->setItem(0, 2, basePrice);
 
-            for(int row = 1; row < 17 ; ++row)
-            {
-                QString * strList = test[row-1]->getallValues();
+    QTableWidgetItem *mileage = new QTableWidgetItem(vehicledetails[3]);
+    rentTable->setItem(0, 3, mileage);
 
-                QTableWidgetItem *brand = new QTableWidgetItem(strList[0]);
-                rentTable->setItem(row, 0, brand);
+    QTableWidgetItem *seaterNo = new QTableWidgetItem(vehicledetails[4]);
+    rentTable->setItem(0, 4, seaterNo);
 
-                QTableWidgetItem *model = new QTableWidgetItem(strList[1]);
-                rentTable->setItem(row, 1, model);
+    QTableWidgetItem *battLife = new QTableWidgetItem(vehicledetails[5]);
+    rentTable->setItem(0, 5, battLife);
 
-                QTableWidgetItem *mileage = new QTableWidgetItem(strList[2]);
-                rentTable->setItem(row, 2, mileage);
+    for(int row = 1; row < vehicleNo ; ++row){
 
-                QTableWidgetItem *basePrice = new QTableWidgetItem(strList[3]);
-                rentTable->setItem(row, 3, basePrice);
+        QMap<QString,QString> strmap = test[row-1]->getallValues();
 
-            }
+        QTableWidgetItem *brand = new QTableWidgetItem(strmap.value("Brand"));
+        rentTable->setItem(row, 0, brand);
+
+        QTableWidgetItem *model = new QTableWidgetItem(strmap.value("Model"));
+        rentTable->setItem(row, 1, model);
+
+        QTableWidgetItem *basePrice = new QTableWidgetItem("$" + strmap.value("BasePrice"));
+        rentTable->setItem(row, 2, basePrice);
+
+        QTableWidgetItem *mileage = new QTableWidgetItem(strmap.value("Mileage"));
+        rentTable->setItem(row, 3, mileage);
+
+        if (test[row-1]->getVehicleType() == "ElectricCar" or test[row]->getVehicleType() == "HybridCar")
+        {
+            QTableWidgetItem *seaterNo = new QTableWidgetItem(strmap.value("SeaterNumber"));
+            rentTable->setItem(row, 4, seaterNo);
+
+            QTableWidgetItem *battLife = new QTableWidgetItem(strmap.value("BatteryLife"));
+            rentTable->setItem(row, 5, battLife);
+        }
+        else if(test[row]->getVehicleType() == "GasCar"){
+
+            QTableWidgetItem *seaterNo = new QTableWidgetItem(strmap.value("SeaterNumber"));
+            rentTable->setItem(row, 4, seaterNo);
+
+            QTableWidgetItem *nullbattLife = new QTableWidgetItem("-");
+            rentTable->setItem(row, 5, nullbattLife);
+
+        }
+        else
+        {
+            QTableWidgetItem *nullseaterNo = new QTableWidgetItem("-");
+            rentTable->setItem(row, 4, nullseaterNo);
+
+            QTableWidgetItem *nullbattLife = new QTableWidgetItem("-");
+            rentTable->setItem(row, 5, nullbattLife);
+        }
+
+
+    }
+
+
+//    connect(openAction, this, &SecDialog::openDialog);
 }
 
+//void SecDialog::openDialog()
+//{
+
+//}
 
 // View Rental Table Display (Jing Kai's)
 void SecDialog::TableWidgetDsiplay(){
@@ -117,4 +164,10 @@ void SecDialog::TableWidgetDsiplay(){
     table->horizontalHeader()->setDefaultSectionSize(100);
 
 }
+
+
+
+
+
+
 
