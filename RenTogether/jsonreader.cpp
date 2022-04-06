@@ -109,7 +109,6 @@ jsonReader::jsonReader()
 
     foreach(const QJsonValue & val, ptsArray) {
         int vehicleID = val.toObject().value("vehicleID").toString().toInt();
-        qDebug() << vehicleID;
 
         QString brand = val.toObject().value("brand").toString();
         QString model = val.toObject().value("model").toString();
@@ -144,7 +143,6 @@ jsonReader::jsonReader()
 
     foreach(const QJsonValue & val, ptsArray) {
         int vehicleID = val.toObject().value("vehicleID").toString().toInt();
-        qDebug() << vehicleID;
 
         QString brand = val.toObject().value("brand").toString();
         QString model = val.toObject().value("model").toString();
@@ -177,7 +175,6 @@ jsonReader::jsonReader()
 
     foreach(const QJsonValue & val, ptsArray) {
         int vehicleID = val.toObject().value("vehicleID").toString().toInt();
-        qDebug() << vehicleID;
 
         QString brand = val.toObject().value("brand").toString();
         QString model = val.toObject().value("model").toString();
@@ -211,7 +208,6 @@ jsonReader::jsonReader()
 
     foreach(const QJsonValue & val, ptsArray) {
         int vehicleID = val.toObject().value("vehicleID").toString().toInt();
-        qDebug() << vehicleID;
 
         QString brand = val.toObject().value("brand").toString();
         QString model = val.toObject().value("model").toString();
@@ -246,7 +242,6 @@ jsonReader::jsonReader()
 
     foreach(const QJsonValue & val, ptsArray) {
         int vehicleID = val.toObject().value("vehicleID").toString().toInt();
-        qDebug() << vehicleID;
 
         QString brand = val.toObject().value("brand").toString();
         QString model = val.toObject().value("model").toString();

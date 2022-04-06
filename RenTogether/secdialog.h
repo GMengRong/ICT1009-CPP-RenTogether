@@ -29,9 +29,11 @@ public:
     void setReader(jsonReader *newReader);
     void setSelectedVehicle(Vehicle*);
     Vehicle* getSelectedVehicle();
-       void VehicleTableDisplay();
-       void RentTableDisplay();
+    void VehicleTableDisplay();
+    void RentTableDisplay();
 
+    template <class T>
+    int checkDerived(Vehicle*);
 
 
 public slots:

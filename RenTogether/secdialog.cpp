@@ -81,18 +81,17 @@ void SecDialog::VehicleTableDisplay(){
         QTableWidgetItem *mileage = new QTableWidgetItem(strmap.value("Mileage"));
         vehicleTable->setItem(row, 3, mileage);
 
-        // Electric Car and Hybrid Car
-        if (check[row]->getVehicleType() == "ElectricCar" or check[row]->getVehicleType() == "HybridCar")
+        //if (Derived* d = dynamic_cast<Derived*>(b1); d != nullptr)
+        if (checkDerived<ElectricCar*>(check[row]) or checkDerived<HybridCar*>(check[row]))
         {
             QTableWidgetItem *seaterNo = new QTableWidgetItem(strmap.value("SeaterNumber"));
             vehicleTable->setItem(row, 4, seaterNo);
 
             QTableWidgetItem *battLife = new QTableWidgetItem(strmap.value("BatteryLife"));
             vehicleTable->setItem(row, 5, battLife);
-
         }
-        // Gas Car
-        else if(check[row]->getVehicleType() == "GasCar"){
+        //Gas Car
+        else if(checkDerived<GasCar*>(check[row])){
 
             QTableWidgetItem *seaterNo = new QTableWidgetItem(strmap.value("SeaterNumber"));
             vehicleTable->setItem(row, 4, seaterNo);
@@ -101,7 +100,7 @@ void SecDialog::VehicleTableDisplay(){
             vehicleTable->setItem(row, 5, nullbattLife);
         }
         // Hybrid Bike and Electric Bike
-        else if (check[row]->getVehicleType() == "HybridMotorbike" or check[row]->getVehicleType() == "ElectricMotorbike")
+        else if (checkDerived<HybridMotorbike*>(check[row]) or checkDerived<ElectricMotorbike*>(check[row]))
         {
             QTableWidgetItem *nullseaterNo = new QTableWidgetItem("-");
             vehicleTable->setItem(row, 4, nullseaterNo);
@@ -110,7 +109,7 @@ void SecDialog::VehicleTableDisplay(){
             vehicleTable->setItem(row, 5, battLife);
         }
         // Gas Bike
-        else
+        else if (checkDerived<GasMotorbike*>(check[row]))
         {
             QTableWidgetItem *nullseaterNo = new QTableWidgetItem("-");
             vehicleTable->setItem(row, 4, nullseaterNo);
@@ -119,12 +118,60 @@ void SecDialog::VehicleTableDisplay(){
             vehicleTable->setItem(row, 5, nullbattLife);
         }
 
+//        // Electric Car and Hybrid Car
+//        if (test[row-1]->getVehicleType() == "ElectricCar" or test[row-1]->getVehicleType() == "HybridCar")
+//        {
+//            QTableWidgetItem *seaterNo = new QTableWidgetItem(strmap.value("SeaterNumber"));
+//            vehicleTable->setItem(row, 4, seaterNo);
+
+//            QTableWidgetItem *battLife = new QTableWidgetItem(strmap.value("BatteryLife"));
+//            vehicleTable->setItem(row, 5, battLife);
+
+//        }
+//        // Gas Car
+//        else if(check[row]->getVehicleType() == "GasCar"){
+
+//            QTableWidgetItem *seaterNo = new QTableWidgetItem(strmap.value("SeaterNumber"));
+//            vehicleTable->setItem(row, 4, seaterNo);
+
+//            QTableWidgetItem *nullbattLife = new QTableWidgetItem("-");
+//            vehicleTable->setItem(row, 5, nullbattLife);
+//        }
+//        // Hybrid Bike and Electric Bike
+//        else if (check[row]->getVehicleType() == "HybridMotorbike" or check[row]->getVehicleType() == "ElectricMotorbike")
+//        {
+//            QTableWidgetItem *nullseaterNo = new QTableWidgetItem("-");
+//            vehicleTable->setItem(row, 4, nullseaterNo);
+
+//            QTableWidgetItem *battLife = new QTableWidgetItem(strmap.value("BatteryLife"));
+//            vehicleTable->setItem(row, 5, battLife);
+//        }
+//        // Gas Bike
+//        else
+//        {
+//            QTableWidgetItem *nullseaterNo = new QTableWidgetItem("-");
+//            vehicleTable->setItem(row, 4, nullseaterNo);
+
+//            QTableWidgetItem *nullbattLife = new QTableWidgetItem("-");
+//            vehicleTable->setItem(row, 5, nullbattLife);
+//        }
+
         rentbtn = new QPushButton("Rent");
         vehicleTable->setCellWidget(row, 6, rentbtn);
         Vehicle* selectedveh = check[row];
         jsonReader* currentreader = &reader;
 
         connect(rentbtn, &QAbstractButton::clicked, this, [=]{openform(selectedveh, currentreader);});
+    }
+}
+
+template <class T>
+int SecDialog::checkDerived(Vehicle* parent) {
+    T child = dynamic_cast<T>(parent);
+    if (child != nullptr) {
+        return 1;
+    }else {
+        return 0;
     }
 }
 
