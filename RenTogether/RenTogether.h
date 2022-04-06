@@ -65,6 +65,7 @@ public:
     double getMileage();
     virtual QString getVehicleType();
     virtual QMap<QString,QString> getallValues();
+    virtual double getBasePrice();
 };
 
 // Car and motorbike classes
@@ -78,7 +79,7 @@ private:
 
 public:
     void setvalues(int, QString, QString, double, double, int, int);
-    double getBasePrice();
+    virtual double getBasePrice();
     int getSeaterNumber();
     // Total coverage by insurance.
     int getInsuranceCoverage();
@@ -93,7 +94,7 @@ private:
 
 public:
     void setvalues(int, QString, QString, double, double, int);
-    double getBasePrice();
+    virtual double getBasePrice();
     int getInsuranceCoverage();
 };
 

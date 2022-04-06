@@ -30,7 +30,6 @@ HEADERS += \
 
 FORMS += \
     mainwindow.ui \
-    rentalform.ui \
     secdialog.ui
 
 # Default rules for deployment.
