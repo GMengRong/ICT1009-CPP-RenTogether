@@ -14,11 +14,12 @@
 
 using namespace std;
 
-SecDialog::SecDialog(QWidget *parent, jsonReader* reader) : QDialog(parent)
+SecDialog::SecDialog(QWidget *parent, jsonReader* reader) : QDialog(parent) ,  ui(new Ui::SecDialog)
 {
     ui->setupUi(this);
-    TableWidgetDisplay();
+    RentTableDisplay();
     VehicleTableDisplay();
+     setReader(reader);
 }
 
 SecDialog::~SecDialog()
@@ -48,12 +49,12 @@ void SecDialog::VehicleTableDisplay(){
     vehicledetails << tr("Brand:") << tr("Model:") << tr("Base Price:") << tr("Mileage:") << tr("Seater Number:") << tr("Battery Life:") ;
     QVector<Vehicle*> test = reader.getVehicleList();
 
-    rentTable = new QTableWidget(this->ui->viewRents); //create table with 16 rows and 6 columns
-    rentTable->setRowCount(16);
-    rentTable->setColumnCount(6);
-    rentTable->setMinimumWidth(2000);
-    rentTable->setColumnWidth(0, 80);
-    rentTable->setMinimumHeight(5000);
+    vehicleTable = new QTableWidget(this->ui->viewRents); //create table with 16 rows and 6 columns
+    vehicleTable->setRowCount(16);
+    vehicleTable->setColumnCount(7);
+    vehicleTable->setMinimumWidth(2000);
+    vehicleTable->setColumnWidth(0, 100);
+    vehicleTable->setMinimumHeight(5000);
 
     // header
     QTableWidgetItem *brand = new QTableWidgetItem(vehicledetails[0]);
@@ -152,56 +153,72 @@ void SecDialog::openform(Vehicle* selectedvehicle, jsonReader* currentreader)
 
 
 // View Rental Table Display (Jing Kai's)
-     QTableWidget *table = new QTableWidget(this->ui->viewRental);
-     table->setColumnCount(5);
-     table->setColumnWidth(0, 50);
-     table->setMinimumHeight(5000);
+void SecDialog::RentTableDisplay(){
+     rentsTable= new QTableWidget(this->ui->viewRental);
+     rentsTable->setColumnCount(5);
+     rentsTable->setColumnWidth(0, 50);
+     rentsTable->setMinimumHeight(5000);
 
      QStringList hLabels;
      hLabels <<"Car Model"<<"Customer ID"<<"Start Date"<<"End Date"<<"Price";
-     table->setHorizontalHeaderLabels(hLabels);
-     table->setSelectionMode(QAbstractItemView::SingleSelection);
-     table->setSelectionBehavior(QAbstractItemView::SelectRows);
-     table->setEditTriggers(QAbstractItemView::NoEditTriggers);
-     table->setMinimumWidth(2000);
+     rentsTable->setHorizontalHeaderLabels(hLabels);
+     rentsTable->setSelectionMode(QAbstractItemView::SingleSelection);
+     rentsTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+     rentsTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
+     rentsTable->setMinimumWidth(2000);
 
+
+     //insert data
+     QTableWidgetItem *item;
+     rentsTable->setRowCount(5);
+     QVector<Rental *> list_ = reader.getRentalList();
+     QVector<Vehicle*> test_ = reader.getVehicleList();
+     int customerId = 3; //reader.getCurrentCustomer()->getCustomerID();
+
+     int count = 0;
+     rentsTable->setRowCount(list_.size());
+     for(int i = 0 ; i < list_.size() ; i ++){
+     if(customerId == list_[i]->getCustomerID()){
+         QString brand = "";
+         for(int j = 0 ; j < test_.size();j++){
+             if(list_[i]->getVehicleID() == test_[j]->getVehicleID()){
                  brand = test_[j]->getBrand();
                  break;
              }
          }
          item = new QTableWidgetItem;
          item->setText(brand);
-         rentstable->setItem(count,0, item);
+         rentsTable->setItem(count,0, item);
 
          item = new QTableWidgetItem;
          item->setText(QString::number(list_[i]->getCustomerID()));
-         rentstable->setItem(count,1, item);
+         rentsTable->setItem(count,1, item);
 
          item = new QTableWidgetItem;
          item->setText(list_[i]->getStartDate());
-         rentstable->setItem(count,2, item);
+         rentsTable->setItem(count,2, item);
 
          item = new QTableWidgetItem;
          item->setText(list_[i]->getEndDate());
-         rentstable->setItem(count,3, item);
+         rentsTable->setItem(count,3, item);
 
          item = new QTableWidgetItem;
          item->setText(QString::number(list_[i]->getprice()));
-         rentstable->setItem(count,4, item);
+         rentsTable->setItem(count,4, item);
          count++;
      }
 
      }
-     rentstable->setRowCount(count);
+     rentsTable->setRowCount(count);
 
      //Table Properties
-     rentstable->setShowGrid(true);
-     rentstable->setGridStyle(Qt::DotLine);
-     rentstable->setSortingEnabled(true);
-     rentstable->setCornerButtonEnabled(true);
+     rentsTable->setShowGrid(true);
+     rentsTable->setGridStyle(Qt::DotLine);
+     rentsTable->setSortingEnabled(true);
+     rentsTable->setCornerButtonEnabled(true);
 
      //Header Properties
-     rentstable->horizontalHeader()->setVisible(true);
-     rentstable->horizontalHeader()->setDefaultSectionSize(100);
+     rentsTable->horizontalHeader()->setVisible(true);
+     rentsTable->horizontalHeader()->setDefaultSectionSize(100);
 
  }
