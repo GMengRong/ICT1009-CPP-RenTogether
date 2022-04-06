@@ -29,7 +29,7 @@ public:
        void setReader(jsonReader &newReader);
 
        void VehicleTableDisplay();
-//       void TableWidgetDisplay();
+       void TableWidgetDisplay();
 
 
 public slots:

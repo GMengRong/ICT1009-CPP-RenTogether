@@ -19,15 +19,15 @@ SecDialog::SecDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::SecDialog)
 {
-//    ui->setupUi(this);
-//    TableWidgetDisplay();
-    VehicleTableDisplay();
+    ui->setupUi(this);
+    TableWidgetDisplay();
+//    VehicleTableDisplay();
 
     //     layout of rent table
-    QGridLayout *mainLayout = new QGridLayout;
+//    QGridLayout *mainLayout = new QGridLayout;
 //    mainLayout->SetFixedSize(300,450);
-    mainLayout->addWidget(rentTable, 5, 5, 2, 1);
-    setLayout(mainLayout);
+ //   mainLayout->addWidget(rentTable, 5, 5, 2, 1);
+ //   setLayout(mainLayout);
 
 }
 
@@ -139,49 +139,71 @@ void SecDialog::openform()
 
 
 // View Rental Table Display (Jing Kai's)
-//void SecDialog::TableWidgetDisplay(){
-//    QTableWidget *table = new QTableWidget(this->ui->viewRental);
-//    table->setRowCount(5);
-//    table->setColumnCount(5);
-//    table->setColumnWidth(0, 50);
+void SecDialog::TableWidgetDisplay(){
+     QTableWidget *table = new QTableWidget(this->ui->viewRental);
+     table->setColumnCount(5);
+     table->setColumnWidth(0, 50);
 
-//    QStringList hLabels;
-//    hLabels <<"Rental ID"<<"Customer ID"<<"Start Date"<<"End Date"<<"Price";
-//    table->setHorizontalHeaderLabels(hLabels);
-//    table->setSelectionMode(QAbstractItemView::SingleSelection);
-//    table->setSelectionBehavior(QAbstractItemView::SelectRows);
-//    table->setEditTriggers(QAbstractItemView::NoEditTriggers);
-//    table->setMinimumWidth(2000);
+     QStringList hLabels;
+     hLabels <<"Car Model"<<"Customer ID"<<"Start Date"<<"End Date"<<"Price";
+     table->setHorizontalHeaderLabels(hLabels);
+     table->setSelectionMode(QAbstractItemView::SingleSelection);
+     table->setSelectionBehavior(QAbstractItemView::SelectRows);
+     table->setEditTriggers(QAbstractItemView::NoEditTriggers);
+     table->setMinimumWidth(20);
 
-//    //insert data
-//    QTableWidgetItem *item;
-//    item = new QTableWidgetItem;
+     //insert data
+     QTableWidgetItem *item;
+     table->setRowCount(5);
+     QVector<Rental *> list_ = reader.getRentalList();
+     QVector<Vehicle*> test_ = reader.getVehicleList();
+     //int customerId =  reader.getCurrentCustomer()->getCustomerID();
+     int customerId = 3;
+     int count = 0;
+     table->setRowCount(list_.size());
+     for(int i = 0 ; i < list_.size() ; i ++){
+     if(customerId == list_[i]->getCustomerID()){
+         QString brand = "";
+         for(int j = 0 ; j < test_.size();j++){
+             if(list_[i]->getVehicleID() == test_[j]->getVehicleID()){
+                 brand = test_[j]->getBrand();
+                 break;
+             }
+         }
+         item = new QTableWidgetItem;
+         item->setText(brand);
+         table->setItem(count,0, item);
 
-//    item->setText("Scorpio Electric");
-//    table->setItem(0,0, item);
-//    item = new QTableWidgetItem;
-//    item->setText("Customer 1");
-//    table->setItem(0,1, item);
-//    item = new QTableWidgetItem;
-//    item->setText("1-1-2022");
-//    table->setItem(0,2, item);
-//    item = new QTableWidgetItem;
-//    item->setText("2-2-2022");
-//    table->setItem(0,3, item);
-//    item = new QTableWidgetItem;
-//    item->setText("200");
-//    table->setItem(0,4, item);
+         item = new QTableWidgetItem;
+         item->setText(QString::number(list_[i]->getCustomerID()));
+          table->setItem(count,1, item);
 
-//    //Table Properties
-//    table->setShowGrid(true);
-//    table->setGridStyle(Qt::DotLine);
-//    table->setSortingEnabled(true);
-//    table->setCornerButtonEnabled(true);
+         item = new QTableWidgetItem;
+         item->setText(list_[i]->getStartDate());
+         table->setItem(count,2, item);
 
-//    //Header Properties
-//    table->horizontalHeader()->setVisible(true);
-//    table->horizontalHeader()->setDefaultSectionSize(100);
+         item = new QTableWidgetItem;
+         item->setText(list_[i]->getEndDate());
+         table->setItem(count,3, item);
 
-//}
+         item = new QTableWidgetItem;
+         item->setText(QString::number(list_[i]->getprice()));
+         table->setItem(count,4, item);
+         qDebug() <<  list_[i]->getprice();
+          count++;
+     }
 
+     }
+     table->setRowCount(count);
 
+ //    //Table Properties
+     table->setShowGrid(true);
+     table->setGridStyle(Qt::DotLine);
+     table->setSortingEnabled(true);
+     table->setCornerButtonEnabled(true);
+
+     //Header Properties
+     table->horizontalHeader()->setVisible(true);
+     table->horizontalHeader()->setDefaultSectionSize(100);
+
+ }

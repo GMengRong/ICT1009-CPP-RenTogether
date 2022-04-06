@@ -322,7 +322,7 @@ jsonReader::jsonReader()
         const QString StartDate = val.toObject().value("StartDate").toString();
         const QString EndDate = val.toObject().value("EndDate").toString();
         int RentDuration = val.toObject().value("RentDuration").toString().toInt();
-        int Price = val.toObject().value("Price").toString().toInt();
+        double Price = val.toObject().value("Price").toString().toDouble();
         this->rentalList.push_back(new Rental(rentalID, CustomerID, VehicleID, StartDate, EndDate, RentDuration, Price));
     }
 
