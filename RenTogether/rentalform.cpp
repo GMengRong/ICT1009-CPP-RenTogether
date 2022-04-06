@@ -10,9 +10,11 @@ rentalform::rentalform(const QString &title, QWidget *parent, Vehicle* selectedv
     setcurrentvehicle(selectedvehicle);
     setcurrentreader(reader);
 
+    // Functions to set up the rental form
     setupDetailsTable();
     createDateLabels();
 
+    // To set up the "ok" and "cancel" buttons
     buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
 
     connect(buttonBox, &QDialogButtonBox::accepted, this, &rentalform::verify);

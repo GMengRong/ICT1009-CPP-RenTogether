@@ -30,7 +30,7 @@ public:
     void setSelectedVehicle(Vehicle*);
     Vehicle* getSelectedVehicle();
        void VehicleTableDisplay();
-       void TableWidgetDisplay();
+       void RentTableDisplay();
 
 
 
@@ -41,7 +41,8 @@ private:
     Ui::SecDialog *ui;
 
     QStringList vehicledetails;
-    QTableWidget *rentTable;
+    QTableWidget *vehicleTable;
+    QTableWidget *rentsTable;
     QPushButton *rentbtn;
     jsonReader reader;
     Vehicle* selectedVehicle;

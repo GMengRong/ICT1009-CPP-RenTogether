@@ -29,8 +29,7 @@ HEADERS += \
     objects/user.h
 
 FORMS += \
-    mainwindow.ui \
-    secdialog.ui
+    mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
