@@ -20,16 +20,7 @@ SecDialog::SecDialog(QWidget *parent, jsonReader* reader) :
 {
     ui->setupUi(this);
     TableWidgetDisplay();
-//    VehicleTableDisplay();
-
-    //     layout of rent table
-//    QGridLayout *mainLayout = new QGridLayout;
-//    mainLayout->SetFixedSize(300,450);
-
- //   mainLayout->addWidget(rentTable, 5, 5, 2, 1);
- //   setLayout(mainLayout);
-
-
+    VehicleTableDisplay();
 }
 
 SecDialog::~SecDialog()
@@ -59,7 +50,12 @@ void SecDialog::VehicleTableDisplay(){
     vehicledetails << tr("Brand:") << tr("Model:") << tr("Base Price:") << tr("Mileage:") << tr("Seater Number:") << tr("Battery Life:") ;
     QVector<Vehicle*> test = reader.getVehicleList();
 
-    rentTable = new QTableWidget(16, 7); //create table with 16 rows and 6 columns
+    rentTable = new QTableWidget(this->ui->viewRents); //create table with 16 rows and 6 columns
+    rentTable->setRowCount(16);
+    rentTable->setColumnCount(6);
+    rentTable->setMinimumWidth(2000);
+    rentTable->setColumnWidth(0, 80);
+    rentTable->setMinimumHeight(5000);
 
     // header
     QTableWidgetItem *brand = new QTableWidgetItem(vehicledetails[0]);
@@ -167,6 +163,7 @@ void SecDialog::TableWidgetDisplay(){
      QTableWidget *table = new QTableWidget(this->ui->viewRental);
      table->setColumnCount(5);
      table->setColumnWidth(0, 50);
+     table->setMinimumHeight(5000);
 
      QStringList hLabels;
      hLabels <<"Car Model"<<"Customer ID"<<"Start Date"<<"End Date"<<"Price";
@@ -174,7 +171,7 @@ void SecDialog::TableWidgetDisplay(){
      table->setSelectionMode(QAbstractItemView::SingleSelection);
      table->setSelectionBehavior(QAbstractItemView::SelectRows);
      table->setEditTriggers(QAbstractItemView::NoEditTriggers);
-     table->setMinimumWidth(20);
+     table->setMinimumWidth(2000);
 
      //insert data
      QTableWidgetItem *item;
