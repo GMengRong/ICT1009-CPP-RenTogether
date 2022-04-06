@@ -237,7 +237,6 @@ QMap<QString,QString> GasCar::getallValues(){
     QString seaternumber = QString::number(this->getSeaterNumber());
     QString insurance = QString::number(this->getInsuranceCoverage());
     QString kmperlitre = QString::number(this->getkmPerLitre());
-
     vehicledetailmap.insert("VehicleID",vehicleid);
     vehicledetailmap.insert("Brand",brand);
     vehicledetailmap.insert("Model",model);

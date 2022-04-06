@@ -1,7 +1,7 @@
 {
 "electricBike":[
     {
-        "vehicleID" : "12",
+        "vehicleID" : "9",
         "brand" : "Scorpio Electric",
         "model" : "X1",
         "basePrice" : "40.5",
@@ -11,7 +11,7 @@
         "mileage" : "73.5"
     },
     {
-        "vehicleID" : "13",
+        "vehicleID" : "10",
         "brand" : "Energica",
         "model" : "EGO+",
         "basePrice" : "45.4",
@@ -21,7 +21,7 @@
         "mileage" : "81.3"
     },
     {
-        "vehicleID" : "14",
+        "vehicleID" : "11",
         "brand" : "Harley-Davidson",
         "model" : "LiveWire",
         "basePrice" : "60.9",

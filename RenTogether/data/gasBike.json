@@ -1,7 +1,7 @@
 {
 "gasBike":[
     {
-        "vehicleID" : "18",
+        "vehicleID" : "15",
         "brand" : "Yamaha",
         "model" : "XSR155",
         "basePrice" : "30.4",
@@ -10,7 +10,7 @@
         "mileage" : "40.3"
     },
     {
-        "vehicleID" : "19",
+        "vehicleID" : "16",
         "brand" : "Yamaha",
         "model" : "Aerox 155",
         "basePrice" : "45.7",

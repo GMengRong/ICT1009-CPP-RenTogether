@@ -17,7 +17,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     QString tmp = "test";
     QString test = QString::fromStdString(sha256(tmp.toLocal8Bit().constData()));
-    qDebug() << test;
 }
 
 MainWindow::~MainWindow()
@@ -31,21 +30,6 @@ void MainWindow::on_loginButton_clicked()
 
     // convert password input to std::string to hash and then converts it back to QString
     QString hash = QString::fromStdString(sha256(ui->passwdInput->text().toLocal8Bit().constData()));
-//    qDebug() << reader.getCustomerHashMap()[username]->getHash();
-
-//    //implement hash function later
-//    if(reader.getCustomerHashMap()[username]->getHash() == hash) {
-
-//        reader.setCurrentCustomer(reader.getCustomerHashMap()[username]);
-//        QMessageBox::information(this, "Login", "Welcome!");
-
-//        hide();
-//        secdialog = new SecDialog(this);
-//        secdialog->show();
-//    }
-//    else {
-//        QMessageBox::warning(this,"Login", "Incorrect login details");
-//    }
     QVector<Customer*> custList = reader.getCustomerList();
     int userIndex = -1;
     for (int i = 0; i < custList.size(); i++) {

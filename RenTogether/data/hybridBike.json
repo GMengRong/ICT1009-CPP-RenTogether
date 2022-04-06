@@ -1,7 +1,7 @@
 {
 "hybridBike":[
     {
-        "vehicleID" : "7",
+        "vehicleID" : "4",
         "brand" : "Honda",
         "model" : "PCX150",
         "basePrice" : "50.0",
@@ -12,7 +12,7 @@
         "mileage" : "449.3"
     },
     {
-        "vehicleID" : "8",
+        "vehicleID" : "5",
         "brand" : "Piaggio",
         "model" : "MP3500",
         "basePrice" : "50.8",

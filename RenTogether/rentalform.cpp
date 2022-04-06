@@ -53,7 +53,7 @@ void rentalform::setupDetailsTable()
 
 void rentalform::createDateLabels()
 {
-    rentalDatesGroup = new QGroupBox(tr("Date and time spin boxes"));
+    rentalDatesGroup = new QGroupBox(tr("Select date and duration of rental"));
 
     QLabel *dateLabel = new QLabel;
     rentalStartDatePicker = new QDateEdit(QDate::currentDate());

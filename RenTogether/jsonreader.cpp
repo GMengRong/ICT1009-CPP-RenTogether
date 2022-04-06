@@ -183,7 +183,7 @@ jsonReader::jsonReader()
         double basePrice = val.toObject().value("basePrice").toString().toDouble();
         int seaterNumber = val.toObject().value("seaterNumber").toString().toInt();
 
-        int insuranceCoverage = val.toObject().value("seaterNumber").toString().toInt();
+        int insuranceCoverage = val.toObject().value("insuranceCoverage").toString().toInt();
         double kmPerLitre = val.toObject().value("kmPerLitre").toString().toDouble();
 
         this->vehicleList.push_back(new GasCar(vehicleID, brand, model, mileage, basePrice, seaterNumber, insuranceCoverage, kmPerLitre));
