@@ -69,8 +69,11 @@ void MainWindow::on_loginButton_clicked()
             secdialog->show();
         }
         else {
-            QMessageBox::warning(this,"Login", "Incorrect login details");
+            QMessageBox::warning(this,"Login", "Incorrect password details");
         }
+    }
+    else {
+        QMessageBox::warning(this,"Login", "Wrong user name " + username);
     }
 }
 
