@@ -15,7 +15,9 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
+    QString tmp = "test";
+    QString test = QString::fromStdString(sha256(tmp.toLocal8Bit().constData()));
+    qDebug() << test;
 }
 
 MainWindow::~MainWindow()
@@ -62,18 +64,19 @@ void MainWindow::on_loginButton_clicked()
 
             reader.setCurrentCustomer(custList[userIndex]);
             QString fn = reader.getCurrentCustomer()->getFirstName();
-            QMessageBox::information(this, "Login", "Welcome! " + fn);
+            QString ln = reader.getCurrentCustomer()->getLastName();
+            QMessageBox::information(this, "Login", "Welcome! " + fn + " " + ln);
 
             hide();
             secdialog = new SecDialog(this);
             secdialog->show();
         }
         else {
-            QMessageBox::warning(this,"Login", "Incorrect password details");
+            QMessageBox::warning(this,"Login", "Incorrect Login Credentials");
         }
     }
     else {
-        QMessageBox::warning(this,"Login", "Wrong user name " + username);
+        QMessageBox::warning(this,"Login", "No user found");
     }
 }
 

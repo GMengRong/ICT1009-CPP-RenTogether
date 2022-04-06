@@ -47,6 +47,14 @@
         "Email" : "BD1989@gmail.com",
         "Username" : "BD1989",
         "Hash" : "25e14eb72ae617482bba10f0e38dab2efca38caf2f9c56c32f59b370b9854f0a"
+    },
+    {
+        "CustomerID" : "7",
+        "FirstName" : "Truck",
+        "LastName" : "Kun",
+        "Email" : "truck_onii_san@isekai.com",
+        "Username" : "test",
+        "Hash" : "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08"
     }
 ]
 }
