@@ -39,14 +39,14 @@ double Rental::getprice(){
 };
 
 // Customer functions
-Customer::Customer(int customerid, QString firstname, QString lastname, QString email, QString username, QString password) {
+Customer::Customer(int customerid, QString firstname, QString lastname, QString email, QString username, QString hash) {
     this->CustomerID = customerid;
     this->FirstName = firstname;
     this->LastName = lastname;
     this->Email = email;
 
     this->username = username;
-    this->password = password;
+    this->hash = hash;
 }
 
 int Customer::getCustomerID(){
@@ -65,13 +65,13 @@ QString Customer::getUsername()
 {
     return this->username;
 }
-QString Customer::getPassword()
+QString Customer::getHash()
 {
-    return this->password;
+    return this->hash;
 }
 void Customer::printUser()
 {
-    qDebug() << getUsername() << getPassword();
+    qDebug() << getUsername() << getHash();
 }
 
 // Vehicle functions

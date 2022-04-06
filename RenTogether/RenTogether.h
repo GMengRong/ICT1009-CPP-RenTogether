@@ -36,7 +36,7 @@ private:
     QString LastName;
     QString Email;
     QString username;
-    QString password;
+    QString hash;
 
 public:
     Customer(int = NULL, QString = NULL, QString = NULL, QString = NULL, QString = NULL, QString = NULL);
@@ -45,7 +45,7 @@ public:
     QString getLastName();
     QString getEmail();
     QString getUsername();
-    QString getPassword();
+    QString getHash();
     void printUser();
 };
 

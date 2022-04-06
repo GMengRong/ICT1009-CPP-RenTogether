@@ -12,6 +12,7 @@
 
 #include "jsonreader.h"
 
+//Vehicle List -------------------------------------------------------
 QVector<Vehicle*> jsonReader::getVehicleList() {
     return this->vehicleList;
 }
@@ -23,16 +24,37 @@ int jsonReader::getVehicleCounter() {
 void jsonReader::setvehicleCounter(int counter) {
     this->vehiclecounter = counter;
 }
+//--------------------------------------------------------------------
 
 
-QHash<QString, Customer> jsonReader::getCustomerHashMap()
+//Customer List -------------------------------------------------------
+//QHash<QString, Customer*> jsonReader::getCustomerHashMap()
+//{
+//    return this->customerHashMap;
+//}
+
+QVector<Customer*> jsonReader::getCustomerList()
 {
-    return this->customerHashMap;
+    return this->customerList;
 }
 
+Customer* jsonReader::getCurrentCustomer() {
+    return this->currentCustomer;
+}
+
+void jsonReader::setCurrentCustomer(Customer *currentCustomer) {
+    this->currentCustomer = currentCustomer;
+}
+//--------------------------------------------------------------------
+
+
+//Rental List -------------------------------------------------------
 QVector<Rental*> jsonReader::getRentalList(){
     return this->rentalList;
 };
+//--------------------------------------------------------------------
+
+
 
 jsonReader::jsonReader()
 {
@@ -244,7 +266,7 @@ jsonReader::jsonReader()
 
     // ----------------------------------------------------------------------------
 
-    QFile inFile7(":/data/data/user.json");
+    QFile inFile7(":/data/data/customer.json");
     inFile7.open(QIODevice::ReadOnly | QIODevice::Text);
     data = inFile7.readAll();
     inFile7.close();
@@ -254,18 +276,31 @@ jsonReader::jsonReader()
        qDebug() << "Parse failed";
     }
     rootObj = doc.object();
-    ptsArray = rootObj.value("user").toArray();
+    ptsArray = rootObj.value("customer").toArray();
 
     foreach(const QJsonValue & val, ptsArray) {
 
-        const QString username = val.toObject().value("userID").toString();
-        const QString password = val.toObject().value("password").toString();
+        const int customerID = val.toObject().value("CustomerID").toString().toInt();
+        const QString FirstName = val.toObject().value("FirstName").toString();
+        const QString LastName = val.toObject().value("LastName").toString();
+        const QString Email = val.toObject().value("Email").toString();
+        const QString username = val.toObject().value("Username").toString();
+        const QString hash = val.toObject().value("Hash").toString();
 
-        Customer customer(NULL, NULL, NULL, NULL, username, password);
-
-        customerHashMap.insert(username, customer);
-        customerHashMap[username].printUser();
+        this->customerList.push_back(new Customer(customerID, FirstName, LastName, Email, username, hash));
+//        qDebug() << FirstName;
+//        qDebug() << LastName;
+//        qDebug() << Email;
+//        qDebug() << username;
+//        qDebug() << hash;
+//        customerHashMap.insert(username, new Customer(customerID, FirstName, LastName, Email, username, hash));
     }
+
+//    qDebug() << customerList;
+
+//    for (int i = 0; i < customerList.size(); i++) {
+//        qDebug() << customerList[i]->getUsername();
+//    }
 
     // ----------------------------------------------------------------------------
 

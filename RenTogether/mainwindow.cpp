@@ -28,18 +28,49 @@ void MainWindow::on_loginButton_clicked()
     QString username = ui->userInput->text();
 
     // convert password input to std::string to hash and then converts it back to QString
-    QString password = QString::fromStdString(sha256(ui->passwdInput->text().toLocal8Bit().constData()));
+    QString hash = QString::fromStdString(sha256(ui->passwdInput->text().toLocal8Bit().constData()));
 
-    //implement hash function later
-    if(reader.getCustomerHashMap()[username].getPassword() == password) {
-        QMessageBox::information(this, "Login", "Welcome!");
+//    qDebug() << reader.getCustomerHashMap()[username]->getHash();
 
-        hide();
-        secdialog = new SecDialog(this);
-        secdialog->show();
+//    //implement hash function later
+//    if(reader.getCustomerHashMap()[username]->getHash() == hash) {
+
+//        reader.setCurrentCustomer(reader.getCustomerHashMap()[username]);
+//        QMessageBox::information(this, "Login", "Welcome!");
+
+//        hide();
+//        secdialog = new SecDialog(this);
+//        secdialog->show();
+//    }
+//    else {
+//        QMessageBox::warning(this,"Login", "Incorrect login details");
+//    }
+
+    QVector<Customer*> custList = reader.getCustomerList();
+
+    int userIndex = -1;
+    for (int i = 0; i < custList.size(); i++) {
+        if (custList[i]->getUsername() == username) {
+            userIndex = i;
+            break;
+        }
     }
-    else {
-        QMessageBox::warning(this,"Login", "Incorrect login details");
+
+    if (userIndex != -1) {
+        //implement hash function later
+        if(custList[userIndex]->getHash() == hash) {
+
+            reader.setCurrentCustomer(custList[userIndex]);
+            QString fn = reader.getCurrentCustomer()->getFirstName();
+            QMessageBox::information(this, "Login", "Welcome! " + fn);
+
+            hide();
+            secdialog = new SecDialog(this);
+            secdialog->show();
+        }
+        else {
+            QMessageBox::warning(this,"Login", "Incorrect login details");
+        }
     }
 }
 

@@ -8,16 +8,23 @@ class jsonReader
 {
     QVector<Vehicle*> vehicleList;
     QVector<Rental*> rentalList;
-    QHash<QString, Customer> customerHashMap;
     int vehiclecounter;
+
+//    QHash<QString, Customer*> customerHashMap;
+    QVector<Customer*> customerList;
+    Customer* currentCustomer;
 
 public:
     jsonReader();
     QVector<Vehicle*> getVehicleList();
     QVector<Rental*> getRentalList();
     int getVehicleCounter();
-    QHash<QString, Customer> getCustomerHashMap();
     void setvehicleCounter(int);
+
+    //    QHash<QString, Customer*> getCustomerHashMap();
+    QVector<Customer*> getCustomerList();
+    Customer* getCurrentCustomer();
+    void setCurrentCustomer(Customer *);
 };
 
 #endif // JSONREADER_H
