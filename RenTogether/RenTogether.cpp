@@ -114,6 +114,11 @@ QMap<QString,QString> Vehicle::getallValues(){
     return vehicledetailsmap;
 }
 
+double Vehicle::getBasePrice(){
+    // Should never hit this function.
+    return 0;
+}
+
 // Car functions
 void Car::setvalues(int vehicleid, QString brand, QString model, double mileage,
                     double baseprice, int seaternumber, int insurancecoverage)

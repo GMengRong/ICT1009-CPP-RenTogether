@@ -15,7 +15,9 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
+    QString tmp = "test";
+    QString test = QString::fromStdString(sha256(tmp.toLocal8Bit().constData()));
+    qDebug() << test;
 }
 
 MainWindow::~MainWindow()
@@ -29,7 +31,6 @@ void MainWindow::on_loginButton_clicked()
 
     // convert password input to std::string to hash and then converts it back to QString
     QString hash = QString::fromStdString(sha256(ui->passwdInput->text().toLocal8Bit().constData()));
-
 //    qDebug() << reader.getCustomerHashMap()[username]->getHash();
 
 //    //implement hash function later
@@ -45,9 +46,7 @@ void MainWindow::on_loginButton_clicked()
 //    else {
 //        QMessageBox::warning(this,"Login", "Incorrect login details");
 //    }
-
     QVector<Customer*> custList = reader.getCustomerList();
-
     int userIndex = -1;
     for (int i = 0; i < custList.size(); i++) {
         if (custList[i]->getUsername() == username) {
@@ -62,18 +61,19 @@ void MainWindow::on_loginButton_clicked()
 
             reader.setCurrentCustomer(custList[userIndex]);
             QString fn = reader.getCurrentCustomer()->getFirstName();
-            QMessageBox::information(this, "Login", "Welcome! " + fn);
+            QString ln = reader.getCurrentCustomer()->getLastName();
+            QMessageBox::information(this, "Login", "Welcome! " + fn + " " + ln);
 
             hide();
-            secdialog = new SecDialog(this);
+            secdialog = new SecDialog(this, &reader);
             secdialog->show();
         }
         else {
-            QMessageBox::warning(this,"Login", "Incorrect password details");
+            QMessageBox::warning(this,"Login", "Incorrect Login Credentials");
         }
     }
     else {
-        QMessageBox::warning(this,"Login", "Wrong user name " + username);
+        QMessageBox::warning(this,"Login", "No user found");
     }
 }
 

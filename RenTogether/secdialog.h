@@ -22,18 +22,20 @@ class SecDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit SecDialog(QWidget *parent = nullptr);
+    SecDialog(QWidget*, jsonReader*);
     ~SecDialog();
 
-       jsonReader &getReader();
-       void setReader(jsonReader &newReader);
-
+    jsonReader &getReader();
+    void setReader(jsonReader *newReader);
+    void setSelectedVehicle(Vehicle*);
+    Vehicle* getSelectedVehicle();
        void VehicleTableDisplay();
        void TableWidgetDisplay();
 
 
+
 public slots:
-    void openform();
+    void openform(Vehicle*, jsonReader*);
 
 private:
     Ui::SecDialog *ui;
@@ -41,9 +43,8 @@ private:
     QStringList vehicledetails;
     QTableWidget *rentTable;
     QPushButton *rentbtn;
-    rentalform *rentalform;
-
     jsonReader reader;
+    Vehicle* selectedVehicle;
 };
 
 #endif // SECDIALOG_H

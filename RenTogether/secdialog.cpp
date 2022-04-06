@@ -8,14 +8,13 @@
 
 #include "jsonreader.h"
 #include "RenTogether.h"
+#include "rentalform.h"
 #include <QVector>
 #include <QtWidgets>
 
-#include "rentalform.h"
-
 using namespace std;
 
-SecDialog::SecDialog(QWidget *parent) :
+SecDialog::SecDialog(QWidget *parent, jsonReader* reader) :
     QDialog(parent),
     ui(new Ui::SecDialog)
 {
@@ -26,8 +25,10 @@ SecDialog::SecDialog(QWidget *parent) :
     //     layout of rent table
 //    QGridLayout *mainLayout = new QGridLayout;
 //    mainLayout->SetFixedSize(300,450);
+
  //   mainLayout->addWidget(rentTable, 5, 5, 2, 1);
  //   setLayout(mainLayout);
+
 
 }
 
@@ -35,6 +36,19 @@ SecDialog::~SecDialog()
 {
     delete ui;
 }
+
+void SecDialog::setReader(jsonReader *newReader){
+    this->reader = *newReader;
+};
+
+// Getters and setters for current vehicle
+Vehicle* SecDialog::getSelectedVehicle() {
+    return this->selectedVehicle;
+};
+
+void SecDialog::setSelectedVehicle(Vehicle* selectVehicle){
+    this->selectedVehicle = selectVehicle;
+};
 
 // View Rents Table
 void SecDialog::VehicleTableDisplay(){
@@ -123,17 +137,27 @@ void SecDialog::VehicleTableDisplay(){
 
         rentbtn = new QPushButton("Rent");
         rentTable->setCellWidget(row, 6, rentbtn);
-        connect(rentbtn, &QAbstractButton::clicked, this, &SecDialog::openform);
+        Vehicle* selectedveh = test[row-1];
+        jsonReader* currentreader = &reader;
 
+//        QSignalMapper* signalMapper = new QSignalMapper (this);
+//        connect(rentbtn, SIGNAL(clicked()), signalMapper, SLOT(map()));
+//        signalMapper -> setMapping(rentbtn, 1);
+//        connect (signalMapper, SIGNAL(mapped(Vehicle*)), signalMapper, SLOT(openform(Vehicle*))) ;
+        connect(rentbtn, &QAbstractButton::clicked, this, [=]{openform(selectedveh, currentreader);});
     }
-
 }
 
-void SecDialog::openform()
+
+void SecDialog::openform(Vehicle* selectedvehicle, jsonReader* currentreader)
 {
-    class rentalform rentalform;
-    rentalform.setModal(true);
-    rentalform.exec();
+    setSelectedVehicle(selectedvehicle);
+
+    class rentalform newform(tr("Vehicle Details"), this, selectedvehicle, currentreader);
+
+    if (newform.exec() == QDialog::Accepted) {
+        // to construct rental object
+    }
 
 }
 
