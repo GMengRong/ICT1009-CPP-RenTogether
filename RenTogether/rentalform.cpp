@@ -6,9 +6,11 @@ rentalform::rentalform(QWidget *parent) :
     ui(new Ui::rentalform)
 {
     ui->setupUi(this);
+
 }
 
 rentalform::~rentalform()
 {
     delete ui;
 }
+

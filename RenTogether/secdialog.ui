@@ -248,6 +248,19 @@
     </widget>
    </widget>
   </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>590</y>
+     <width>80</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>PushButton</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

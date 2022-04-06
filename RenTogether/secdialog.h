@@ -4,6 +4,7 @@
 #include <QDialog>
 #include "jsonreader.h"
 #include "rentalform.h"
+class QVBoxLayout;
 
 namespace Ui {
 class SecDialog;
@@ -11,8 +12,9 @@ class SecDialog;
 
 QT_BEGIN_NAMESPACE
 class QTableWidget;
+class QPushButton;
 class QDialogButtonBox;
-class QAction;
+class QVBoxLayout;
 QT_END_NAMESPACE
 
 class SecDialog : public QDialog
@@ -27,21 +29,20 @@ public:
        void setReader(jsonReader &newReader);
 
        void VehicleTableDisplay();
-       void TableWidgetDisplay();
+//       void TableWidgetDisplay();
 
-//public slots:
-//    void openDialog();
 
-//private slots:
-//    void on_rentBtn_clicked();
+public slots:
+    void openform();
 
 private:
     Ui::SecDialog *ui;
 
     QStringList vehicledetails;
     QTableWidget *rentTable;
-//    QDialogButtonBox *rentbtn;
-//    QAction *openAction;
+    QPushButton *rentbtn;
+    rentalform *rentalform;
+
     jsonReader reader;
 };
 

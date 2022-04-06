@@ -11,24 +11,24 @@
 #include <QVector>
 #include <QtWidgets>
 
+#include "rentalform.h"
+
 using namespace std;
 
 SecDialog::SecDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::SecDialog)
 {
-    ui->setupUi(this);
-    TableWidgetDisplay();
+//    ui->setupUi(this);
+//    TableWidgetDisplay();
     VehicleTableDisplay();
 
     //     layout of rent table
     QGridLayout *mainLayout = new QGridLayout;
-    mainLayout->addWidget(rentTable, 0, 2, 2, 1);
-//    mainLayout->addWidget(rentbtn, 3, 7, 1, 2);
+//    mainLayout->SetFixedSize(300,450);
+    mainLayout->addWidget(rentTable, 5, 5, 2, 1);
     setLayout(mainLayout);
 
-//    rentbtn = new QDialogButtonBox(QDialogButtonBox::Ok);
-//    connect(rentbtn, &QDialogButtonBox::accepted, this);
 }
 
 SecDialog::~SecDialog()
@@ -45,7 +45,7 @@ void SecDialog::VehicleTableDisplay(){
     vehicledetails << tr("Brand:") << tr("Model:") << tr("Base Price:") << tr("Mileage:") << tr("Seater Number:") << tr("Battery Life:") ;
     QVector<Vehicle*> test = reader.getVehicleList();
 
-    rentTable = new QTableWidget(16, 6); //create table with 16 rows and 6 columns
+    rentTable = new QTableWidget(16, 7); //create table with 16 rows and 6 columns
 
     // header
     QTableWidgetItem *brand = new QTableWidgetItem(vehicledetails[0]);
@@ -120,62 +120,68 @@ void SecDialog::VehicleTableDisplay(){
             QTableWidgetItem *nullbattLife = new QTableWidgetItem("-");
             rentTable->setItem(row, 5, nullbattLife);
         }
+
+        rentbtn = new QPushButton("Rent");
+        rentTable->setCellWidget(row, 6, rentbtn);
+        connect(rentbtn, &QAbstractButton::clicked, this, &SecDialog::openform);
+
     }
 
-//    openAction = &
-//    connect(openAction, this, &SecDialog::openDialog);
 }
 
-//void SecDialog::openDialog(){
+void SecDialog::openform()
+{
+    class rentalform rentalform;
+    rentalform.setModal(true);
+    rentalform.exec();
 
-//}
-
+}
 
 
 // View Rental Table Display (Jing Kai's)
-void SecDialog::TableWidgetDisplay(){
-    QTableWidget *table = new QTableWidget(this->ui->viewRental);
-    table->setRowCount(5);
-    table->setColumnCount(5);
-    table->setColumnWidth(0, 50);
+//void SecDialog::TableWidgetDisplay(){
+//    QTableWidget *table = new QTableWidget(this->ui->viewRental);
+//    table->setRowCount(5);
+//    table->setColumnCount(5);
+//    table->setColumnWidth(0, 50);
 
-    QStringList hLabels;
-    hLabels <<"Rental ID"<<"Customer ID"<<"Start Date"<<"End Date"<<"Price";
-    table->setHorizontalHeaderLabels(hLabels);
-    table->setSelectionMode(QAbstractItemView::SingleSelection);
-    table->setSelectionBehavior(QAbstractItemView::SelectRows);
-    table->setEditTriggers(QAbstractItemView::NoEditTriggers);
-    table->setMinimumWidth(2000);
+//    QStringList hLabels;
+//    hLabels <<"Rental ID"<<"Customer ID"<<"Start Date"<<"End Date"<<"Price";
+//    table->setHorizontalHeaderLabels(hLabels);
+//    table->setSelectionMode(QAbstractItemView::SingleSelection);
+//    table->setSelectionBehavior(QAbstractItemView::SelectRows);
+//    table->setEditTriggers(QAbstractItemView::NoEditTriggers);
+//    table->setMinimumWidth(2000);
 
-    //insert data
-    QTableWidgetItem *item;
-    item = new QTableWidgetItem;
+//    //insert data
+//    QTableWidgetItem *item;
+//    item = new QTableWidgetItem;
 
-    item->setText("Scorpio Electric");
-    table->setItem(0,0, item);
-    item = new QTableWidgetItem;
-    item->setText("Customer 1");
-    table->setItem(0,1, item);
-    item = new QTableWidgetItem;
-    item->setText("1-1-2022");
-    table->setItem(0,2, item);
-    item = new QTableWidgetItem;
-    item->setText("2-2-2022");
-    table->setItem(0,3, item);
-    item = new QTableWidgetItem;
-    item->setText("200");
-    table->setItem(0,4, item);
+//    item->setText("Scorpio Electric");
+//    table->setItem(0,0, item);
+//    item = new QTableWidgetItem;
+//    item->setText("Customer 1");
+//    table->setItem(0,1, item);
+//    item = new QTableWidgetItem;
+//    item->setText("1-1-2022");
+//    table->setItem(0,2, item);
+//    item = new QTableWidgetItem;
+//    item->setText("2-2-2022");
+//    table->setItem(0,3, item);
+//    item = new QTableWidgetItem;
+//    item->setText("200");
+//    table->setItem(0,4, item);
 
-    //Table Properties
-    table->setShowGrid(true);
-    table->setGridStyle(Qt::DotLine);
-    table->setSortingEnabled(true);
-    table->setCornerButtonEnabled(true);
+//    //Table Properties
+//    table->setShowGrid(true);
+//    table->setGridStyle(Qt::DotLine);
+//    table->setSortingEnabled(true);
+//    table->setCornerButtonEnabled(true);
 
-    //Header Properties
-    table->horizontalHeader()->setVisible(true);
-    table->horizontalHeader()->setDefaultSectionSize(100);
+//    //Header Properties
+//    table->horizontalHeader()->setVisible(true);
+//    table->horizontalHeader()->setDefaultSectionSize(100);
 
-}
+//}
 
 
