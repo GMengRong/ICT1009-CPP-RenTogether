@@ -46,7 +46,7 @@ void SecDialog::VehicleTableDisplay(){
     static int vehicleNo;
     vehicleNo = reader.getVehicleCounter();
 
-    QVector<Vehicle*> test = reader.getVehicleList();
+    QVector<Vehicle*> check = reader.getVehicleList();
 
     vehicleTable = new QTableWidget(this->ui->viewRents); //create table with 16 rows and 6 columns
     vehicleTable->setRowCount(vehicleNo);
@@ -67,7 +67,7 @@ void SecDialog::VehicleTableDisplay(){
     // display data
     for(int row = 0; row < vehicleNo ; ++row){
 
-        QMap<QString,QString> strmap = test[row]->getallValues();
+        QMap<QString,QString> strmap = check[row]->getallValues();
 
         QTableWidgetItem *brand = new QTableWidgetItem(strmap.value("Brand"));
         vehicleTable->setItem(row, 0, brand);
@@ -82,7 +82,7 @@ void SecDialog::VehicleTableDisplay(){
         vehicleTable->setItem(row, 3, mileage);
 
         // Electric Car and Hybrid Car
-        if (test[row]->getVehicleType() == "ElectricCar" or test[row]->getVehicleType() == "HybridCar")
+        if (check[row]->getVehicleType() == "ElectricCar" or check[row]->getVehicleType() == "HybridCar")
         {
             QTableWidgetItem *seaterNo = new QTableWidgetItem(strmap.value("SeaterNumber"));
             vehicleTable->setItem(row, 4, seaterNo);
@@ -92,7 +92,7 @@ void SecDialog::VehicleTableDisplay(){
 
         }
         // Gas Car
-        else if(test[row]->getVehicleType() == "GasCar"){
+        else if(check[row]->getVehicleType() == "GasCar"){
 
             QTableWidgetItem *seaterNo = new QTableWidgetItem(strmap.value("SeaterNumber"));
             vehicleTable->setItem(row, 4, seaterNo);
@@ -101,7 +101,7 @@ void SecDialog::VehicleTableDisplay(){
             vehicleTable->setItem(row, 5, nullbattLife);
         }
         // Hybrid Bike and Electric Bike
-        else if (test[row]->getVehicleType() == "HybridMotorbike" or test[row]->getVehicleType() == "ElectricMotorbike")
+        else if (check[row]->getVehicleType() == "HybridMotorbike" or check[row]->getVehicleType() == "ElectricMotorbike")
         {
             QTableWidgetItem *nullseaterNo = new QTableWidgetItem("-");
             vehicleTable->setItem(row, 4, nullseaterNo);
@@ -121,7 +121,7 @@ void SecDialog::VehicleTableDisplay(){
 
         rentbtn = new QPushButton("Rent");
         vehicleTable->setCellWidget(row, 6, rentbtn);
-        Vehicle* selectedveh = test[row];
+        Vehicle* selectedveh = check[row];
         jsonReader* currentreader = &reader;
 
         connect(rentbtn, &QAbstractButton::clicked, this, [=]{openform(selectedveh, currentreader);});
