@@ -32,13 +32,10 @@ private:
     void createDateLabels();
     void setcurrentvehicle(Vehicle*);
     Vehicle* getcurrentvehicle();
-    //void setcurrentcustomer(Customer*);
-    //Customer* getcurrentcustomer();
     void setcurrentreader(jsonReader*);
     jsonReader* getcurrentreader();
 
     Vehicle* currentvehicle;
-    //Customer* currentcustomer;
     jsonReader* currentreader;
     QLabel *nameLabel;
     QTableWidget *itemsTable;

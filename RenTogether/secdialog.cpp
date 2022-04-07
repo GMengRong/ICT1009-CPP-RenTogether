@@ -53,7 +53,7 @@ void SecDialog::VehicleTableDisplay(){
     vehicleTable->setColumnWidth(0, 100);
     vehicleTable->setMinimumHeight(5000);
 
-    // header
+    // Header
 
     QStringList hLabels;
     hLabels <<"Brand"<<"Model"<<"Base Price"<<"Mileage"<<"Seater Number"<<"Battery Life" << "Button";
@@ -62,7 +62,7 @@ void SecDialog::VehicleTableDisplay(){
     vehicleTable->setSelectionBehavior(QAbstractItemView::SelectRows);
     vehicleTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
-    // display data
+    // To display data for all vehicles
     for(int row = 0; row < vehicleNo ; ++row){
 
         QMap<QString,QString> strmap = vehiclelist[row]->getallValues();
@@ -79,7 +79,7 @@ void SecDialog::VehicleTableDisplay(){
         QTableWidgetItem *mileage = new QTableWidgetItem(strmap.value("Mileage") + " km");
         vehicleTable->setItem(row, 3, mileage);
 
-        //if (Derived* d = dynamic_cast<Derived*>(b1); d != nullptr)
+        //Electric Car
         if (checkDerived<ElectricCar*>(vehiclelist[row]) or checkDerived<HybridCar*>(vehiclelist[row]))
         {
             QTableWidgetItem *seaterNo = new QTableWidgetItem(strmap.value("SeaterNumber"));
@@ -121,10 +121,13 @@ void SecDialog::VehicleTableDisplay(){
         Vehicle* selectedveh = vehiclelist[row];
         jsonReader* currentreader = &reader;
 
+        // To connect the rent button with the "openform" function, and send
+        // the current vehicle and the reader data as an argument to the function.
         connect(rentbtn, &QAbstractButton::clicked, this, [=]{openform(selectedveh, currentreader);});
     }
 }
 
+// Function to obtain the class of the object
 template <class T>
 int SecDialog::checkDerived(Vehicle* parent) {
     T child = dynamic_cast<T>(parent);
@@ -135,10 +138,12 @@ int SecDialog::checkDerived(Vehicle* parent) {
     }
 }
 
+// Function to open rental form
 void SecDialog::openform(Vehicle* selectedvehicle, jsonReader* currentreader)
 {
     setSelectedVehicle(selectedvehicle);
 
+    // To construct the rental form object.
     class rentalform newform(tr("Vehicle Details"), this, selectedvehicle, currentreader);
 
     if (newform.exec() == QDialog::Accepted) {
@@ -150,7 +155,7 @@ void SecDialog::openform(Vehicle* selectedvehicle, jsonReader* currentreader)
 }
 
 
-// View Rental Table Display (Jing Kai's)
+// View Rental Table Display
 void SecDialog::RentTableDisplay(){
     rentsTable= new QTableWidget(this->ui->viewRental);
     rentsTable->setColumnCount(5);

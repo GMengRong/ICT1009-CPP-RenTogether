@@ -30,17 +30,21 @@ rentalform::rentalform(const QString &title, QWidget *parent, Vehicle* selectedv
     setWindowTitle(title);
 }
 
+// Function to generate table of vehicle details
 void rentalform::setupDetailsTable()
 {
     Vehicle* selectedvehicle = this->getcurrentvehicle();
     QMap<QString,QString> vehicledetails = selectedvehicle->getallValues();
     itemsTable = new QTableWidget(vehicledetails.count(), 2);
 
+    // To display the vehicle type of the vehicle
     QTableWidgetItem *vehicletypelabel = new QTableWidgetItem("Vehicle Type:");
     QTableWidgetItem *vehicletype = new QTableWidgetItem(selectedvehicle->getVehicleType());
     itemsTable->setItem(0, 0, vehicletypelabel);
     itemsTable->setItem(0, 1, vehicletype);
 
+    // Iterate through the QMap to print out all variables of the selected vehicle.
+    // The first column will be the key, and the second will be the value.
     int row = 1;
     for(QMap<QString,QString>::iterator it = vehicledetails.begin(); it != vehicledetails.end(); ++it) {
         QTableWidgetItem *name = new QTableWidgetItem(it.key());
@@ -51,15 +55,18 @@ void rentalform::setupDetailsTable()
     }
 }
 
+// To generate the date selectors for the rental form
 void rentalform::createDateLabels()
 {
     rentalDatesGroup = new QGroupBox(tr("Select date and duration of rental"));
 
     QLabel *dateLabel = new QLabel;
     rentalStartDatePicker = new QDateEdit(QDate::currentDate());
+    // Maximum rental date is 1 year later
     rentalStartDatePicker->setDateRange(QDate::currentDate(), QDate::currentDate().addYears(1));
     dateLabel->setText(tr("Select date"));
 
+    // Limit the maximum number of days for the rental to 365.
     QLabel *integerLabel = new QLabel(tr("Enter the number of days for rental"));
     rentalDurationSelect = new QSpinBox;
     rentalDurationSelect->setSingleStep(1);
@@ -74,15 +81,18 @@ void rentalform::createDateLabels()
     rentalDatesGroup->setLayout(editsLayout);
 }
 
+// Function to create rental object upon verification of the rental.
 void rentalform::verify()
 {
     rentalStartDate = rentalStartDatePicker->date();
     int duration = rentalDurationSelect->value();
+    // The end date will be the start date + duration
     rentalEndDate = rentalStartDate.addDays(duration);
 
     QString startdate = rentalStartDate.toString("dd/MM/yyyy");
     QString enddate = rentalEndDate.toString("dd/MM/yyyy");
 
+    // Simple error checking to ensure values are inputted
     if (!startdate.isEmpty() and !enddate.isEmpty() and duration>0) {
         accept();
 
@@ -95,6 +105,7 @@ void rentalform::verify()
         int newrentalid = rentallist.last()->getrentalID()+1;
         int price = duration * currentvehicle->getBasePrice();
 
+        // After obtaining all necessary arguments, insert a new rental into the rental * Vector.
         rentallist.push_back(new Rental(newrentalid, customerid, vehicleid, startdate, enddate, duration, price));
         currentreader->setRentalList(rentallist);
         return;

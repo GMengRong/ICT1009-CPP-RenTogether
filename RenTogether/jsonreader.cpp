@@ -28,11 +28,6 @@ void jsonReader::setvehicleCounter(int counter) {
 
 
 //Customer List -------------------------------------------------------
-//QHash<QString, Customer*> jsonReader::getCustomerHashMap()
-//{
-//    return this->customerHashMap;
-//}
-
 QVector<Customer*> jsonReader::getCustomerList()
 {
     return this->customerList;
@@ -287,19 +282,9 @@ jsonReader::jsonReader()
         const QString hash = val.toObject().value("Hash").toString();
 
         this->customerList.push_back(new Customer(customerID, FirstName, LastName, Email, username, hash));
-//        qDebug() << FirstName;
-//        qDebug() << LastName;
-//        qDebug() << Email;
-//        qDebug() << username;
-//        qDebug() << hash;
-//        customerHashMap.insert(username, new Customer(customerID, FirstName, LastName, Email, username, hash));
+
     }
 
-//    qDebug() << customerList;
-
-//    for (int i = 0; i < customerList.size(); i++) {
-//        qDebug() << customerList[i]->getUsername();
-//    }
 
     // ----------------------------------------------------------------------------
 

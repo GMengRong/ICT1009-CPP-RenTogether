@@ -63,8 +63,16 @@ public:
     QString getBrand();
     QString getModel();
     double getMileage();
+    // This function returns the string containing the class name of the object, allowing us to
+    // identify the vehicle called.
     virtual QString getVehicleType();
+
+    // This function returns a qString and qString key-pair map of all the values
+    // within a vehicle object. This is important for printing the details of vehicles
+    // in our GUI.
     virtual QMap<QString,QString> getallValues();
+
+    // This function gets the base price of the child object, car or motorbike.
     virtual double getBasePrice();
 };
 
