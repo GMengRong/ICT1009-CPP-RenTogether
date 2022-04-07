@@ -2,6 +2,8 @@
 #include "RenTogether.h"
 #include "secdialog.h"
 
+const QString ERROR_MSG = "An error has occured. Would you like to try again?";
+
 rentalform::rentalform(const QString &title, QWidget *parent, Vehicle* selectedvehicle, jsonReader* reader) : QDialog(parent)
 {
     nameLabel = new QLabel(tr("Vehicle Details:"));
@@ -63,6 +65,7 @@ void rentalform::createDateLabels()
     QLabel *dateLabel = new QLabel;
     rentalStartDatePicker = new QDateEdit(QDate::currentDate());
     // Maximum rental date is 1 year later
+
     rentalStartDatePicker->setDateRange(QDate::currentDate(), QDate::currentDate().addYears(1));
     dateLabel->setText(tr("Select date"));
 
@@ -72,6 +75,7 @@ void rentalform::createDateLabels()
     rentalDurationSelect->setSingleStep(1);
     rentalDurationSelect->setValue(1);
     rentalDurationSelect->setRange(1, 365);
+
 
     QVBoxLayout *editsLayout = new QVBoxLayout;
     editsLayout->addWidget(dateLabel);
@@ -84,40 +88,47 @@ void rentalform::createDateLabels()
 // Function to create rental object upon verification of the rental.
 void rentalform::verify()
 {
-    rentalStartDate = rentalStartDatePicker->date();
-    int duration = rentalDurationSelect->value();
-    // The end date will be the start date + duration
-    rentalEndDate = rentalStartDate.addDays(duration);
+    try {
+        rentalStartDate = rentalStartDatePicker->date();
+        int duration = rentalDurationSelect->value();
+        // The end date will be the start date + duration
+        rentalEndDate = rentalStartDate.addDays(duration);
 
-    QString startdate = rentalStartDate.toString("dd/MM/yyyy");
-    QString enddate = rentalEndDate.toString("dd/MM/yyyy");
+        QString startdate = rentalStartDate.toString("dd/MM/yyyy");
+        QString enddate = rentalEndDate.toString("dd/MM/yyyy");
 
-    // Simple error checking to ensure values are inputted
-    if (!startdate.isEmpty() and !enddate.isEmpty() and duration>0) {
-        accept();
+        // Simple error checking to ensure values are inputted
+        if (!startdate.isEmpty() and !enddate.isEmpty() and duration>0) {
+            accept();
 
-        Vehicle * currentvehicle = getcurrentvehicle();
-        int vehicleid = currentvehicle->getVehicleID();
-        jsonReader * currentreader = getcurrentreader();
+            Vehicle * currentvehicle = getcurrentvehicle();
+            int vehicleid = currentvehicle->getVehicleID();
+            jsonReader * currentreader = getcurrentreader();
 
-        QVector<Rental*> rentallist = currentreader->getRentalList();
-        int customerid = currentreader->getCurrentCustomer()->getCustomerID();
-        int newrentalid = rentallist.last()->getrentalID()+1;
-        int price = duration * currentvehicle->getBasePrice();
+            QVector<Rental*> rentallist = currentreader->getRentalList();
+            int customerid = currentreader->getCurrentCustomer()->getCustomerID();
+            int newrentalid = rentallist.last()->getrentalID()+1;
+            int price = duration * currentvehicle->getBasePrice();
 
-        // After obtaining all necessary arguments, insert a new rental into the rental * Vector.
-        rentallist.push_back(new Rental(newrentalid, customerid, vehicleid, startdate, enddate, duration, price));
-        currentreader->setRentalList(rentallist);
-        return;
+            // After obtaining all necessary arguments, insert a new rental into the rental * Vector.
+            rentallist.push_back(new Rental(newrentalid, customerid, vehicleid, startdate, enddate, duration, price));
+            currentreader->setRentalList(rentallist);
+            return;
+        }else{
+            // throw error message if invalid input
+            throw(ERROR_MSG);
+        }
+
+    } catch (QString ERROR_MSG) {
+        QMessageBox::StandardButton answer;
+        answer = QMessageBox::warning(this, tr("Invalid Form"),ERROR_MSG,
+            QMessageBox::Yes | QMessageBox::No);
+
+        // if user picks no, reject form
+        if (answer == QMessageBox::No)
+            reject();
     }
 
-    QMessageBox::StandardButton answer;
-    answer = QMessageBox::warning(this, tr("Invalid Form"),
-        tr("An error has occured. Try again?"),
-        QMessageBox::Yes | QMessageBox::No);
-
-    if (answer == QMessageBox::No)
-        reject();
 }
 
 void rentalform::setcurrentvehicle(Vehicle* currentveh){

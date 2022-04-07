@@ -12,4 +12,7 @@
         <file>data/rental.json</file>
         <file>data/customer.json</file>
     </qresource>
+    <qresource prefix="/">
+        <file>pics/avatar.jpg</file>
+    </qresource>
 </RCC>

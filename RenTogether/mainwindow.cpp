@@ -2,7 +2,7 @@
 #include "ui_mainwindow.h"
 #include <QMessageBox>
 #include <iostream>
-
+#include <QPixmap>
 #include "jsonreader.h"
 #include "RenTogether.h"
 #include "sha256.h" // hash function
@@ -17,6 +17,19 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    // set echomode to mask password
+    ui->passwdInput->setEchoMode(QLineEdit::Password);
+
+    // set placeholders for username and password input box
+    ui->userInput->setPlaceholderText("Enter Username");
+    ui->passwdInput->setPlaceholderText("Enter Password");
+
+    QPixmap pix("://pics/avatar.jpg");
+    int w = ui->label_pic->width();
+    int h = ui->label_pic->height();
+    ui->label_pic->setPixmap(pix.scaled(w,h,Qt::KeepAspectRatio));
+
+
 }
 
 MainWindow::~MainWindow()
@@ -29,8 +42,8 @@ void MainWindow::on_loginButton_clicked()
 
     // try to get user inputs and validate
     try {
-
         QString username = ui->userInput->text();
+
 
         // convert password input to std::string to hash and then converts it back to QString
         QString hash = QString::fromStdString(sha256(ui->passwdInput->text().toLocal8Bit().constData()));
