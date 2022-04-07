@@ -52,6 +52,10 @@ void jsonReader::setCurrentCustomer(Customer *currentCustomer) {
 QVector<Rental*> jsonReader::getRentalList(){
     return this->rentalList;
 };
+
+void jsonReader::setRentalList(QVector<Rental*> rentallist){
+     this->rentalList = rentallist;
+}
 //--------------------------------------------------------------------
 
 

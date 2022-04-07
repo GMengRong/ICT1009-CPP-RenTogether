@@ -18,6 +18,7 @@ public:
     jsonReader();
     QVector<Vehicle*> getVehicleList();
     QVector<Rental*> getRentalList();
+    void setRentalList(QVector<Rental*>);
     int getVehicleCounter();
     void setvehicleCounter(int);
 

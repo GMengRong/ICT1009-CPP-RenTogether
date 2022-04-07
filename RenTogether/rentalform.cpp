@@ -96,6 +96,7 @@ void rentalform::verify()
         int price = duration * currentvehicle->getBasePrice();
 
         rentallist.push_back(new Rental(newrentalid, customerid, vehicleid, startdate, enddate, duration, price));
+        currentreader->setRentalList(rentallist);
         return;
     }
 

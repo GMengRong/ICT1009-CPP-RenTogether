@@ -46,39 +46,28 @@ void SecDialog::VehicleTableDisplay(){
     static int vehicleNo;
     vehicleNo = reader.getVehicleCounter();
 
-    vehicledetails << tr("Brand:") << tr("Model:") << tr("Base Price:") << tr("Mileage:") << tr("Seater Number:") << tr("Battery Life:") ;
     QVector<Vehicle*> test = reader.getVehicleList();
 
     vehicleTable = new QTableWidget(this->ui->viewRents); //create table with 16 rows and 6 columns
-    vehicleTable->setRowCount(16);
+    vehicleTable->setRowCount(vehicleNo);
     vehicleTable->setColumnCount(7);
     vehicleTable->setMinimumWidth(2000);
     vehicleTable->setColumnWidth(0, 100);
     vehicleTable->setMinimumHeight(5000);
 
     // header
-    QTableWidgetItem *brand = new QTableWidgetItem(vehicledetails[0]);
-    vehicleTable->setItem(0, 0, brand);
 
-    QTableWidgetItem *model = new QTableWidgetItem(vehicledetails[1]);
-    vehicleTable->setItem(0, 1, model);
-
-    QTableWidgetItem *basePrice = new QTableWidgetItem(vehicledetails[2]);
-    vehicleTable->setItem(0, 2, basePrice);
-
-    QTableWidgetItem *mileage = new QTableWidgetItem(vehicledetails[3]);
-    vehicleTable->setItem(0, 3, mileage);
-
-    QTableWidgetItem *seaterNo = new QTableWidgetItem(vehicledetails[4]);
-    vehicleTable->setItem(0, 4, seaterNo);
-
-    QTableWidgetItem *battLife = new QTableWidgetItem(vehicledetails[5]);
-    vehicleTable->setItem(0, 5, battLife);
+    QStringList hLabels;
+    hLabels <<"Brand"<<"Model"<<"Base Price"<<"Mileage"<<"Seater Number"<<"Battery Life" << "Button";
+    vehicleTable->setHorizontalHeaderLabels(hLabels);
+    vehicleTable->setSelectionMode(QAbstractItemView::SingleSelection);
+    vehicleTable->setSelectionBehavior(QAbstractItemView::SelectRows);
+    vehicleTable->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
     // display data
-    for(int row = 1; row < vehicleNo ; ++row){
+    for(int row = 0; row < vehicleNo ; ++row){
 
-        QMap<QString,QString> strmap = test[row-1]->getallValues();
+        QMap<QString,QString> strmap = test[row]->getallValues();
 
         QTableWidgetItem *brand = new QTableWidgetItem(strmap.value("Brand"));
         vehicleTable->setItem(row, 0, brand);
@@ -93,7 +82,7 @@ void SecDialog::VehicleTableDisplay(){
         vehicleTable->setItem(row, 3, mileage);
 
         // Electric Car and Hybrid Car
-        if (test[row-1]->getVehicleType() == "ElectricCar" or test[row-1]->getVehicleType() == "HybridCar")
+        if (test[row]->getVehicleType() == "ElectricCar" or test[row]->getVehicleType() == "HybridCar")
         {
             QTableWidgetItem *seaterNo = new QTableWidgetItem(strmap.value("SeaterNumber"));
             vehicleTable->setItem(row, 4, seaterNo);
@@ -103,7 +92,7 @@ void SecDialog::VehicleTableDisplay(){
 
         }
         // Gas Car
-        else if(test[row-1]->getVehicleType() == "GasCar"){
+        else if(test[row]->getVehicleType() == "GasCar"){
 
             QTableWidgetItem *seaterNo = new QTableWidgetItem(strmap.value("SeaterNumber"));
             vehicleTable->setItem(row, 4, seaterNo);
@@ -112,7 +101,7 @@ void SecDialog::VehicleTableDisplay(){
             vehicleTable->setItem(row, 5, nullbattLife);
         }
         // Hybrid Bike and Electric Bike
-        else if (test[row-1]->getVehicleType() == "HybridMotorbike" or test[row-1]->getVehicleType() == "ElectricMotorbike")
+        else if (test[row]->getVehicleType() == "HybridMotorbike" or test[row]->getVehicleType() == "ElectricMotorbike")
         {
             QTableWidgetItem *nullseaterNo = new QTableWidgetItem("-");
             vehicleTable->setItem(row, 4, nullseaterNo);
@@ -132,7 +121,7 @@ void SecDialog::VehicleTableDisplay(){
 
         rentbtn = new QPushButton("Rent");
         vehicleTable->setCellWidget(row, 6, rentbtn);
-        Vehicle* selectedveh = test[row-1];
+        Vehicle* selectedveh = test[row];
         jsonReader* currentreader = &reader;
 
         connect(rentbtn, &QAbstractButton::clicked, this, [=]{openform(selectedveh, currentreader);});
@@ -146,7 +135,9 @@ void SecDialog::openform(Vehicle* selectedvehicle, jsonReader* currentreader)
     class rentalform newform(tr("Vehicle Details"), this, selectedvehicle, currentreader);
 
     if (newform.exec() == QDialog::Accepted) {
-        // to construct rental object
+
+        RentTableDisplay();
+
     }
 
 }
