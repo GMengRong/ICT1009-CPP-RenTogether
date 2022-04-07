@@ -6,7 +6,6 @@
 #include <iostream>
 
 #include "jsonreader.h"
-#include "objects/user.h"
 #include "RenTogether.h"
 
 int main(int argc, char *argv[])

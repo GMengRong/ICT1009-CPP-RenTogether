@@ -127,7 +127,7 @@ void SecDialog::VehicleTableDisplay(){
     }
 }
 
-// Function to obtain the class of the object
+// Function to obtain the derived class of the upcasted object
 template <class T>
 int SecDialog::checkDerived(Vehicle* parent) {
     T child = dynamic_cast<T>(parent);

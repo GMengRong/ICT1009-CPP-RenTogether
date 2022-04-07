@@ -16,8 +16,7 @@ SOURCES += \
     rentalform.cpp \
     secdialog.cpp \
     jsonreader.cpp \
-    sha256.cpp\
-    objects/user.cpp
+    sha256.cpp
 
 HEADERS += \
     RenTogether.h \
@@ -25,8 +24,7 @@ HEADERS += \
     rentalform.h \
     secdialog.h \
     jsonreader.h \
-    sha256.h\
-    objects/user.h
+    sha256.h
 
 FORMS += \
     mainwindow.ui \

@@ -5,7 +5,6 @@
 
 #include "jsonreader.h"
 #include "RenTogether.h"
-#include "objects/user.h"
 #include "sha256.h" // hash function
 
 #include <QVector>
@@ -18,8 +17,6 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    QString tmp = "test";
-    QString test = QString::fromStdString(sha256(tmp.toLocal8Bit().constData()));
 }
 
 MainWindow::~MainWindow()

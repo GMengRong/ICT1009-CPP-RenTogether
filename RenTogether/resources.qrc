@@ -9,7 +9,6 @@
         <file>data/gasCar.json</file>
         <file>data/hybridBike.json</file>
         <file>data/hybridCar.json</file>
-        <file>data/user.json</file>
         <file>data/rental.json</file>
         <file>data/customer.json</file>
     </qresource>

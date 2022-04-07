@@ -5,7 +5,6 @@
 #include "secdialog.h"
 
 #include <QHash>
-#include "objects/user.h"
 #include "jsonreader.h"
 
 
