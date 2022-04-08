@@ -14,6 +14,8 @@
 
 using namespace std;
 
+const QString ERROR_MSG ="ERROR! unable to open rental form.";
+
 SecDialog::SecDialog(QWidget *parent, jsonReader* currentreader) : QDialog(parent) ,  ui(new Ui::SecDialog)
 {
     setReader(currentreader);
@@ -143,14 +145,27 @@ void SecDialog::openform(Vehicle* selectedvehicle, jsonReader* currentreader)
 {
     setSelectedVehicle(selectedvehicle);
 
-    // To construct the rental form object.
-    class rentalform newform(tr("Vehicle Details"), this, selectedvehicle, currentreader);
+        // try to create rental form
+    try{
 
-    if (newform.exec() == QDialog::Accepted) {
+        // To construct the rental form object.
+        class rentalform newform(tr("Vehicle Details"), this, selectedvehicle, currentreader);
 
-        RentTableDisplay();
+        if (newform.exec() == QDialog::Accepted) {
 
+            RentTableDisplay();
+
+        }else{// if unable to open, throw error message
+            throw(ERROR_MSG);
+        }
     }
+    catch(QString ERROR_MSG){
+        QMessageBox::warning(this,"Vehicle Details", ERROR_MSG);
+    }
+
+
+
+
 
 }
 
