@@ -110,7 +110,7 @@ jsonReader::jsonReader()
         double pricePerCharge = val.toObject().value("pricePerCharge").toString().toDouble();
         int batteryLife = val.toObject().value("batteryLife").toString().toInt();
 
-        // store variables in object using custom constructor
+        // create objects with the variables and store object into vectors.
         this->vehicleList.push_back(new ElectricMotorbike(vehicleID, brand, model, mileage, basePrice, insuranceCoverage, pricePerCharge, batteryLife));
         vehiclecount++;
     }
@@ -157,7 +157,7 @@ jsonReader::jsonReader()
         int batteryLife = val.toObject().value("batteryLife").toString().toInt();
 
         ElectricCar ec(vehicleID, brand, model, mileage, basePrice, seaterNumber, insuranceCoverage, pricePerCharge, batteryLife);
-        // store variables in object using custom constructor
+        // create objects with the variables and store object into vectors.
         this->vehicleList.push_back(new ElectricCar(vehicleID, brand, model, mileage, basePrice, seaterNumber, insuranceCoverage, pricePerCharge, batteryLife));
         vehiclecount++;
     }
@@ -202,7 +202,7 @@ jsonReader::jsonReader()
         double kmPerLitre = val.toObject().value("kmPerLitre").toString().toDouble();
 
         GasMotorbike gb(vehicleID, brand, model, mileage, basePrice, insuranceCoverage, kmPerLitre);
-        // store variables in object using custom constructor
+        // create objects with the variables and store object into vectors.
         this->vehicleList.push_back(new GasMotorbike(vehicleID, brand, model, mileage, basePrice, insuranceCoverage, kmPerLitre));
         vehiclecount++;
     }
@@ -246,7 +246,7 @@ jsonReader::jsonReader()
         int insuranceCoverage = val.toObject().value("insuranceCoverage").toString().toInt();
         double kmPerLitre = val.toObject().value("kmPerLitre").toString().toDouble();
 
-        // store variables in object using custom constructor
+        // create objects with the variables and store object into vectors.
         this->vehicleList.push_back(new GasCar(vehicleID, brand, model, mileage, basePrice, seaterNumber, insuranceCoverage, kmPerLitre));
         vehiclecount++;
     }
@@ -292,7 +292,7 @@ jsonReader::jsonReader()
         int batteryLife = val.toObject().value("batteryLife").toString().toInt();
         double kmPerLitre = val.toObject().value("kmPerLitre").toString().toDouble();
 
-        // store variables in object using custom constructor
+        // create objects with the variables and store object into vectors.
         this->vehicleList.push_back(new HybridMotorbike(vehicleID, brand, model, mileage, basePrice, insuranceCoverage, pricePerCharge, batteryLife, kmPerLitre));
         vehiclecount++;
     }
@@ -339,7 +339,7 @@ jsonReader::jsonReader()
         int batteryLife = val.toObject().value("batteryLife").toString().toInt();
         double kmPerLitre = val.toObject().value("kmPerLitre").toString().toDouble();
 
-        // store variables in object using custom constructor
+        // create objects with the variables and store object into vectors.
         this->vehicleList.push_back(new HybridCar(vehicleID, brand, model, mileage, basePrice, seaterNumber, insuranceCoverage, pricePerCharge, batteryLife, kmPerLitre));
         vehiclecount++;
     }
@@ -385,7 +385,7 @@ jsonReader::jsonReader()
         const QString username = val.toObject().value("Username").toString();
         const QString hash = val.toObject().value("Hash").toString();
 
-        // store variables in object using custom constructor
+        // create objects with the variables and store object into vectors.
         this->customerList.push_back(new Customer(customerID, FirstName, LastName, Email, username, hash));
 
     }
@@ -428,7 +428,7 @@ jsonReader::jsonReader()
         int RentDuration = val.toObject().value("RentDuration").toString().toInt();
         double Price = val.toObject().value("Price").toString().toDouble();
 
-        // store variables in object using custom constructor
+        // create objects with the variables and store object into vectors.
         this->rentalList.push_back(new Rental(rentalID, CustomerID, VehicleID, StartDate, EndDate, RentDuration, Price));
     }
 
