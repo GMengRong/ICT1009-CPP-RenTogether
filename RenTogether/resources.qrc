@@ -13,6 +13,6 @@
         <file>data/customer.json</file>
     </qresource>
     <qresource prefix="/">
-        <file>pics/avatar.jpg</file>
+        <file>pics/avatar.png</file>
     </qresource>
 </RCC>

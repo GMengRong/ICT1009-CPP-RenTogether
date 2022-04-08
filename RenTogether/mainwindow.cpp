@@ -24,7 +24,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->userInput->setPlaceholderText("Enter Username");
     ui->passwdInput->setPlaceholderText("Enter Password");
 
-    QPixmap pix("://pics/avatar.jpg");
+    QPixmap pix("://pics/avatar.png");
     int w = ui->label_pic->width();
     int h = ui->label_pic->height();
     ui->label_pic->setPixmap(pix.scaled(w,h,Qt::KeepAspectRatio));
