@@ -20,6 +20,8 @@ SecDialog::SecDialog(QWidget *parent, jsonReader* currentreader) : QDialog(paren
 {
     setReader(currentreader);
     ui->setupUi(this);
+
+    //Functions to set up both rent and vehicle tables
     RentTableDisplay();
     VehicleTableDisplay();
 }
@@ -42,21 +44,21 @@ void SecDialog::setSelectedVehicle(Vehicle* selectVehicle){
     this->selectedVehicle = selectVehicle;
 };
 
-// View Vehicles Table
+// Function to create Vehicles Table
 void SecDialog::VehicleTableDisplay(){
     static int vehicleNo;
     vehicleNo = reader.getVehicleCounter();
 
     QVector<Vehicle*> vehiclelist = reader.getVehicleList();
-    vehicleTable = new QTableWidget(this->ui->viewRents); //create table with 16 rows and 6 columns
+    // Create vehicle table in secdialog ui under viewRents tab
+    vehicleTable = new QTableWidget(this->ui->viewRents);
     vehicleTable->setRowCount(vehicleNo);
     vehicleTable->setColumnCount(7);
     vehicleTable->setMinimumWidth(2000);
     vehicleTable->setColumnWidth(0, 100);
     vehicleTable->setMinimumHeight(5000);
 
-    // Header
-
+    // Vehicle table headers
     QStringList hLabels;
     hLabels <<"Brand"<<"Model"<<"Base Price"<<"Mileage"<<"Seater Number"<<"Battery Life" << "Button";
     vehicleTable->setHorizontalHeaderLabels(hLabels);
@@ -67,6 +69,7 @@ void SecDialog::VehicleTableDisplay(){
     // To display data for all vehicles
     for(int row = 0; row < vehicleNo ; ++row){
 
+        // Retreive vehicle values
         QMap<QString,QString> strmap = vehiclelist[row]->getallValues();
 
         QTableWidgetItem *brand = new QTableWidgetItem(strmap.value("Brand"));
@@ -96,12 +99,14 @@ void SecDialog::VehicleTableDisplay(){
             QTableWidgetItem *seaterNo = new QTableWidgetItem(strmap.value("SeaterNumber"));
             vehicleTable->setItem(row, 4, seaterNo);
 
+            // No available data for battery life, print "-"
             QTableWidgetItem *nullbattLife = new QTableWidgetItem("-");
             vehicleTable->setItem(row, 5, nullbattLife);
         }
         // Hybrid Bike and Electric Bike
         else if (checkDerived<HybridMotorbike*>(vehiclelist[row]) or checkDerived<ElectricMotorbike*>(vehiclelist[row]))
         {
+            // No available data for seater number, print "-"
             QTableWidgetItem *nullseaterNo = new QTableWidgetItem("-");
             vehicleTable->setItem(row, 4, nullseaterNo);
 
@@ -111,13 +116,16 @@ void SecDialog::VehicleTableDisplay(){
         // Gas Bike
         else if (checkDerived<GasMotorbike*>(vehiclelist[row]))
         {
+            // No available data for seater number, print "-"
             QTableWidgetItem *nullseaterNo = new QTableWidgetItem("-");
             vehicleTable->setItem(row, 4, nullseaterNo);
 
+            // No available data for battery life, print "-"
             QTableWidgetItem *nullbattLife = new QTableWidgetItem("-");
             vehicleTable->setItem(row, 5, nullbattLife);
         }
 
+        // Display rent button at last column of table
         rentbtn = new QPushButton("Rent");
         vehicleTable->setCellWidget(row, 6, rentbtn);
         Vehicle* selectedveh = vehiclelist[row];
@@ -162,21 +170,19 @@ void SecDialog::openform(Vehicle* selectedvehicle, jsonReader* currentreader)
     catch(QString ERROR_MSG){
         QMessageBox::warning(this,"Vehicle Details", ERROR_MSG);
     }
-
-
-
-
-
 }
 
 
 // View Rental Table Display
 void SecDialog::RentTableDisplay(){
+
+    // Create rent table in secdialog ui under viewRental tab
     rentsTable= new QTableWidget(this->ui->viewRental);
     rentsTable->setColumnCount(5);
     rentsTable->setColumnWidth(0, 50);
     rentsTable->setMinimumHeight(5000);
 
+    //Rent table headers
     QStringList hLabels;
     hLabels <<"Car Brand"<<"Car Model"<<"Start Date"<<"End Date"<<"Price";
     rentsTable->setHorizontalHeaderLabels(hLabels);
