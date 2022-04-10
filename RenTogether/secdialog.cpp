@@ -1,4 +1,4 @@
-#include "secdialog.h"
+s#include "secdialog.h"
 #include "qheaderview.h"
 #include "ui_secdialog.h"
 #include "QTableWidget"
@@ -194,12 +194,16 @@ void SecDialog::RentTableDisplay(){
     //insert data
     QTableWidgetItem *item;
     rentsTable->setRowCount(5);
+    //Rental and vehicle list are retrieved
     QVector<Rental *> rentallist = reader.getRentalList();
     QVector<Vehicle*> vehiclelist = reader.getVehicleList();
+    //get current CustomerID
     int customerId = reader.getCurrentCustomer()->getCustomerID();
     QString brand;
     QString model;
     int count = 0;
+
+    //check for customerID and Vehicle ID
     rentsTable->setRowCount(rentallist.size());
     for(int i = 0 ; i < rentallist.size() ; i ++){
     if(customerId == rentallist[i]->getCustomerID()){
@@ -210,6 +214,7 @@ void SecDialog::RentTableDisplay(){
                 break;
             }
         }
+        //display data for rental object
         item = new QTableWidgetItem;
         item->setText(brand);
         rentsTable->setItem(count,0, item);
@@ -233,6 +238,7 @@ void SecDialog::RentTableDisplay(){
     }
 
     }
+    //set size of table to number of rental object
     rentsTable->setRowCount(count);
 
     //Table Properties
