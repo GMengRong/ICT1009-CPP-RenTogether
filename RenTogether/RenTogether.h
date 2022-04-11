@@ -37,8 +37,6 @@ private:
     QString Email;
     QString username;
     QString hash;
-    // Future implementation: display past rental transactions
-    // QVector<Rental*> rentalList;
 
 public:
     Customer(int customerid = NULL, QString firstname = NULL, QString lastname = NULL,
