@@ -92,12 +92,12 @@ Download Qt Framework on their [download](https://www.qt.io/download?hsLang=en) 
 1. Run the installer.exe
 2. Login to Qt account
 3. Allow it to Setup and retrieve meta data in its online repository
-  [![Installation Folder][InstallationFolder]]
+  ![Installation Folder][InstallationFolder]
    ```Mirror installer (if connection service fails to establish on main repository)
    ./qt-unified-windows-x86-4.3.0-1-online.exe --mirror http://www.nic.funet.fi/pub/mirrors/download.qt-project.org
    ```
 4. Select Components in the installer
-  [![Installation Folder][InstallationFolder]]
+  ![QtLibrary][QtLibrary]
 5. Finish the installation. Run Qt Creator 6.0.2 (Community)
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -109,14 +109,14 @@ Download Qt Framework on their [download](https://www.qt.io/download?hsLang=en) 
 1. Open Qt Creator 6.0.2 (Community) - Windows Start Menu 
 2. Click File tab and "Open File or Project"
 3. Access the "RenTogether Src Files" folder, click on the RenTogether.pro file and let it build
-  [![Open .pro file][ImportingProject]]
+  ![Open .pro file][ImportingProject]
 4. Once done, click projects tab and click "Manage Kits..."
 5. Click "Desktop Qt 6.2.4 MinGW 64-bit" and make sure to click "make default" button and apply
   [![Make Default Kit][DefaultMinGW]]
 6. Go to Projects --> Build Settings --> "add button" --> add a new release build profile
   [![Release Profile][ReleaseBuild]]
 7. Go to the bottom left, find the build profile from step 6, and click the new icon (not the run)
-  [![New profile][mingwkit]]
+  ![New profile][mingwkit]
 8. After building, copy ("RenTogether Src Files" --> data folder) and paste into (build profile folder) as shown in the image
   [![Data Folder][datafolder]]
 9. Project is finished setting up and click the play button to run the application
@@ -132,10 +132,12 @@ Use this space to show useful examples of how a project can be used. Additional 
 <div align="center">
     <img src="images/compiledBuild.png" alt="compiledBuild" width="300" height="250">
 </div>
+<br>
 - [ ] To import the project into QT IDE (<a href="#installation">Import Section</a>), go "RenTogether Src Files" --> open RenTogether.pro in Qt IDE
 <div align="center">
     <img src="images/RenTogetherPro.png" alt="RenTogetherPro" width="300" height="270">
 </div>
+<br>
 - [ ] The json files are stored in "data" folder
 <div align="center">
     <img src="images/data.png" alt="data" width="350" height="250">
@@ -145,25 +147,25 @@ Use this space to show useful examples of how a project can be used. Additional 
 
 <!-- LICENSE -->
 ## License
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+Distributed under the MIT License. See `README_License.txt` for more information.
 <p align="right">(<a href="#top">back to top</a>)</p>
-
 
 
 <!-- CONTACT -->
 ## Contact
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+Wesley Chiau (Leader) - 2100751@sit.singaporetech.edu.sg
+Meng Rong (Readme Designer) - 2100657@sit.singaporetech.edu.sg
+Xin Yi (Readme Designer) - 2102453@sit.singaporetech.edu.sg
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+Project Link: [https://github.com/Xynorimas/ICT1009-CPP-RenTogether](https://github.com/Xynorimas/ICT1009-CPP-RenTogether)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
-[license-url]: https://github.com/github_username/repo_name/blob/master/README_License.txt
+[license-url]: https://github.com/Xynorimas/ICT1009-CPP-RenTogether/blob/main/README_License.txt
 
 [product-screenshot]: images/screenshot.png
 
