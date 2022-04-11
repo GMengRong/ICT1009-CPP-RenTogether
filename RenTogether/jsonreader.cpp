@@ -15,10 +15,12 @@
 
 #include "jsonreader.h"
 
+// Error messages for error handling
 const QString ERROR_MSG = "Import failed! File does not exists or did not open properly";
 const QString JSON_ERROR ="Parsing error! Missing object header, check file data formatting";
 
 //Vehicle List -------------------------------------------------------
+// getters
 QVector<Vehicle*> jsonReader::getVehicleList() {
     return this->vehicleList;
 }
@@ -376,13 +378,15 @@ int jsonReader::initialiseLists()
             this->rentalList.push_back(new Rental(rentalID, CustomerID, VehicleID, StartDate, EndDate, RentDuration, Price));
         }
 
+        // if there is an error, catch the int thrown
     } catch (int error){
-        if (error ==1)
+        if (error ==1) // if int 1 thrown
         {
+            // display error window with ERROR_MSG
             QMessageBox::warning(window,"Import Error in " + errorFile, ERROR_MSG);
         }
         else
-        {
+        {   // display error window with JSON_ERROR
             QMessageBox::warning(window,"Import Error in " + errorFile, JSON_ERROR);
         }
         return 1;

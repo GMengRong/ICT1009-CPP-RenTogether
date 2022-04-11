@@ -9,6 +9,7 @@
 
 #include <QVector>
 
+// error messages for incorrect login
 const QString USER_ERROR = "No user found";
 const QString LOGIN_ERROR = "Incorrect Login Credentials";
 
@@ -43,6 +44,7 @@ void MainWindow::on_loginButton_clicked()
     // try to get user inputs and validate
     try {
 
+        // convert userinput into text and store in QSting
         QString username = ui->userInput->text();
 
         QVector<Customer*> custList = reader.getCustomerList();

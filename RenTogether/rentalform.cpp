@@ -2,6 +2,7 @@
 #include "RenTogether.h"
 #include "secdialog.h"
 
+// Error message to be displayed
 const QString ERROR_MSG = "An error has occured. Would you like to try again?";
 
 rentalform::rentalform(const QString &title, QWidget *parent, Vehicle* selectedvehicle, jsonReader* reader) : QDialog(parent)
