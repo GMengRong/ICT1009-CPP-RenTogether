@@ -121,11 +121,14 @@ Use this space to show useful examples of how a project can be used. Additional 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
 - [ ] Resources
+[![Installation Folder][images/data.png]]
     - [ ] The resources used can be found in the data folder
 - [ ] Run the program
-    - [ ] In order to run the program, go to compiled build and run the RenTogether.exe file.
+[![Installation Folder][images/compiledBuild.png]]
+    - [ ] In order to run the program, go to compiled build and run the RenTogether.exe file
 - [ ] Import into QT IDE
-    - [ ] Source folder is used to import into Qt IDE
+[![Installation Folder][images/RentTogetherPro.png]]
+    - [ ] In order to import the project into QT IDE, go to source folder and run the RenTogether.pro file
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
