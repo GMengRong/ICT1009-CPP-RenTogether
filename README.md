@@ -92,7 +92,9 @@ Download Qt Framework on their [download](https://www.qt.io/download?hsLang=en) 
 1. Run the installer.exe
 2. Login to Qt account
 3. Allow it to Setup and retrieve meta data in its online repository
-  ```Mirror installer (if connection service fails to establish on main repository)
+  ```
+  Mirror installer (if connection service fails to establish on main repository)
+
   ./qt-unified-windows-x86-4.3.0-1-online.exe --mirror http://www.nic.funet.fi/pub/mirrors/download.qt-project.org
   ```
   ![Installation Folder][InstallationFolder]
