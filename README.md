@@ -125,12 +125,12 @@ Use this space to show useful examples of how a project can be used. Additional 
 
 - [ ] In order to run the program, go to compiled build and run the RenTogether.exe file
 <div align="center">
-    <img src="images/compiledBuild.png" alt="compiledBuild" width="350" height="250">
+    <img src="images/compiledBuild.png" alt="compiledBuild" width="300" height="250">
 </div>
 
 - [ ] In order to import the project into QT IDE, go to source folder and run the RenTogether.pro file
 <div align="center">
-    <img src="images/RenTogetherPro.png" alt="RenTogetherPro" width="350" height="270">
+    <img src="images/RenTogetherPro.png" alt="RenTogetherPro" width="300" height="270">
 </div>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
