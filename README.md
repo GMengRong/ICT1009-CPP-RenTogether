@@ -92,10 +92,11 @@ Download Qt Framework on their [download](https://www.qt.io/download?hsLang=en) 
 1. Run the installer.exe
 2. Login to Qt account
 3. Allow it to Setup and retrieve meta data in its online repository
+  ```Mirror installer (if connection service fails to establish on main repository)
+  ./qt-unified-windows-x86-4.3.0-1-online.exe --mirror http://www.nic.funet.fi/pub/mirrors/download.qt-project.org
+  ```
   ![Installation Folder][InstallationFolder]
-   ```Mirror installer (if connection service fails to establish on main repository)
-   ./qt-unified-windows-x86-4.3.0-1-online.exe --mirror http://www.nic.funet.fi/pub/mirrors/download.qt-project.org
-   ```
+  
 4. Select Components in the installer
   ![QtLibrary][QtLibrary]
 5. Finish the installation. Run Qt Creator 6.0.2 (Community)
@@ -174,10 +175,10 @@ Project Link: [https://github.com/Xynorimas/ICT1009-CPP-RenTogether](https://git
 [RentTogetherPro]: images/RenTogetherPro.png
 
 [InstallationFolder]: images/InstallationFolder.png
-[QtLibrary]: images/QtLibrary.png
+[QtLibrary]: images/QtLibrary.PNG
 
-[ImportingProject]: images/ImportingProject.png
-[DefaultMinGW]: images/DefaultMinGW.png
-[ReleaseBuild]: images/ReleaseBuild.png
+[ImportingProject]: images/ImportingProject.PNG
+[DefaultMinGW]: images/DefaultMinGW.PNG
+[ReleaseBuild]: images/ReleaseBuild.PNG
 [mingwkit]: images/mingwkit.png
 [datafolder]: images/datafolder.png
