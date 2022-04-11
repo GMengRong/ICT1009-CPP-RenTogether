@@ -50,6 +50,13 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
+    <li>
+      <a href="#Importing-Project-to-Qt-IDE">Importing Project to Qt IDE</a>
+      <ul>
+        <li><a href="#Opening-project">Opening project</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
     <li><a href="#usage">Usage</a></li>
   </ol>
 </details>
@@ -58,9 +65,6 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
-<!-- [![Product Name Screen Shot][product-screenshot]](https://example.com) -->
-
 A simple Car Rental Application, coded in C++ and developed using QT Framework by.
 
 * [Wesley Chiau](https://github.com/wesleychiau)
@@ -68,86 +72,86 @@ A simple Car Rental Application, coded in C++ and developed using QT Framework b
 * [Shahzad](https://github.com/shahzad1999)
 * [Xin Yi](https://github.com/xinyi-toh)
 * [Jing Kai](https://github.com/jingkai2)
-
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Built With
-
 * [QT Framework](https://www.qt.io/download?hsLang=en)
 * [Mingw-w64 - C++ Compiler on Windows System](https://www.mingw-w64.org/)
-
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
 <!-- GETTING STARTED -->
 ## Getting Started
-
 This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
 
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
+### Preequisites
+Download Qt Framework on their [download](https://www.qt.io/download?hsLang=en) page
 ### Installation
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/github_username/repo_name.git
+1. Run the installer.exe
+2. Login to Qt account
+3. Allow it to Setup and retrieve meta data in its online repository
+  [![Installation Folder][InstallationFolder]]
+   ```Mirror installer (if connection service fails to establish on main repository)
+   ./qt-unified-windows-x86-4.3.0-1-online.exe --mirror http://www.nic.funet.fi/pub/mirrors/download.qt-project.org
    ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   ```
-
+4. Select Components in the installer
+  [![Installation Folder][InstallationFolder]]
+5. Finish the installation. Run Qt Creator 6.0.2 (Community)
 <p align="right">(<a href="#top">back to top</a>)</p>
+
+
+
+<!-- Importing Project for compiling-->
+## Importing Project to Qt IDE
+### Opening project
+1. Open Qt Creator 6.0.2 (Community) - Windows Start Menu 
+2. Click File tab and "Open File or Project"
+3. Access the "RenTogether Src Files" folder, click on the RenTogether.pro file and let it build
+  [![Open .pro file][ImportingProject]]
+4. Once done, click projects tab and click "Manage Kits..."
+5. Click "Desktop Qt 6.2.4 MinGW 64-bit" and make sure to click "make default" button and apply
+  [![Make Default Kit][DefaultMinGW]]
+6. Go to Projects --> Build Settings --> "add button" --> add a new release build profile
+  [![Release Profile][ReleaseBuild]]
+7. Go to the bottom left, find the build profile from step 6, and click the new icon (not the run)
+  [![New profile][mingwkit]]
+8. After building, copy ("RenTogether Src Files" --> data folder) and paste into (build profile folder) as shown in the image
+  [![Data Folder][datafolder]]
+9. Project is finished setting up and click the play button to run the application
+<p align="right">(<a href="#top">back to top</a>)</p>
+
 
 
 <!-- USAGE EXAMPLES -->
 ## Usage
-
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
-- [ ] The resources used can be found in the data folder
-<div align="center">
-    <img src="images/data.png" alt="data" width="350" height="250">
-</div>
-
-- [ ] In order to run the program, go to compiled build and run the RenTogether.exe file
+- [ ] To run the app, go "Compiled Build" --> run RenTogether.exe
 <div align="center">
     <img src="images/compiledBuild.png" alt="compiledBuild" width="300" height="250">
 </div>
-
-- [ ] In order to import the project into QT IDE, go to source folder and run the RenTogether.pro file
+- [ ] To import the project into QT IDE (<a href="#installation">Import Section</a>), go "RenTogether Src Files" --> open RenTogether.pro in Qt IDE
 <div align="center">
     <img src="images/RenTogetherPro.png" alt="RenTogetherPro" width="300" height="270">
 </div>
-
+- [ ] The json files are stored in "data" folder
+<div align="center">
+    <img src="images/data.png" alt="data" width="350" height="250">
+</div>
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 <!-- LICENSE -->
 ## License
-
 Distributed under the MIT License. See `LICENSE.txt` for more information.
-
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
 <!-- CONTACT -->
 ## Contact
-
 Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
 
 Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
@@ -158,19 +162,20 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
-[contributors-url]: https://github.com/github_username/repo_name/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
-[forks-url]: https://github.com/github_username/repo_name/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
-[stars-url]: https://github.com/github_username/repo_name/stargazers
-[issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
-[issues-url]: https://github.com/github_username/repo_name/issues
 [license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
-[license-url]: https://github.com/github_username/repo_name/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/linkedin_username
+[license-url]: https://github.com/github_username/repo_name/blob/master/README_License.txt
+
 [product-screenshot]: images/screenshot.png
+
 [data]: images/data.png
 [compiledBuild]: images/compiledBuild.png
 [RentTogetherPro]: images/RenTogetherPro.png
+
+[InstallationFolder]: images/InstallationFolder.png
+[QtLibrary]: images/QtLibrary.png
+
+[ImportingProject]: images/ImportingProject.png
+[DefaultMinGW]: images/DefaultMinGW.png
+[ReleaseBuild]: images/ReleaseBuild.png
+[mingwkit]: images/mingwkit.png
+[datafolder]: images/datafolder.png
