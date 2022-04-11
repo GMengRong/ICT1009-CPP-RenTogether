@@ -118,17 +118,17 @@ This is an example of how to list things you need to use the software and how to
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+<u>Resources<u>
+![Installation Folder][data]
+- [ ] The resources used can be found in the data folder
 
-- [ ] Resources
-[![Installation Folder][data]]
-    - [ ] The resources used can be found in the data folder
-- [ ] Run the program
-[![Installation Folder][compiledBuild]]
-    - [ ] In order to run the program, go to compiled build and run the RenTogether.exe file
-- [ ] Import into QT IDE
-[![Installation Folder][RentTogetherPro]]
-    - [ ] In order to import the project into QT IDE, go to source folder and run the RenTogether.pro file
+<u>Run the Program<u>
+![Installation Folder][compiledBuild]
+- [ ] In order to run the program, go to compiled build and run the RenTogether.exe file
+
+<u>Compile the Program<u>
+![Installation Folder][RentTogetherPro]
+- [ ] In order to import the project into QT IDE, go to source folder and run the RenTogether.pro file
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -170,4 +170,4 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 [product-screenshot]: images/screenshot.png
 [data]: images/data.png
 [compiledBuild]: images/compiledBuild.png
-[RentTogetherPro]: images/RentTogetherPro.png
+[RentTogetherPro]: images/RenTogetherPro.png
