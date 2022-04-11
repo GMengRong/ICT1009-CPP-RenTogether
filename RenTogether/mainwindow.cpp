@@ -42,11 +42,9 @@ void MainWindow::on_loginButton_clicked()
 
     // try to get user inputs and validate
     try {
+
         QString username = ui->userInput->text();
 
-
-        // convert password input to std::string to hash and then converts it back to QString
-        QString hash = QString::fromStdString(sha256(ui->passwdInput->text().toLocal8Bit().constData()));
         QVector<Customer*> custList = reader.getCustomerList();
         int userIndex = -1;
         for (int i = 0; i < custList.size(); i++) {
@@ -56,20 +54,25 @@ void MainWindow::on_loginButton_clicked()
             }
         }
 
+        // convert password input to std::string to hash and then converts it back to QString
+        QString hash = QString::fromStdString(
+                    sha256(ui->passwdInput->text().toLocal8Bit().constData()));
+
         if (userIndex != -1) {
-
-            if(custList[userIndex]->getHash() == hash) {
-
+            if(custList[userIndex]->getHash() == hash)
+            {
                 reader.setCurrentCustomer(custList[userIndex]);
                 QString name = reader.getCurrentCustomer()->getFirstName() + " " + reader.getCurrentCustomer()->getLastName();
                 throw(name);
             }
-            else {
+            else
+            {
                 // if credential is invalid, throw 1
                 throw(1);
             }
         }
-        else {
+        else
+        {
             // if invalid user, throw 2
             throw(2);
         }

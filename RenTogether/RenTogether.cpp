@@ -39,7 +39,9 @@ double Rental::getprice(){
 };
 
 // Customer functions
-Customer::Customer(int customerid, QString firstname, QString lastname, QString email, QString username, QString hash) {
+Customer::Customer(int customerid, QString firstname, QString lastname,
+                   QString email, QString username, QString hash)
+{
     this->CustomerID = customerid;
     this->FirstName = firstname;
     this->LastName = lastname;
@@ -68,10 +70,6 @@ QString Customer::getUsername()
 QString Customer::getHash()
 {
     return this->hash;
-}
-void Customer::printUser()
-{
-    qDebug() << getUsername() << getHash();
 }
 
 // Vehicle functions

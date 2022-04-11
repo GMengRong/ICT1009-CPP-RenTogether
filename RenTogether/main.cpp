@@ -11,9 +11,14 @@
 int main(int argc, char *argv[])
 {
 
-    jsonReader reader;
-
     QApplication a(argc, argv);
+
+    // If error in the initialisation, exit program
+    jsonReader reader;
+    if (reader.initialiseLists()) {
+        return 0;
+    }
+
     MainWindow w;
     w.setReader(reader);
     w.show();

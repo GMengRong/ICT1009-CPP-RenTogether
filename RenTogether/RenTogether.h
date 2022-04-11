@@ -37,16 +37,18 @@ private:
     QString Email;
     QString username;
     QString hash;
+    // Future implementation: display past rental transactions
+    // QVector<Rental*> rentalList;
 
 public:
-    Customer(int = NULL, QString = NULL, QString = NULL, QString = NULL, QString = NULL, QString = NULL);
+    Customer(int customerid = NULL, QString firstname = NULL, QString lastname = NULL,
+             QString email = NULL, QString username = NULL, QString hash = NULL);
     int getCustomerID();
     QString getFirstName();
     QString getLastName();
     QString getEmail();
     QString getUsername();
     QString getHash();
-    void printUser();
 };
 
 class Vehicle
