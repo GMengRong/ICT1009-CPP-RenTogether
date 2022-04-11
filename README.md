@@ -110,18 +110,26 @@ Download Qt Framework on their [download](https://www.qt.io/download?hsLang=en) 
 ## Importing Project to Qt IDE
 ### Opening project
 1. Open Qt Creator 6.0.2 (Community) - Windows Start Menu 
+<br>
 2. Click File tab and "Open File or Project"
+<br>
 3. Access the "RenTogether Src Files" folder, click on the RenTogether.pro file and let it build
   ![Open .pro file][ImportingProject]
+<br>
 4. Once done, click projects tab and click "Manage Kits..."
+<br>
 5. Click "Desktop Qt 6.2.4 MinGW 64-bit" and make sure to click "make default" button and apply
-  [![Make Default Kit][DefaultMinGW]]
+  ![Make Default Kit][DefaultMinGW]
+<br>
 6. Go to Projects --> Build Settings --> "add button" --> add a new release build profile
-  [![Release Profile][ReleaseBuild]]
+  ![Release Profile][ReleaseBuild]
+<br>
 7. Go to the bottom left, find the build profile from step 6, and click the new icon (not the run)
   ![New profile][mingwkit]
+<br>
 8. After building, copy ("RenTogether Src Files" --> data folder) and paste into (build profile folder) as shown in the image
-  [![Data Folder][datafolder]]
+  ![Data Folder][datafolder]
+<br>
 9. Project is finished setting up and click the play button to run the application
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -183,4 +191,4 @@ Project Link: [https://github.com/Xynorimas/ICT1009-CPP-RenTogether](https://git
 [DefaultMinGW]: images/DefaultMinGW.PNG
 [ReleaseBuild]: images/ReleaseBuild.PNG
 [mingwkit]: images/mingwkit.png
-[datafolder]: images/datafolder.png
+[datafolder]: images/datafolder.PNG
