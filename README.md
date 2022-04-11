@@ -23,7 +23,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/Xynorimas/ICT1009-CPP-RenTogether">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/logo.png" alt="Logo" width="150" height="100">
   </a>
 
 <h3 align="center">Project RenTogether</h3>
@@ -121,13 +121,13 @@ Use this space to show useful examples of how a project can be used. Additional 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
 - [ ] Resources
-[![Installation Folder][images/data.png]]
+[![Installation Folder][data]]
     - [ ] The resources used can be found in the data folder
 - [ ] Run the program
-[![Installation Folder][images/compiledBuild.png]]
+[![Installation Folder][compiledBuild]]
     - [ ] In order to run the program, go to compiled build and run the RenTogether.exe file
 - [ ] Import into QT IDE
-[![Installation Folder][images/RentTogetherPro.png]]
+[![Installation Folder][RentTogetherPro]]
     - [ ] In order to import the project into QT IDE, go to source folder and run the RenTogether.pro file
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -168,3 +168,6 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
 [product-screenshot]: images/screenshot.png
+[data]: images/data.png
+[compiledBuild]: images/compiledBuild.png
+[RentTogetherPro]: images/RentTogetherPro.png
