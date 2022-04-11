@@ -23,7 +23,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/Xynorimas/ICT1009-CPP-RenTogether">
-    <img src="images/logo.png" alt="Logo" width="150" height="100">
+    <img src="images/logo.png" alt="Logo" width="300" height="100">
   </a>
 
 <h3 align="center">Project RenTogether</h3>
@@ -118,17 +118,20 @@ This is an example of how to list things you need to use the software and how to
 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
-<u>Resources<u>
-![Installation Folder][data]
 - [ ] The resources used can be found in the data folder
+<div align="center">
+    <img src="images/data.png" alt="Logo" width="250" height="1500">
+</div>
 
-<u>Run the Program<u>
-![Installation Folder][compiledBuild]
 - [ ] In order to run the program, go to compiled build and run the RenTogether.exe file
+<div align="center">
+    <img src="images/compiledBuild.png" alt="Logo" width="250" height="1500">
+</div>
 
-<u>Compile the Program<u>
-![Installation Folder][RentTogetherPro]
 - [ ] In order to import the project into QT IDE, go to source folder and run the RenTogether.pro file
+<div align="center">
+    <img src="images/RenTogetherPro.png" alt="Logo" width="250" height="1500">
+</div>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
