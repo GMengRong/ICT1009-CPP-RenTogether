@@ -81,7 +81,7 @@ int jsonReader::initialiseLists()
     // try to open json file. if fail, catch error and display error messsage in terminal
     try {
 
-        QFile inFile(dirPath + "/../Data/electricBike.json");
+        QFile inFile(dirPath + "/../data/electricBike.json");
         if (!inFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
             errorFile = "electricBike.json";
             throw(1); // if file cannot be read/empty
@@ -120,7 +120,7 @@ int jsonReader::initialiseLists()
 
         // try to open json file. if fail, catch error and display error messsage in terminal
 
-        QFile inFile2(dirPath + "/../Data/electricCar.json");
+        QFile inFile2(dirPath + "/../data/electricCar.json");
 
         if (!inFile2.open(QIODevice::ReadOnly | QIODevice::Text)) {
             errorFile = "electricCar.json";
@@ -159,7 +159,7 @@ int jsonReader::initialiseLists()
 
     // ----------------------------------------------------------------------------
 
-        QFile inFile3(dirPath + "/../Data/gasBike.json");
+        QFile inFile3(dirPath + "/../data/gasBike.json");
 
         if (!inFile3.open(QIODevice::ReadOnly | QIODevice::Text)) {
             errorFile = "gasBike.json";
@@ -197,7 +197,7 @@ int jsonReader::initialiseLists()
 
     // ----------------------------------------------------------------------------
 
-        QFile inFile4(dirPath + "/../Data/gasCar.json");
+        QFile inFile4(dirPath + "/../data/gasCar.json");
         if (!inFile4.open(QIODevice::ReadOnly | QIODevice::Text)) {
             errorFile = "gasCar.json";
             throw(1); // if file cannot be read/empty
@@ -233,7 +233,7 @@ int jsonReader::initialiseLists()
 
         // ----------------------------------------------------------------------------
 
-        QFile inFile5(dirPath + "/../Data/hybridBike.json");
+        QFile inFile5(dirPath + "/../data/hybridBike.json");
         if (!inFile5.open(QIODevice::ReadOnly | QIODevice::Text)) {
             errorFile = "hybridBike.json";
             throw(1); // if file cannot be read/empty
@@ -269,7 +269,7 @@ int jsonReader::initialiseLists()
 
     // ----------------------------------------------------------------------------
 
-        QFile inFile6(dirPath + "/../Data/hybridCar.json");
+        QFile inFile6(dirPath + "/../data/hybridCar.json");
         if (!inFile6.open(QIODevice::ReadOnly | QIODevice::Text)) {
             errorFile = "hybridCar.json";
             throw(1); // if file cannot be read/empty
@@ -310,7 +310,7 @@ int jsonReader::initialiseLists()
 
         // ----------------------------------------------------------------------------
 
-        QFile inFile7(dirPath + "/../Data/customer.json");
+        QFile inFile7(dirPath + "/../data/customer.json");
         if (!inFile7.open(QIODevice::ReadOnly | QIODevice::Text)) {
             errorFile = "customer.json";
             throw(1); // if file cannot be read/empty
@@ -344,7 +344,7 @@ int jsonReader::initialiseLists()
 
         // ----------------------------------------------------------------------------
 
-        QFile inFile8(dirPath + "/../Data/rental.json");
+        QFile inFile8(dirPath + "/../data/rental.json");
         if (!inFile8.open(QIODevice::ReadOnly | QIODevice::Text)) {
             errorFile = "rental.json";
             throw(1); // if file cannot be read/empty
