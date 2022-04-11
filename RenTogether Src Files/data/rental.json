@@ -1,0 +1,114 @@
+{
+"rental":[
+    {
+        "rentalID": "1",
+        "CustomerID": "1",
+        "VehicleID": "5",
+        "StartDate": "04/04/2022",
+        "EndDate": "06/04/2022",
+        "RentDuration": "2",
+        "Price": "140.40"
+    },
+    {
+        "rentalID": "2",
+        "CustomerID": "1",
+        "VehicleID": "8",
+        "StartDate": "01/04/2022",
+        "EndDate": "03/04/2022",
+        "RentDuration": "2",
+        "Price": "90.30"
+    },
+    {
+        "rentalID": "3",
+        "CustomerID": "1",
+        "VehicleID": "10",
+        "StartDate": "20/03/2022",
+        "EndDate": "24/03/2022",
+        "RentDuration": "4",
+        "Price": "220.90"
+    },
+    {
+        "rentalID": "4",
+        "CustomerID": "2",
+        "VehicleID": "13",
+        "StartDate": "15/02/2022",
+        "EndDate": "20/02/2022",
+        "RentDuration": "5",
+        "Price": "350.40"
+    },
+    {
+        "rentalID": "5",
+        "CustomerID": "2",
+        "VehicleID": "16",
+        "StartDate": "18/03/2022",
+        "EndDate": "25/03/2022",
+        "RentDuration": "7",
+        "Price": "540.30"
+    },
+    {
+        "rentalID": "6",
+        "CustomerID": "3",
+        "VehicleID": "17",
+        "StartDate": "01/04/2022",
+        "EndDate": "05/04/2022",
+        "RentDuration": "4",
+        "Price": "170"
+    },
+    {
+        "rentalID": "7",
+        "CustomerID": "4",
+        "VehicleID": "16",
+        "StartDate": "10/04/2022",
+        "EndDate": "20/04/2022",
+        "RentDuration": "10",
+        "Price": "1050.0"
+    },
+    {
+        "rentalID": "8",
+        "CustomerID": "5",
+        "VehicleID": "2",
+        "StartDate": "10/01/2022",
+        "EndDate": "13/01/2022",
+        "RentDuration": "3",
+        "Price": "380.30"
+    },
+    {
+        "rentalID": "9",
+        "CustomerID": "5",
+        "VehicleID": "13",
+        "StartDate": "09/02/2022",
+        "EndDate": "16/02/2022",
+        "RentDuration": "7",
+        "Price": "740.0"
+    },
+    {
+        "rentalID": "10",
+        "CustomerID": "6",
+        "VehicleID": "3",
+        "StartDate": "17/01/2022",
+        "EndDate": "23/01/2022",
+        "RentDuration": "6",
+        "Price": "690.0"
+    },
+    {
+        "rentalID": "11",
+        "CustomerID": "6",
+        "VehicleID": "7",
+        "StartDate": "24/01/2022",
+        "EndDate": "29/01/2022",
+        "RentDuration": "5",
+        "Price": "620.20"
+    },
+    {
+        "rentalID": "12",
+        "CustomerID": "6",
+        "VehicleID": "14",
+        "StartDate": "5/02/2022",
+        "EndDate": "25/01/2022",
+        "RentDuration": "20",
+        "Price": "2100.40"
+    }
+]
+}
+
+

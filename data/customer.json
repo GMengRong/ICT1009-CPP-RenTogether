@@ -1,0 +1,60 @@
+{
+"customer":[
+    {
+        "CustomerID" : "1",
+        "FirstName" : "Wesley",
+        "LastName" : "Chiau",
+        "Email" : "Wesley@gmail.com",
+        "Username" : "wesley123",
+        "Hash" : "c19863d8f150b77ddb6b20a3772bad18761da4b78f8d502f32a26ab8467510ff"
+    },
+    {
+        "CustomerID" : "2",
+        "FirstName" : "Xinyi",
+        "LastName" : "Toh",
+        "Email" : "txy@hotmail.com",
+        "Username" : "txy1999",
+        "Hash" : "175c6f7f414d1be5df8292edc34db59aac64f26fcb7fcd09642d2d0f264a8e50"
+    },
+    {
+        "CustomerID" : "3",
+        "FirstName" : "Wong",
+        "LastName" : "JingKai",
+        "Email" : "JingKaiWong@msn.com",
+        "Username" : "JK2022",
+        "Hash" : "dcfefc49f9ea517b0789459860a32fc09929474e1866a48032088c054489b6d4"
+    },
+    {
+        "CustomerID" : "4",
+        "FirstName" : "MengRong",
+        "LastName" : "Gian",
+        "Email" : "GianMR@gmail.com",
+        "Username" : "mengrong456",
+        "Hash" : "2a5dbaef69f3d1a56d11a55eb99d9ff769d65f03f71db52637347cfa5d3372dc"
+    },
+    {
+        "CustomerID" : "5",
+        "FirstName" : "Muhammad",
+        "LastName" : "Shahzad",
+        "Email" : "shahzad2000@gmail.com",
+        "Username" : "shahboi1999",
+        "Hash" : "6d8cc58cc2bf43dedf70c519279750997219b280b35d44e246d83a2c2fc06198"
+    },
+    {
+        "CustomerID" : "6",
+        "FirstName" : "Brooke",
+        "LastName" : "Dalton",
+        "Email" : "BD1989@gmail.com",
+        "Username" : "BD1989",
+        "Hash" : "25e14eb72ae617482bba10f0e38dab2efca38caf2f9c56c32f59b370b9854f0a"
+    },
+    {
+        "CustomerID" : "7",
+        "FirstName" : "Truck",
+        "LastName" : "Kun",
+        "Email" : "truck_onii_san@isekai.com",
+        "Username" : "test",
+        "Hash" : "9f86d081884c7d659a2feaa0c55ad015a3bf4f1b2b0b822cd15d6c15b0f00a08"
+    }
+]
+}

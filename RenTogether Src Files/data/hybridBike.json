@@ -1,0 +1,26 @@
+{
+"hybridBike":[
+    {
+        "vehicleID" : "4",
+        "brand" : "Honda",
+        "model" : "PCX150",
+        "basePrice" : "50.0",
+        "insuranceCoverage" : "3500",
+        "pricePerCharge" : "30.9",
+        "batteryLife" : "80",
+        "kmPerLitre" : " 51.3",
+        "mileage" : "449.3"
+    },
+    {
+        "vehicleID" : "5",
+        "brand" : "Piaggio",
+        "model" : "MP3500",
+        "basePrice" : "50.8",
+        "insuranceCoverage" : "3500",
+        "pricePerCharge" : "25",
+        "batteryLife" : "50",
+        "kmPerLitre" : "30.3",
+        "mileage" : "274.7"
+    }
+]
+}

@@ -1,0 +1,22 @@
+{
+"gasBike":[
+    {
+        "vehicleID" : "15",
+        "brand" : "Yamaha",
+        "model" : "XSR155",
+        "basePrice" : "30.4",
+        "insuranceCoverage" : "3500",
+        "kmPerLitre" : "48.58",
+        "mileage" : "40.3"
+    },
+    {
+        "vehicleID" : "16",
+        "brand" : "Yamaha",
+        "model" : "Aerox 155",
+        "basePrice" : "45.7",
+        "insuranceCoverage" : "3500",
+        "kmPerLitre" : "48.62",
+        "mileage" : "20.5"
+    }
+]
+}

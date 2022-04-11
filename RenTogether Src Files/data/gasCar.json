@@ -1,0 +1,34 @@
+{
+"gasCar":[
+    {
+        "vehicleID" : "1",
+        "brand" : "Mercedes",
+        "model" : "AMG GT 43",
+        "basePrice" : "80.6",
+        "seaterNumber" : "5",
+        "insuranceCoverage" : "4750",
+        "kmPerLitre" : "8.5",
+        "mileage" : "46.3"
+    },
+    {
+        "vehicleID" : "2",
+        "brand" : "BMW",
+        "model" : "X1",
+        "basePrice" : "85.9",
+        "seaterNumber" : "5",
+        "insuranceCoverage" : "5000",
+        "kmPerLitre" : "14.82",
+        "mileage" : "75.3"
+    },
+    {
+        "vehicleID" : "3",
+        "brand" : "Mazda",
+        "model" : "CX-8",
+        "basePrice" : "110.2",
+        "seaterNumber" : "7",
+        "insuranceCoverage" : "6000",
+        "kmPerLitre" : "12.3",
+        "mileage" : "13.3"
+    }
+]
+}

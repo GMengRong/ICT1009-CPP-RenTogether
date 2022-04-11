@@ -1,0 +1,40 @@
+{
+"hybridCar":[
+    {
+        "vehicleID" : "6",
+        "brand" : "Toyota",
+        "model" : "Corolla Cross Hybrid",
+        "basePrice" : "140.5",
+        "seaterNumber" : "5",
+        "insuranceCoverage" : "5000",
+        "pricePerCharge" : "20.4",
+        "batteryLife" : "270",
+        "kmPerLitre" : "8.1",
+        "mileage" : "116.3"
+    },
+    {
+        "vehicleID" : "7",
+        "brand" : "Nissan",
+        "model" : "Qashqai Mild Hybrid",
+        "basePrice" : "145.8",
+        "seaterNumber" : "5",
+        "insuranceCoverage" : "5000",
+        "pricePerCharge" : "25.3",
+        "batteryLife" : "220",
+        "kmPerLitre" : "18.2",
+        "mileage" : "471.2"
+    },
+    {
+        "vehicleID" : "8",
+        "brand" : "Hyundai",
+        "model" : "Santa Fe Hybrid",
+        "basePrice" : "150.0",
+        "seaterNumber" : "5",
+        "insuranceCoverage" : "6000",
+        "pricePerCharge" : "45.6",
+        "batteryLife" : "300",
+        "kmPerLitre" : "17.2",
+        "mileage" : "310.4"
+    }
+]
+}

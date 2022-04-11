@@ -1,0 +1,37 @@
+{
+"electricCar":[
+    {
+        "vehicleID" : "12",
+        "brand" : "Tesla",
+        "model" : "Model 3",
+        "basePrice" : "100.0",
+        "seaterNumber" : "5",
+        "insuranceCoverage" : "5000",
+        "pricePerCharge" : "30.8",
+        "batteryLife" : "300",
+        "mileage" : "76.3"
+    },
+    {
+        "vehicleID" : "13",
+        "brand" : "Honda",
+        "model" : "e Advance",
+        "basePrice" : "90.5",
+        "seaterNumber" : "2",
+        "insuranceCoverage" : "5000",
+        "pricePerCharge" : "40.1",
+        "batteryLife" : "150",
+        "mileage" : "453.3"
+    },
+    {
+        "vehicleID" : "14",
+        "brand" : "Audi",
+        "model" : "e-tron 55 Quattro",
+        "basePrice" : "130.7",
+        "seaterNumber" : "5",
+        "insuranceCoverage" : "5000",
+        "pricePerCharge" : "60.2",
+        "batteryLife" : "280",
+        "mileage" : "313.4"
+    }
+    ]
+}
