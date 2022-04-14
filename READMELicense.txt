@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2021 Othneil Drew
+Copyright (c) 2021 Singapore Institute Of Technology AY2021/22 ICT1009 Group 2
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
