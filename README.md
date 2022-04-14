@@ -97,10 +97,20 @@ Download Qt Framework on their [download](https://www.qt.io/download?hsLang=en) 
 
   ./qt-unified-windows-x86-4.3.0-1-online.exe --mirror http://www.nic.funet.fi/pub/mirrors/download.qt-project.org
   ```
-  ![Installation Folder][InstallationFolder]
+
+<div align="center">
+    <img src="images/InstallationFolder.png" alt="Installation Folder">
+</div>
+<!-- ![Installation Folder][InstallationFolder] -->
+<br />
   
 4. Select Components in the installer
-  ![QtLibrary][QtLibrary]
+<div align="center">
+    <img src="images/QtLibrary.PNG" alt="QtLibrary">
+</div>
+<!-- ![QtLibrary][QtLibrary] -->
+<br />
+
 5. Finish the installation. Run Qt Creator 6.0.2 (Community)
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -116,36 +126,41 @@ Download Qt Framework on their [download](https://www.qt.io/download?hsLang=en) 
 <br />
 
 3. Access the "RenTogether Src Files" folder, click on the RenTogether.pro file and let it build
-<br />
-
-  ![Open .pro file][ImportingProject]
+<div align="center">
+    <img src="images/ImportingProject.PNG" alt="Open .pro file">
+</div>
+<!-- ![Open .pro file][ImportingProject] -->
 <br />
 
 4. Once done, click projects tab and click "Manage Kits..."
 <br />
 
 5. Click "Desktop Qt 6.2.4 MinGW 64-bit" and make sure to click "make default" button and apply
-<br />
-
-  ![Make Default Kit][DefaultMinGW]
+<div align="center">
+    <img src="images/DefaultMinGW.PNG" alt="Make Default Kit">
+</div>
+<!-- ![Make Default Kit][DefaultMinGW] -->
 <br />
 
 6. Go to Projects --> Build Settings --> "add button" --> add a new release build profile
-<br />
-
-  ![Release Profile][ReleaseBuild]
+<div align="center">
+    <img src="images/ReleaseBuild.PNG" alt="Release Profile">
+</div>
+<!-- ![Release Profile][ReleaseBuild] -->
 <br />
 
 7. Go to the bottom left, find the build profile from step 6, and click the new icon (not the run)
-<br />
-
-  ![New profile][mingwkit]
+<div align="center">
+    <img src="images/datafolder.PNG" alt="New profile">
+</div>
+<!-- ![New profile][mingwkit] -->
 <br />
 
 8. After building, copy ("RenTogether Src Files" --> data folder) and paste into (build profile folder) as shown in the image
-<br />
-
-  ![Data Folder][datafolder]
+<div align="center">
+    <img src="images/datafolder.PNG" alt="Data Folder">
+</div>
+<!-- ![Data Folder][datafolder] -->
 <br />
 
 9. Project is finished setting up and click the play button to run the application
@@ -158,19 +173,18 @@ Download Qt Framework on their [download](https://www.qt.io/download?hsLang=en) 
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
 - [ ] To run the app, go "Compiled Build" --> run RenTogether.exe
-<br />
 <div align="center">
     <img src="images/compiledBuild.png" alt="compiledBuild" width="300" height="250">
 </div>
+<br />
 
 - [ ] To import the project into QT IDE (<a href="#installation">Import Section</a>), go "RenTogether Src Files" --> open RenTogether.pro in Qt IDE
-<br />
 <div align="center">
     <img src="images/RenTogetherPro.png" alt="RenTogetherPro" width="300" height="270">
 </div>
+<br />
 
 - [ ] The json files are stored in "data" folder
-<br />
 <div align="center">
     <img src="images/data.png" alt="data" width="350" height="250">
 </div>
@@ -185,8 +199,8 @@ Distributed under the MIT License. See `README_License.txt` for more information
 
 <!-- CONTACT -->
 ## Contact
-Wesley Chiau (Leader) - 2100751@sit.singaporetech.edu.sg
-Meng Rong (Readme Designer) - 2100657@sit.singaporetech.edu.sg
+Wesley Chiau (Leader) - 2100751@sit.singaporetech.edu.sg <br />
+Meng Rong (Readme Designer) - 2100657@sit.singaporetech.edu.sg <br />
 Xin Yi (Readme Designer) - 2102453@sit.singaporetech.edu.sg
 
 Project Link: [https://github.com/Xynorimas/ICT1009-CPP-RenTogether](https://github.com/Xynorimas/ICT1009-CPP-RenTogether)
