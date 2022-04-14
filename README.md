@@ -211,7 +211,7 @@ Project Link: [https://github.com/Xynorimas/ICT1009-CPP-RenTogether](https://git
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [license-shield]: https://img.shields.io/github/license/Xynorimas/ICT1009-CPP-RenTogether.svg?style=for-the-badge
-[license-url]: https://github.com/Xynorimas/ICT1009-CPP-RenTogether/blob/main/READMELicense.txt
+[license-url]: https://github.com/Xynorimas/ICT1009-CPP-RenTogether/blob/main/README_License.txt
 
 [product-screenshot]: images/screenshot.png
 
